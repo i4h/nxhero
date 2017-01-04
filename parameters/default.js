@@ -12,8 +12,6 @@ module.exports = {
         return this.label;
     },
 
-
-
 /*    getModelQuestions : function() {
         var id = this.id;
         return [
