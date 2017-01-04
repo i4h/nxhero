@@ -1,0 +1,2126 @@
+{
+    "command": null,
+    "stdout": [
+        [
+            0.071962,
+            "demo@rusty:~/runs/nxhero$ "
+        ],
+        [
+            0.857689,
+            "#"
+        ],
+        [
+            0.142407,
+            " "
+        ],
+        [
+            0.18701,
+            "M"
+        ],
+        [
+            0.101204,
+            "y"
+        ],
+        [
+            0.192292,
+            " "
+        ],
+        [
+            0.163058,
+            "b"
+        ],
+        [
+            0.078992,
+            "i"
+        ],
+        [
+            0.070214,
+            "n"
+        ],
+        [
+            0.044642,
+            "a"
+        ],
+        [
+            0.039415,
+            "r"
+        ],
+        [
+            0.189372,
+            "y"
+        ],
+        [
+            0.17599,
+            " "
+        ],
+        [
+            0.138677,
+            "w"
+        ],
+        [
+            0.158826,
+            "r"
+        ],
+        [
+            0.127253,
+            "i"
+        ],
+        [
+            0.131532,
+            "t"
+        ],
+        [
+            0.054572,
+            "e"
+        ],
+        [
+            0.133782,
+            "s"
+        ],
+        [
+            0.121393,
+            " "
+        ],
+        [
+            0.194044,
+            "a"
+        ],
+        [
+            0.126458,
+            " "
+        ],
+        [
+            0.103945,
+            "m"
+        ],
+        [
+            0.062021,
+            "e"
+        ],
+        [
+            0.115785,
+            "s"
+        ],
+        [
+            0.06,
+            "s"
+        ],
+        [
+            0.293382,
+            "a"
+        ],
+        [
+            0.057094,
+            "g"
+        ],
+        [
+            0.156564,
+            "e"
+        ],
+        [
+            0.112816,
+            " "
+        ],
+        [
+            0.130027,
+            "a"
+        ],
+        [
+            0.080292,
+            "f"
+        ],
+        [
+            0.148894,
+            "t"
+        ],
+        [
+            0.101401,
+            "e"
+        ],
+        [
+            0.071388,
+            "r"
+        ],
+        [
+            0.033614,
+            " "
+        ],
+        [
+            0.137056,
+            "s"
+        ],
+        [
+            0.112322,
+            "l"
+        ],
+        [
+            0.099862,
+            "e"
+        ],
+        [
+            0.133718,
+            "e"
+        ],
+        [
+            0.104574,
+            "p"
+        ],
+        [
+            0.108833,
+            "i"
+        ],
+        [
+            0.09369,
+            "n"
+        ],
+        [
+            0.022724,
+            "g"
+        ],
+        [
+            0.064165,
+            " "
+        ],
+        [
+            0.114789,
+            "n"
+        ],
+        [
+            0.111962,
+            " "
+        ],
+        [
+            0.082653,
+            "s"
+        ],
+        [
+            0.110434,
+            "e"
+        ],
+        [
+            0.182545,
+            "c"
+        ],
+        [
+            0.079821,
+            "o"
+        ],
+        [
+            0.061828,
+            "n"
+        ],
+        [
+            0.077251,
+            "d"
+        ],
+        [
+            0.100547,
+            "s"
+        ],
+        [
+            0.176299,
+            "\r\n"
+        ],
+        [
+            0.034517,
+            "demo@rusty:~/runs/nxhero$ "
+        ],
+        [
+            0.402648,
+            "~"
+        ],
+        [
+            0.277655,
+            "/"
+        ],
+        [
+            0.211449,
+            "b"
+        ],
+        [
+            0.095458,
+            "i"
+        ],
+        [
+            0.09373,
+            "n"
+        ],
+        [
+            0.079198,
+            "/"
+        ],
+        [
+            0.276774,
+            "n"
+        ],
+        [
+            0.260497,
+            "x"
+        ],
+        [
+            0.127531,
+            "h"
+        ],
+        [
+            0.164259,
+            "ero_test "
+        ],
+        [
+            1.228802,
+            "1"
+        ],
+        [
+            0.266742,
+            " "
+        ],
+        [
+            0.233819,
+            "D"
+        ],
+        [
+            0.312532,
+            "\b\u001b[K"
+        ],
+        [
+            0.071418,
+            "\""
+        ],
+        [
+            0.217562,
+            "D"
+        ],
+        [
+            0.199292,
+            "o"
+        ],
+        [
+            0.070136,
+            "n"
+        ],
+        [
+            0.084033,
+            "e"
+        ],
+        [
+            0.522422,
+            "\""
+        ],
+        [
+            0.481939,
+            "\r\n"
+        ],
+        [
+            0.005162,
+            "Sleeping 1\r\n"
+        ],
+        [
+            1.002023,
+            "Done\r\n"
+        ],
+        [
+            0.042787,
+            "demo@rusty:~/runs/nxhero$ "
+        ],
+        [
+            0.410131,
+            "#"
+        ],
+        [
+            0.246711,
+            " "
+        ],
+        [
+            0.211572,
+            "L"
+        ],
+        [
+            0.115263,
+            "e"
+        ],
+        [
+            0.117928,
+            "t"
+        ],
+        [
+            0.248683,
+            "'"
+        ],
+        [
+            0.13894,
+            "s"
+        ],
+        [
+            0.113223,
+            " "
+        ],
+        [
+            0.106083,
+            "a"
+        ],
+        [
+            0.158919,
+            "d"
+        ],
+        [
+            0.126252,
+            "d"
+        ],
+        [
+            0.128888,
+            " "
+        ],
+        [
+            0.053678,
+            "i"
+        ],
+        [
+            0.196228,
+            "t "
+        ],
+        [
+            0.115104,
+            "t"
+        ],
+        [
+            0.095561,
+            "o"
+        ],
+        [
+            0.070833,
+            " "
+        ],
+        [
+            0.132472,
+            "n"
+        ],
+        [
+            0.116444,
+            "x"
+        ],
+        [
+            0.095662,
+            "h"
+        ],
+        [
+            0.092565,
+            "e"
+        ],
+        [
+            0.071557,
+            "r"
+        ],
+        [
+            0.134549,
+            "o"
+        ],
+        [
+            0.11123,
+            " "
+        ],
+        [
+            0.13005,
+            "a"
+        ],
+        [
+            0.071891,
+            "n"
+        ],
+        [
+            0.086115,
+            "d"
+        ],
+        [
+            0.085111,
+            " "
+        ],
+        [
+            0.101424,
+            "s"
+        ],
+        [
+            0.07096,
+            "t"
+        ],
+        [
+            0.100514,
+            "a"
+        ],
+        [
+            0.064343,
+            "r"
+        ],
+        [
+            0.11717,
+            "t"
+        ],
+        [
+            0.073341,
+            " "
+        ],
+        [
+            0.089625,
+            "s"
+        ],
+        [
+            0.073643,
+            "o"
+        ],
+        [
+            0.09307,
+            "m"
+        ],
+        [
+            0.04458,
+            "e"
+        ],
+        [
+            0.120041,
+            " "
+        ],
+        [
+            0.107782,
+            "r"
+        ],
+        [
+            0.094625,
+            "u"
+        ],
+        [
+            0.157829,
+            "n"
+        ],
+        [
+            0.052565,
+            "s"
+        ],
+        [
+            0.39202,
+            "\r\n"
+        ],
+        [
+            0.071306,
+            "demo@rusty:~/runs/nxhero$ "
+        ],
+        [
+            0.592385,
+            "n"
+        ],
+        [
+            0.140735,
+            "x"
+        ],
+        [
+            0.094971,
+            "h"
+        ],
+        [
+            0.108918,
+            "e"
+        ],
+        [
+            0.078246,
+            "r"
+        ],
+        [
+            0.048917,
+            "o"
+        ],
+        [
+            1.23927,
+            "\r\n"
+        ],
+        [
+            0.328619,
+            "Startup: Opening db at nxhero.sqlite\r\n"
+        ],
+        [
+            0.286044,
+            "\u001b[33m  _   _    __  __    _   _   _____   ____     ___  \r\n | \\ | |   \\ \\/ /   | | | | | ____| |  _ \\   / _ \\ \r\n |  \\| |    \\  /    | |_| | |  _|   | |_) | | | | |\r\n | |\\  |    /  \\    |  _  | | |___  |  _ <  | |_| |\r\n |_| \\_|   /_/\\_\\   |_| |_| |_____| |_| \\_\\  \\___/ \r\n                                                   \u001b[39m\r\n"
+        ],
+        [
+            0.000036,
+            "====================================\r\n"
+        ],
+        [
+            0.000026,
+            "\r\n"
+        ],
+        [
+            0.000012,
+            "----------- MAIN MENU --------------\r\n"
+        ],
+        [
+            0.000012,
+            "\r\n"
+        ],
+        [
+            0.013216,
+            "\u001b[?25l"
+        ],
+        [
+            0.002292,
+            "\u001b[32m?\u001b[39m \u001b[1mChoose action:\u001b[22m \u001b[2m(Use arrow keys)\u001b[22m\r\n\u001b[36m❯ Binaries\u001b[39m \r\n  Problems \r\n  Parameters \r\n  Create Jobgroup \r\n  Launch Jobgroup \r\n  Switch Storage \r\n  Empty Storage \r\n  Quit "
+        ],
+        [
+            0.000316,
+            "\u001b[7D"
+        ],
+        [
+            0.000073,
+            "\u001b[7C"
+        ],
+        [
+            1.152572,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K"
+        ],
+        [
+            0.000331,
+            "\u001b[32m?\u001b[39m \u001b[1mChoose action:\u001b[22m \u001b[36mBinaries\u001b[39m"
+        ],
+        [
+            0.000017,
+            "\u001b[25D"
+        ],
+        [
+            0.00003,
+            "\u001b[25C"
+        ],
+        [
+            0.000095,
+            "\r\n"
+        ],
+        [
+            0.000031,
+            "\u001b[?25h"
+        ],
+        [
+            0.010109,
+            "\u001b[32m?\u001b[39m \u001b[1mSelect Binary\u001b[22m \r\n  \u001b[36m1) << Main Menu\u001b[39m\r\n  2) Create New\r\n  Answer: "
+        ],
+        [
+            0.000023,
+            "\u001b[10D\u001b[10C"
+        ],
+        [
+            0.952995,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mSelect Binary\u001b[22m \r\n  1) << Main Menu\r\n  \u001b[36m2) Create New\u001b[39m\r\n  Answer: 2\u001b[11D\u001b[11C"
+        ],
+        [
+            0.265924,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K"
+        ],
+        [
+            0.000422,
+            "\u001b[32m?\u001b[39m \u001b[1mSelect Binary\u001b[22m \u001b[36m-2\u001b[39m"
+        ],
+        [
+            0.000042,
+            "\u001b[18D"
+        ],
+        [
+            0.000031,
+            "\u001b[18C"
+        ],
+        [
+            0.000251,
+            "\r\n"
+        ],
+        [
+            0.005654,
+            "\u001b[?25l"
+        ],
+        [
+            0.000691,
+            "\u001b[32m?\u001b[39m \u001b[1mBinary Type:\u001b[22m \u001b[2m(Use arrow keys)\u001b[22m\r\n\u001b[36m❯ Default Binary\u001b[39m \r\n  SCIP Binary \r\n  SD-SCIP Binary "
+        ],
+        [
+            0.000027,
+            "\u001b[17D"
+        ],
+        [
+            0.000012,
+            "\u001b[17C"
+        ],
+        [
+            0.968484,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mBinary Type:\u001b[22m \u001b[36mDefault Binary\u001b[39m\u001b[29D\u001b[29C\r\n\u001b[?25h\u001b[32m?\u001b[39m \u001b[1mBinary Name:\u001b[22m \u001b[15D\u001b[15C"
+        ],
+        [
+            0.742896,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mBinary Name:\u001b[22m s\u001b[16D\u001b[16C"
+        ],
+        [
+            0.064557,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mBinary Name:\u001b[22m sl\u001b[17D\u001b[17C"
+        ],
+        [
+            0.131639,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mBinary Name:\u001b[22m sle\u001b[18D\u001b[18C"
+        ],
+        [
+            0.141611,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mBinary Name:\u001b[22m slee\u001b[19D\u001b[19C"
+        ],
+        [
+            0.088918,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mBinary Name:\u001b[22m sleep\u001b[20D\u001b[20C"
+        ],
+        [
+            0.115686,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mBinary Name:\u001b[22m sleepe\u001b[21D\u001b[21C"
+        ],
+        [
+            0.063197,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mBinary Name:\u001b[22m sleeper\u001b[22D\u001b[22C"
+        ],
+        [
+            0.137523,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mBinary Name:\u001b[22m \u001b[36msleeper\u001b[39m\u001b[22D\u001b[22C\r\n\u001b[32m?\u001b[39m \u001b[1mPath (may start with ~):\u001b[22m \u001b[27D\u001b[27C"
+        ],
+        [
+            0.729643,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mPath (may start with ~):\u001b[22m ~\u001b[28D\u001b[28C"
+        ],
+        [
+            0.437331,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mPath (may start with ~):\u001b[22m ~/\u001b[29D\u001b[29C"
+        ],
+        [
+            0.237628,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mPath (may start with ~):\u001b[22m ~/b\u001b[30D\u001b[30C"
+        ],
+        [
+            0.062241,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mPath (may start with ~):\u001b[22m ~/bi\u001b[31D\u001b[31C"
+        ],
+        [
+            0.071165,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mPath (may start with ~):\u001b[22m ~/bin\u001b[32D\u001b[32C"
+        ],
+        [
+            0.182657,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mPath (may start with ~):\u001b[22m ~/bin/\u001b[33D\u001b[33C"
+        ],
+        [
+            0.292042,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mPath (may start with ~):\u001b[22m ~/bin/n\u001b[34D\u001b[34C"
+        ],
+        [
+            0.146831,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mPath (may start with ~):\u001b[22m ~/bin/nx\u001b[35D\u001b[35C"
+        ],
+        [
+            0.088231,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mPath (may start with ~):\u001b[22m ~/bin/nxh\u001b[36D\u001b[36C"
+        ],
+        [
+            0.133204,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mPath (may start with ~):\u001b[22m ~/bin/nxhe\u001b[37D\u001b[37C"
+        ],
+        [
+            0.073499,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mPath (may start with ~):\u001b[22m ~/bin/nxher\u001b[38D\u001b[38C"
+        ],
+        [
+            0.100503,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mPath (may start with ~):\u001b[22m ~/bin/nxhero\u001b[39D\u001b[39C"
+        ],
+        [
+            0.377701,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mPath (may start with ~):\u001b[22m ~/bin/nxhero_\u001b[40D\u001b[40C"
+        ],
+        [
+            0.230459,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mPath (may start with ~):\u001b[22m ~/bin/nxhero_t\u001b[41D\u001b[41C"
+        ],
+        [
+            0.159432,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mPath (may start with ~):\u001b[22m ~/bin/nxhero_te\u001b[42D\u001b[42C"
+        ],
+        [
+            0.115831,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mPath (may start with ~):\u001b[22m ~/bin/nxhero_tes\u001b[43D\u001b[43C"
+        ],
+        [
+            0.085893,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mPath (may start with ~):\u001b[22m ~/bin/nxhero_test\u001b[44D\u001b[44C"
+        ],
+        [
+            0.509143,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mPath (may start with ~):\u001b[22m \u001b[36m~/bin/nxhero_test\u001b[39m\u001b[44D\u001b[44C\r\n\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m \u001b[1D\u001b[1C"
+        ],
+        [
+            0.497397,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {\u001b[2D\u001b[2C"
+        ],
+        [
+            0.274948,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {d\u001b[3D\u001b[3C"
+        ],
+        [
+            0.087952,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {du\u001b[4D\u001b[4C"
+        ],
+        [
+            0.100154,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {dur\u001b[5D\u001b[5C"
+        ],
+        [
+            0.148219,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {dura\u001b[6D\u001b[6C"
+        ],
+        [
+            0.056127,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {durat\u001b[7D\u001b[7C"
+        ],
+        [
+            0.109499,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {durati\u001b[8D\u001b[8C"
+        ],
+        [
+            0.079774,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duratio\u001b[9D\u001b[9C"
+        ],
+        [
+            0.10138,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duration\u001b[10D\u001b[10C"
+        ],
+        [
+            0.117332,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duration.\u001b[11D\u001b[11C"
+        ],
+        [
+            0.108551,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duration.v\u001b[12D\u001b[12C"
+        ],
+        [
+            0.124376,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duration.va\u001b[13D\u001b[13C"
+        ],
+        [
+            0.073002,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duration.val\u001b[14D\u001b[14C"
+        ],
+        [
+            0.062231,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duration.valu\u001b[15D\u001b[15C"
+        ],
+        [
+            0.077361,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duration.value\u001b[16D\u001b[16C"
+        ],
+        [
+            0.159868,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duration.value;\u001b[17D\u001b[17C"
+        ],
+        [
+            0.300038,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duration.value;}\u001b[18D\u001b[18C"
+        ],
+        [
+            0.319934,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duration.value;\u001b[17D\u001b[17C"
+        ],
+        [
+            0.132869,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duration.value\u001b[16D\u001b[16C"
+        ],
+        [
+            0.179312,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duration.value}\u001b[17D\u001b[17C"
+        ],
+        [
+            0.229453,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duration.value};\u001b[18D\u001b[18C"
+        ],
+        [
+            0.183325,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duration.value}; \u001b[19D\u001b[19C"
+        ],
+        [
+            0.202721,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duration.value}; M\u001b[20D\u001b[20C"
+        ],
+        [
+            0.086815,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duration.value}; Me\u001b[21D\u001b[21C"
+        ],
+        [
+            0.146594,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K"
+        ],
+        [
+            0.000244,
+            "\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duration.value}; Mes"
+        ],
+        [
+            0.0001,
+            "\u001b[22D"
+        ],
+        [
+            0.000039,
+            "\u001b[22C"
+        ],
+        [
+            0.135676,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duration.value}; Mess\u001b[23D\u001b[23C"
+        ],
+        [
+            0.179694,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duration.value}; Messa\u001b[24D\u001b[24C"
+        ],
+        [
+            0.024534,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duration.value}; Messag\u001b[25D\u001b[25C"
+        ],
+        [
+            0.132154,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duration.value}; Message\u001b[26D\u001b[26C"
+        ],
+        [
+            0.209096,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duration.value}; Message:\u001b[27D\u001b[27C"
+        ],
+        [
+            0.116274,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duration.value}; Message: \u001b[28D\u001b[28C"
+        ],
+        [
+            0.228613,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duration.value}; Message: {\u001b[29D\u001b[29C"
+        ],
+        [
+            0.299654,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duration.value}; Message: {m\u001b[30D\u001b[30C"
+        ],
+        [
+            0.093011,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duration.value}; Message: {me\u001b[31D\u001b[31C"
+        ],
+        [
+            0.157379,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duration.value}; Message: {mes\u001b[32D\u001b[32C"
+        ],
+        [
+            0.142472,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duration.value}; Message: {mess\u001b[33D\u001b[33C"
+        ],
+        [
+            0.125653,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duration.value}; Message: {messa\u001b[34D\u001b[34C"
+        ],
+        [
+            0.079964,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duration.value}; Message: {messag\u001b[35D\u001b[35C"
+        ],
+        [
+            0.132245,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duration.value}; Message: {message\u001b[36D\u001b[36C"
+        ],
+        [
+            0.08048,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duration.value}; Message: {message.\u001b[37D\u001b[37C"
+        ],
+        [
+            0.100239,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duration.value}; Message: {message.v\u001b[38D\u001b[38C"
+        ],
+        [
+            0.123956,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duration.value}; Message: {message.va\u001b[39D\u001b[39C"
+        ],
+        [
+            0.088757,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duration.value}; Message: {message.val\u001b[40D\u001b[40C"
+        ],
+        [
+            0.086015,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duration.value}; Message: {message.valu\u001b[41D\u001b[41C"
+        ],
+        [
+            0.083913,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duration.value}; Message: {message.value\u001b[42D\u001b[42C"
+        ],
+        [
+            0.231299,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m {duration.value}; Message: {message.value}\u001b[43D\u001b[43C"
+        ],
+        [
+            0.776113,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mArguments (split with \";\". You can use {problem.path} or {parametername.value}):\r\n\u001b[22m \u001b[36m{duration.value}; Message: {message.value}\u001b[39m\u001b[43D\u001b[43C\r\n"
+        ],
+        [
+            0.158591,
+            "\u001b[33m  _   _    __  __    _   _   _____   ____     ___  \r\n | \\ | |   \\ \\/ /   | | | | | ____| |  _ \\   / _ \\ \r\n |  \\| |    \\  /    | |_| | |  _|   | |_) | | | | |\r\n | |\\  |    /  \\    |  _  | | |___  |  _ <  | |_| |\r\n |_| \\_|   /_/\\_\\   |_| |_| |_____| |_| \\_\\  \\___/ \r\n                                                   \u001b[39m\r\n"
+        ],
+        [
+            0.000028,
+            "====================================\r\n\r\n----------- MAIN MENU --------------\r\n"
+        ],
+        [
+            0.000022,
+            "\r\n"
+        ],
+        [
+            0.002399,
+            "\u001b[?25l"
+        ],
+        [
+            0.000279,
+            "\u001b[32m?\u001b[39m \u001b[1mChoose action:\u001b[22m \u001b[2m(Use arrow keys)\u001b[22m\r\n\u001b[36m❯ Binaries\u001b[39m \r\n  Problems \r\n  Parameters \r\n  Create Jobgroup \r\n  Launch Jobgroup \r\n  Switch Storage \r\n  Empty Storage \r\n"
+        ],
+        [
+            0.000016,
+            "  Quit "
+        ],
+        [
+            0.000036,
+            "\u001b[7D"
+        ],
+        [
+            0.000012,
+            "\u001b[7C"
+        ],
+        [
+            0.998023,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mChoose action:\u001b[22m \r\n  Binaries \r\n\u001b[36m❯ Problems\u001b[39m \r\n  Parameters \r\n  Create Jobgroup \r\n  Launch Jobgroup \r\n  Switch Storage \r\n  Empty Storage \r\n  Quit \u001b[7D\u001b[7C"
+        ],
+        [
+            0.173473,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mChoose action:\u001b[22m \r\n  Binaries \r\n  Problems \r\n\u001b[36m❯ Parameters\u001b[39m \r\n  Create Jobgroup \r\n  Launch Jobgroup \r\n  Switch Storage \r\n  Empty Storage \r\n  Quit \u001b[7D\u001b[7C"
+        ],
+        [
+            0.358998,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mChoose action:\u001b[22m \u001b[36mParameters\u001b[39m\u001b[27D\u001b[27C\r\n\u001b[?25h"
+        ],
+        [
+            0.002063,
+            "\u001b[32m?\u001b[39m \u001b[1mSelect Parameter\u001b[22m \r\n  \u001b[36m1) << Main Menu\u001b[39m\r\n  2) Create New\r\n  Answer: "
+        ],
+        [
+            0.000022,
+            "\u001b[10D\u001b[10C"
+        ],
+        [
+            0.785057,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mSelect Parameter\u001b[22m \r\n  \u001b[36m1) << Main Menu\u001b[39m\r\n  2) Create New\r\n  Answer: \u001b[10D\u001b[10C"
+        ],
+        [
+            0.306474,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mSelect Parameter\u001b[22m \r\n  1) << Main Menu\r\n  \u001b[36m2) Create New\u001b[39m\r\n  Answer: 2\u001b[11D\u001b[11C"
+        ],
+        [
+            0.224057,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mSelect Parameter\u001b[22m \u001b[36m-2\u001b[39m\u001b[21D\u001b[21C\r\n"
+        ],
+        [
+            0.003293,
+            "\u001b[?25l"
+        ],
+        [
+            0.000177,
+            "\u001b[32m?\u001b[39m \u001b[1mFor which binary:\u001b[22m \u001b[2m(Use arrow keys)\u001b[22m\r\n\u001b[36m❯ sleeper (default: ~/bin/nxhero_test)\u001b[39m "
+        ],
+        [
+            0.000014,
+            "\u001b[39D"
+        ],
+        [
+            0.000739,
+            "\u001b[39C"
+        ],
+        [
+            0.724262,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mFor which binary:\u001b[22m \u001b[36msleeper (default: ~/bin/nxhero_test)\u001b[39m\u001b[56D\u001b[56C\r\n\u001b[?25h\u001b[?25l\u001b[32m?\u001b[39m \u001b[1mParameter Type:\u001b[22m \u001b[2m(Use arrow keys)\u001b[22m\r\n\u001b[36m❯ Default Argument\u001b[39m \u001b[19D\u001b[19C"
+        ],
+        [
+            0.913164,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mParameter Type:\u001b[22m \u001b[36mDefault Argument\u001b[39m\u001b[34D\u001b[34C\r\n\u001b[?25h"
+        ],
+        [
+            0.003456,
+            "\u001b[32m?\u001b[39m \u001b[1mName:\u001b[22m \u001b[8D\u001b[8C"
+        ],
+        [
+            0.116899,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mName:\u001b[22m \u001b[8D\u001b[8C"
+        ],
+        [
+            0.100095,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mName:\u001b[22m d\u001b[9D\u001b[9C"
+        ],
+        [
+            0.102228,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mName:\u001b[22m du\u001b[10D\u001b[10C"
+        ],
+        [
+            0.078168,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mName:\u001b[22m dur\u001b[11D\u001b[11C"
+        ],
+        [
+            0.132321,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mName:\u001b[22m dura\u001b[12D\u001b[12C"
+        ],
+        [
+            0.04811,
+            "\u001b[1000D\u001b[K"
+        ],
+        [
+            0.001063,
+            "\u001b[32m?\u001b[39m \u001b[1mName:\u001b[22m durat\u001b[13D\u001b[13C"
+        ],
+        [
+            0.117159,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mName:\u001b[22m durati\u001b[14D\u001b[14C"
+        ],
+        [
+            0.135632,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mName:\u001b[22m duratio\u001b[15D\u001b[15C"
+        ],
+        [
+            0.093487,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mName:\u001b[22m duration\u001b[16D\u001b[16C"
+        ],
+        [
+            0.459066,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mName:\u001b[22m \u001b[36mduration\u001b[39m\u001b[16D\u001b[16C\r\n\u001b[?25l\u001b[32m?\u001b[39m \u001b[1mValue Type:\u001b[22m \u001b[2m(Use arrow keys)\u001b[22m\r\n\u001b[36m❯ integer\u001b[39m \r\n  float \r\n  string \u001b[9D\u001b[9C"
+        ],
+        [
+            1.293254,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mValue Type:\u001b[22m \u001b[36minteger\u001b[39m\u001b[21D\u001b[21C\r\n\u001b[?25h\u001b[32m?\u001b[39m \u001b[1mDefault Value\u001b[22m \u001b[16D\u001b[16C"
+        ],
+        [
+            0.71833,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mDefault Value\u001b[22m 1\u001b[17D\u001b[17C"
+        ],
+        [
+            0.18843,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mDefault Value\u001b[22m \u001b[36m1\u001b[39m\u001b[17D\u001b[17C\r\n\u001b[34m\u001b[1mDone. Creating Next Parameter\u001b[22m\u001b[39m\r\n\u001b[?25l\u001b[32m?\u001b[39m \u001b[1mParameter Type:\u001b[22m \u001b[2m(Use arrow keys)\u001b[22m\r\n\u001b[36m❯ << Return\u001b[39m \r\n  Default Argument \u001b[19D\u001b[19C"
+        ],
+        [
+            0.933861,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mParameter Type:\u001b[22m \r\n  << Return \r\n\u001b[36m❯ Default Argument\u001b[39m \u001b[19D\u001b[19C"
+        ],
+        [
+            0.451061,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mParameter Type:\u001b[22m \u001b[36mDefault Argument\u001b[39m\u001b[34D\u001b[34C\r\n\u001b[?25h"
+        ],
+        [
+            0.006501,
+            "\u001b[32m?\u001b[39m \u001b[1mName:\u001b[22m \u001b[8D"
+        ],
+        [
+            0.000019,
+            "\u001b[8C"
+        ],
+        [
+            1.055155,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mName:\u001b[22m m\u001b[9D\u001b[9C"
+        ],
+        [
+            0.140455,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mName:\u001b[22m me\u001b[10D\u001b[10C"
+        ],
+        [
+            0.18178,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mName:\u001b[22m mes\u001b[11D\u001b[11C"
+        ],
+        [
+            0.1021,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mName:\u001b[22m mess\u001b[12D\u001b[12C"
+        ],
+        [
+            0.197363,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mName:\u001b[22m messa\u001b[13D\u001b[13C"
+        ],
+        [
+            0.072311,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mName:\u001b[22m messag\u001b[14D\u001b[14C"
+        ],
+        [
+            0.132631,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mName:\u001b[22m message\u001b[15D\u001b[15C"
+        ],
+        [
+            0.109959,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mName:\u001b[22m \u001b[36mmessage\u001b[39m\u001b[15D\u001b[15C\r\n"
+        ],
+        [
+            0.004183,
+            "\u001b[?25l"
+        ],
+        [
+            0.000351,
+            "\u001b[32m?\u001b[39m \u001b[1mValue Type:\u001b[22m \u001b[2m(Use arrow keys)\u001b[22m\r\n\u001b[36m❯ integer\u001b[39m \r\n  float \r\n  string "
+        ],
+        [
+            0.000015,
+            "\u001b[9D"
+        ],
+        [
+            0.000025,
+            "\u001b[9C"
+        ],
+        [
+            0.774059,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mValue Type:\u001b[22m \r\n  integer \r\n\u001b[36m❯ float\u001b[39m \r\n  string \u001b[9D\u001b[9C"
+        ],
+        [
+            0.133631,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mValue Type:\u001b[22m \r\n  integer \r\n  float \r\n\u001b[36m❯ string\u001b[39m \u001b[9D\u001b[9C"
+        ],
+        [
+            0.241911,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mValue Type:\u001b[22m \u001b[36mstring\u001b[39m\u001b[20D\u001b[20C\r\n\u001b[?25h"
+        ],
+        [
+            0.002454,
+            "\u001b[32m?\u001b[39m \u001b[1mList of choices (comma seperated)\u001b[22m "
+        ],
+        [
+            0.000041,
+            "\u001b[36D"
+        ],
+        [
+            0.000027,
+            "\u001b[36C"
+        ],
+        [
+            0.41302,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mList of choices (comma seperated)\u001b[22m f"
+        ],
+        [
+            0.000762,
+            "\u001b[37D\u001b[37C"
+        ],
+        [
+            0.126971,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mList of choices (comma seperated)\u001b[22m fo\u001b[38D\u001b[38C"
+        ],
+        [
+            0.139693,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mList of choices (comma seperated)\u001b[22m foo\u001b[39D\u001b[39C"
+        ],
+        [
+            0.19848,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mList of choices (comma seperated)\u001b[22m foo,\u001b[40D\u001b[40C"
+        ],
+        [
+            0.095414,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mList of choices (comma seperated)\u001b[22m foo, \u001b[41D\u001b[41C"
+        ],
+        [
+            0.10768,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mList of choices (comma seperated)\u001b[22m foo, b\u001b[42D\u001b[42C"
+        ],
+        [
+            0.118424,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mList of choices (comma seperated)\u001b[22m foo, ba\u001b[43D\u001b[43C"
+        ],
+        [
+            0.04637,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mList of choices (comma seperated)\u001b[22m foo, bar\u001b[44D\u001b[44C"
+        ],
+        [
+            0.249386,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mList of choices (comma seperated)\u001b[22m \u001b[36mfoo, bar\u001b[39m\u001b[44D\u001b[44C\r\n\u001b[32m?\u001b[39m \u001b[1mDefault Value\u001b[22m \u001b[16D\u001b[16C"
+        ],
+        [
+            0.977971,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mDefault Value\u001b[22m f\u001b[17D\u001b[17C"
+        ],
+        [
+            0.207932,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mDefault Value\u001b[22m fo\u001b[18D\u001b[18C"
+        ],
+        [
+            0.141519,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mDefault Value\u001b[22m foo\u001b[19D\u001b[19C"
+        ],
+        [
+            0.233636,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mDefault Value\u001b[22m \u001b[36mfoo\u001b[39m\u001b[19D\u001b[19C\r\n\u001b[34m\u001b[1mDone. Creating Next Parameter\u001b[22m\u001b[39m\r\n\u001b[?25l\u001b[32m?\u001b[39m \u001b[1mParameter Type:\u001b[22m \u001b[2m(Use arrow keys)\u001b[22m\r\n\u001b[36m❯ << Return\u001b[39m \u001b[12D\u001b[12C"
+        ],
+        [
+            0.900018,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mParameter Type:\u001b[22m \u001b[36m<< Return\u001b[39m\u001b[27D\u001b[27C\r\n\u001b[?25h"
+        ],
+        [
+            0.009731,
+            "\u001b[33m  _   _    __  __    _   _   _____   ____     ___  \r\n | \\ | |   \\ \\/ /   | | | | | ____| |  _ \\   / _ \\ \r\n |  \\| |    \\  /    | |_| | |  _|   | |_) | | | | |\r\n | |\\  |    /  \\    |  _  | | |___  |  _ <  | |_| |\r\n |_| \\_|   /_/\\_\\   |_| |_| |_____| |_| \\_\\  \\___/ \r\n                                                   \u001b[39m\r\n"
+        ],
+        [
+            0.000018,
+            "====================================\r\n\r\n----------- MAIN MENU --------------\r\n"
+        ],
+        [
+            0.000026,
+            "\r\n"
+        ],
+        [
+            0.000613,
+            "\u001b[?25l"
+        ],
+        [
+            0.000367,
+            "\u001b[32m?\u001b[39m \u001b[1mChoose action:\u001b[22m \u001b[2m(Use arrow keys)\u001b[22m\r\n\u001b[36m❯ Binaries\u001b[39m \r\n  Problems \r\n  Parameters \r\n  Create Jobgroup \r\n  Launch Jobgroup \r\n  Switch Storage \r\n  Empty Storage \r\n  Quit "
+        ],
+        [
+            0.000014,
+            "\u001b[7D\u001b[7C"
+        ],
+        [
+            0.669144,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mChoose action:\u001b[22m \r\n  Binaries \r\n  Problems \r\n  Parameters \r\n  Create Jobgroup \r\n  Launch Jobgroup \r\n  Switch Storage \r\n  Empty Storage \r\n\u001b[36m❯ Quit\u001b[39m \u001b[7D\u001b[7C"
+        ],
+        [
+            0.477015,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mChoose action:\u001b[22m \u001b[36mQuit\u001b[39m\u001b[21D\u001b[21C\r\n\u001b[?25h\u001b[?25h"
+        ],
+        [
+            0.069487,
+            "demo@rusty:~/runs/nxhero$ "
+        ],
+        [
+            0.470973,
+            "#"
+        ],
+        [
+            0.205761,
+            " "
+        ],
+        [
+            0.202741,
+            "R"
+        ],
+        [
+            0.163901,
+            "e"
+        ],
+        [
+            0.309661,
+            "a"
+        ],
+        [
+            0.158943,
+            "d"
+        ],
+        [
+            0.214682,
+            "y"
+        ],
+        [
+            0.088006,
+            " "
+        ],
+        [
+            0.419798,
+            "t"
+        ],
+        [
+            0.095681,
+            "o"
+        ],
+        [
+            0.086519,
+            " "
+        ],
+        [
+            0.138706,
+            "d"
+        ],
+        [
+            0.079802,
+            "o"
+        ],
+        [
+            0.087019,
+            " "
+        ],
+        [
+            0.130655,
+            "s"
+        ],
+        [
+            0.264414,
+            "o"
+        ],
+        [
+            0.062058,
+            "m"
+        ],
+        [
+            0.412585,
+            "e"
+        ],
+        [
+            0.136971,
+            " "
+        ],
+        [
+            0.138844,
+            "e"
+        ],
+        [
+            0.173086,
+            "x"
+        ],
+        [
+            0.073469,
+            "p"
+        ],
+        [
+            0.083058,
+            "e"
+        ],
+        [
+            0.064061,
+            "r"
+        ],
+        [
+            0.068621,
+            "i"
+        ],
+        [
+            0.422352,
+            "m"
+        ],
+        [
+            0.117804,
+            "e"
+        ],
+        [
+            0.094675,
+            "n"
+        ],
+        [
+            0.085005,
+            "t"
+        ],
+        [
+            0.117523,
+            "s"
+        ],
+        [
+            0.530177,
+            "\r\n"
+        ],
+        [
+            0.031267,
+            "demo@rusty:~/runs/nxhero$ "
+        ],
+        [
+            0.484576,
+            "n"
+        ],
+        [
+            0.100097,
+            "x"
+        ],
+        [
+            0.095255,
+            "h"
+        ],
+        [
+            0.084937,
+            "e"
+        ],
+        [
+            0.063293,
+            "r"
+        ],
+        [
+            0.071637,
+            "o"
+        ],
+        [
+            0.375723,
+            "\r\n"
+        ],
+        [
+            0.347408,
+            "Startup: Opening db at nxhero.sqlite\r\n"
+        ],
+        [
+            0.298322,
+            "\u001b[33m  _   _    __  __    _   _   _____   ____     ___  \r\n | \\ | |   \\ \\/ /   | | | | | ____| |  _ \\   / _ \\ \r\n |  \\| |    \\  /    | |_| | |  _|   | |_) | | | | |\r\n | |\\  |    /  \\    |  _  | | |___  |  _ <  | |_| |\r\n |_| \\_|   /_/\\_\\   |_| |_| |_____| |_| \\_\\  \\___/ \r\n                                                   \u001b[39m\r\n"
+        ],
+        [
+            0.000068,
+            "====================================\r\n"
+        ],
+        [
+            0.000029,
+            "\r\n"
+        ],
+        [
+            0.00002,
+            "----------- MAIN MENU --------------\r\n"
+        ],
+        [
+            0.000027,
+            "\r\n"
+        ],
+        [
+            0.015184,
+            "\u001b[?25l"
+        ],
+        [
+            0.002424,
+            "\u001b[32m?\u001b[39m \u001b[1mChoose action:\u001b[22m \u001b[2m(Use arrow keys)\u001b[22m\r\n\u001b[36m❯ Binaries\u001b[39m \r\n  Problems \r\n  Parameters \r\n  Create Jobgroup \r\n  Launch Jobgroup \r\n  Switch Storage \r\n  Empty Storage \r\n  Quit "
+        ],
+        [
+            0.000391,
+            "\u001b[7D"
+        ],
+        [
+            0.000095,
+            "\u001b[7C"
+        ],
+        [
+            0.648491,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mChoose action:\u001b[22m \r\n  Binaries \r\n\u001b[36m❯ Problems\u001b[39m \r\n  Parameters \r\n  Create Jobgroup \r\n  Launch Jobgroup \r\n  Switch Storage \r\n  Empty Storage \r\n  Quit \u001b[7D\u001b[7C"
+        ],
+        [
+            0.158165,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mChoose action:\u001b[22m \r\n  Binaries \r\n  Problems \r\n\u001b[36m❯ Parameters\u001b[39m \r\n  Create Jobgroup \r\n  Launch Jobgroup \r\n  Switch Storage \r\n  Empty Storage \r\n  Quit \u001b[7D\u001b[7C"
+        ],
+        [
+            0.147698,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mChoose action:\u001b[22m \r\n  Binaries \r\n  Problems \r\n  Parameters \r\n\u001b[36m❯ Create Jobgroup\u001b[39m \r\n  Launch Jobgroup \r\n  Switch Storage \r\n  Empty Storage \r\n  Quit \u001b[7D\u001b[7C"
+        ],
+        [
+            0.355299,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K"
+        ],
+        [
+            0.00054,
+            "\u001b[32m?\u001b[39m \u001b[1mChoose action:\u001b[22m \u001b[36mCreate Jobgroup\u001b[39m"
+        ],
+        [
+            0.000081,
+            "\u001b[32D"
+        ],
+        [
+            0.000049,
+            "\u001b[32C"
+        ],
+        [
+            0.00024,
+            "\r\n"
+        ],
+        [
+            0.000111,
+            "\u001b[?25h"
+        ],
+        [
+            0.026271,
+            "\u001b[32m?\u001b[39m \u001b[1mJobgroup Name:\u001b[22m "
+        ],
+        [
+            0.000024,
+            "\u001b[17D\u001b[17C"
+        ],
+        [
+            0.387305,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mJobgroup Name:\u001b[22m d\u001b[18D\u001b[18C"
+        ],
+        [
+            0.156409,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mJobgroup Name:\u001b[22m de\u001b[19D\u001b[19C"
+        ],
+        [
+            0.070472,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mJobgroup Name:\u001b[22m dem\u001b[20D\u001b[20C"
+        ],
+        [
+            0.070242,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mJobgroup Name:\u001b[22m demo\u001b[21D\u001b[21C"
+        ],
+        [
+            0.286011,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mJobgroup Name:\u001b[22m \u001b[36mdemo\u001b[39m\u001b[21D\u001b[21C\r\n\u001b[32m?\u001b[39m \u001b[1mDescription:\u001b[22m \u001b[2mPress <enter> to launch your preferred editor.\u001b[22m\u001b[61D\u001b[61C"
+        ],
+        [
+            1.077831,
+            "Waiting for Emacs..."
+        ],
+        [
+            1.255089,
+            "\r\n"
+        ],
+        [
+            0.008292,
+            "\u001b[1000D\u001b[K"
+        ],
+        [
+            0.001006,
+            "\u001b[32m?\u001b[39m \u001b[1mDescription:\u001b[22m \u001b[2mReceived\u001b[22m\u001b[23D\u001b[23C\r\n"
+        ],
+        [
+            0.001101,
+            "\u001b[?25l"
+        ],
+        [
+            0.000404,
+            "\u001b[32m?\u001b[39m \u001b[1mBinary:\u001b[22m \u001b[2m(Use arrow keys)\u001b[22m\r\n\u001b[36m❯ sleeper (default: ~/bin/nxhero_test)\u001b[39m "
+        ],
+        [
+            0.001054,
+            "\u001b[39D\u001b[39C"
+        ],
+        [
+            0.967487,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mBinary:\u001b[22m \u001b[36msleeper (default: ~/bin/nxhero_test)\u001b[39m\u001b[46D\u001b[46C\r\n\u001b[?25h\u001b[32m?\u001b[39m \u001b[1mValues for duration (integer): \u001b[22m \u001b[2m(1) \u001b[22m\u001b[38D\u001b[38C"
+        ],
+        [
+            2.126239,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mValues for duration (integer): \u001b[22m \u001b[2m(1) \u001b[22m1\u001b[39D\u001b[39C"
+        ],
+        [
+            0.066014,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mValues for duration (integer): \u001b[22m \u001b[2m(1) \u001b[22m10\u001b[40D\u001b[40C"
+        ],
+        [
+            0.228859,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mValues for duration (integer): \u001b[22m \u001b[2m(1) \u001b[22m10:\u001b[41D\u001b[41C"
+        ],
+        [
+            0.425421,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mValues for duration (integer): \u001b[22m \u001b[2m(1) \u001b[22m10:2\u001b[42D\u001b[42C"
+        ],
+        [
+            0.104032,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mValues for duration (integer): \u001b[22m \u001b[2m(1) \u001b[22m10:25\u001b[43D\u001b[43C"
+        ],
+        [
+            0.517757,
+            "\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mValues for duration (integer): \u001b[22m \u001b[36m10:25\u001b[39m\u001b[39D\u001b[39C\r\n\u001b[?25l\u001b[32m?\u001b[39m \u001b[1mValues for message (string): \u001b[22m (Press \u001b[36m\u001b[1m<space>\u001b[22m\u001b[39m to select, \u001b[36m\u001b[1m<a>\u001b[22m\u001b[39m to toggle all, \u001b[36m\u001b[1m<i>\u001b[22m\u001b[39m t\r\no inverse selection)\r\n\u001b[36m❯\u001b[39m◯ foo\r\n ◯ bar\u001b[6D\u001b[6C"
+        ],
+        [
+            0.929353,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mValues for message (string): \u001b[22m \r\n\u001b[36m❯\u001b[39m\u001b[32m◉\u001b[39m foo\r\n ◯ bar\u001b[6D\u001b[6C"
+        ],
+        [
+            0.173187,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mValues for message (string): \u001b[22m \r\n \u001b[32m◉\u001b[39m foo\r\n\u001b[36m❯\u001b[39m◯ bar\u001b[6D\u001b[6C"
+        ],
+        [
+            0.100698,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mValues for message (string): \u001b[22m \r\n \u001b[32m◉\u001b[39m foo\r\n\u001b[36m❯\u001b[39m\u001b[32m◉\u001b[39m bar\u001b[6D\u001b[6C"
+        ],
+        [
+            0.288276,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mValues for message (string): \u001b[22m \u001b[36mfoo, bar\u001b[39m\u001b[40D\u001b[40C\r\n\u001b[?25h"
+        ],
+        [
+            0.181577,
+            "\u001b[33m  _   _    __  __    _   _   _____   ____     ___  \r\n | \\ | |   \\ \\/ /   | | | | | ____| |  _ \\   / _ \\ \r\n |  \\| |    \\  /    | |_| | |  _|   | |_) | | | | |\r\n | |\\  |    /  \\    |  _  | | |___  |  _ <  | |_| |\r\n |_| \\_|   /_/\\_\\   |_| |_| |_____| |_| \\_\\  \\___/ \r\n                                                   \u001b[39m\r\n====================================\r\n\r\n----------- MAIN MENU --------------\r\n\r\n\u001b[?25l\u001b[32m?\u001b[39m \u001b[1mChoose action:\u001b[22m \u001b[2m(Use arrow keys)\u001b[22m\r\n\u001b[36m❯ Binaries\u001b[39m \r\n  Problems \r\n  Parameters \r\n  Create Jobgroup \r\n  Launch Jobgroup \r\n  Switch Storage \r\n  Empty Storage \r\n  Quit \u001b[7D\u001b[7C"
+        ],
+        [
+            0.775927,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mChoose action:\u001b[22m \r\n  Binaries \r\n\u001b[36m❯ Problems\u001b[39m \r\n  Parameters \r\n  Create Jobgroup \r\n  Launch Jobgroup \r\n  Switch Storage \r\n  Empty Storage \r\n  Quit \u001b[7D\u001b[7C"
+        ],
+        [
+            0.174757,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mChoose action:\u001b[22m \r\n  Binaries \r\n  Problems \r\n\u001b[36m❯ Parameters\u001b[39m \r\n  Create Jobgroup \r\n  Launch Jobgroup \r\n  Switch Storage \r\n  Empty Storage \r\n  Quit \u001b[7D\u001b[7C"
+        ],
+        [
+            0.157274,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mChoose action:\u001b[22m \r\n  Binaries \r\n  Problems \r\n  Parameters \r\n\u001b[36m❯ Create Jobgroup\u001b[39m \r\n  Launch Jobgroup \r\n  Switch Storage \r\n  Empty Storage \r\n  Quit \u001b[7D\u001b[7C"
+        ],
+        [
+            0.158598,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mChoose action:\u001b[22m \r\n  Binaries \r\n  Problems \r\n  Parameters \r\n  Create Jobgroup \r\n\u001b[36m❯ Launch Jobgroup\u001b[39m \r\n  Switch Storage \r\n  Empty Storage \r\n  Quit \u001b[7D\u001b[7C"
+        ],
+        [
+            0.42427,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mChoose action:\u001b[22m \u001b[36mLaunch Jobgroup\u001b[39m\u001b[32D\u001b[32C\r\n\u001b[?25h"
+        ],
+        [
+            0.011816,
+            "\u001b[32m?\u001b[39m \u001b[1mSelect Jobgroup\u001b[22m \r\n  \u001b[36m1) << Return\u001b[39m\r\n  2) demo\r\n  Answer: "
+        ],
+        [
+            0.000063,
+            "\u001b[10D"
+        ],
+        [
+            0.000041,
+            "\u001b[10C"
+        ],
+        [
+            0.947382,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mSelect Jobgroup\u001b[22m \r\n  1) << Return\r\n  \u001b[36m2) demo\u001b[39m\r\n  Answer: 2\u001b[11D\u001b[11C"
+        ],
+        [
+            0.305941,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mSelect Jobgroup\u001b[22m \u001b[36m0\u001b[39m\u001b[19D\u001b[19C\r\n\u001b[?25l"
+        ],
+        [
+            0.001678,
+            "\u001b[32m?\u001b[39m \u001b[1mSelect Launcher\u001b[22m \u001b[2m(Use arrow keys)\u001b[22m\r\n\u001b[36m❯ Local launcher\u001b[39m \r\n  SLURM launcher \u001b[17D\u001b[17C"
+        ],
+        [
+            0.918363,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mSelect Launcher\u001b[22m \u001b[36mLocal launcher\u001b[39m\u001b[32D\u001b[32C\r\n\u001b[?25h"
+        ],
+        [
+            0.172124,
+            "\u001b[34m\u001b[1mI will submit 32 Jobs:\u001b[22m\u001b[39m\r\n"
+        ],
+        [
+            7.804445,
+            "\u001b[34m\u001b[1mAll jobs submitted\u001b[22m\u001b[39m\r\n"
+        ],
+        [
+            0.003716,
+            "\u001b[33m  _   _    __  __    _   _   _____   ____     ___  \r\n | \\ | |   \\ \\/ /   | | | | | ____| |  _ \\   / _ \\ \r\n |  \\| |    \\  /    | |_| | |  _|   | |_) | | | | |\r\n | |\\  |    /  \\    |  _  | | |___  |  _ <  | |_| |\r\n |_| \\_|   /_/\\_\\   |_| |_| |_____| |_| \\_\\  \\___/ \r\n                                                   \u001b[39m\r\n"
+        ],
+        [
+            0.000019,
+            "====================================\r\n\r\n----------- MAIN MENU --------------"
+        ],
+        [
+            0.000008,
+            "\r\n\r\n"
+        ],
+        [
+            0.002467,
+            "\u001b[?25l"
+        ],
+        [
+            0.001107,
+            "\u001b[32m?\u001b[39m \u001b[1mChoose action:\u001b[22m \u001b[2m(Use arrow keys)\u001b[22m\r\n\u001b[36m❯ Binaries\u001b[39m \r\n  Problems \r\n  Parameters \r\n  Create Jobgroup \r\n  Launch Jobgroup \r\n  Switch Storage \r\n  Empty Storage \r\n  Quit \u001b[7D\u001b[7C"
+        ],
+        [
+            0.502648,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mChoose action:\u001b[22m \r\n  Binaries \r\n  Problems \r\n  Parameters \r\n  Create Jobgroup \r\n  Launch Jobgroup \r\n  Switch Storage \r\n  Empty Storage \r\n\u001b[36m❯ Quit\u001b[39m \u001b[7D\u001b[7C"
+        ],
+        [
+            0.57455,
+            "\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[32m?\u001b[39m \u001b[1mChoose action:\u001b[22m \u001b[36mQuit\u001b[39m\u001b[21D\u001b[21C\r\n\u001b[?25h\u001b[?25h"
+        ],
+        [
+            0.075421,
+            "demo@rusty:~/runs/nxhero$ "
+        ],
+        [
+            0.628956,
+            "w"
+        ],
+        [
+            0.157321,
+            "a"
+        ],
+        [
+            0.064106,
+            "t"
+        ],
+        [
+            0.204772,
+            "c"
+        ],
+        [
+            0.053982,
+            "h"
+        ],
+        [
+            0.096886,
+            " "
+        ],
+        [
+            0.684962,
+            "-"
+        ],
+        [
+            0.317274,
+            "n"
+        ],
+        [
+            0.199978,
+            " "
+        ],
+        [
+            0.329333,
+            "1"
+        ],
+        [
+            0.1623,
+            " "
+        ],
+        [
+            0.109504,
+            "'"
+        ],
+        [
+            0.246155,
+            "p"
+        ],
+        [
+            0.101668,
+            "s"
+        ],
+        [
+            0.110421,
+            " "
+        ],
+        [
+            0.138132,
+            "a"
+        ],
+        [
+            0.198726,
+            "x"
+        ],
+        [
+            0.106001,
+            " "
+        ],
+        [
+            0.313359,
+            "|"
+        ],
+        [
+            0.058303,
+            " "
+        ],
+        [
+            0.15309,
+            "g"
+        ],
+        [
+            0.182176,
+            "r"
+        ],
+        [
+            0.132325,
+            "e"
+        ],
+        [
+            0.025889,
+            "p"
+        ],
+        [
+            0.158061,
+            " "
+        ],
+        [
+            0.157811,
+            "["
+        ],
+        [
+            0.236387,
+            "n"
+        ],
+        [
+            0.254874,
+            "]"
+        ],
+        [
+            0.260019,
+            "x"
+        ],
+        [
+            0.119092,
+            "h"
+        ],
+        [
+            0.085057,
+            "e"
+        ],
+        [
+            0.071491,
+            "r"
+        ],
+        [
+            0.438032,
+            "o"
+        ],
+        [
+            0.365489,
+            "_"
+        ],
+        [
+            0.195647,
+            "t"
+        ],
+        [
+            0.157455,
+            "e"
+        ],
+        [
+            0.093432,
+            "s"
+        ],
+        [
+            0.079894,
+            "t"
+        ],
+        [
+            0.151041,
+            "#"
+        ],
+        [
+            0.582946,
+            "\b\u001b[K"
+        ],
+        [
+            0.189036,
+            "'"
+        ],
+        [
+            0.511404,
+            "\r\n"
+        ],
+        [
+            0.01907,
+            "\u001b[?1049h\u001b[1;25r\u001b(B\u001b[m\u001b[4l\u001b[?7h\u001b[H\u001b[2JAlle 1,0s: ps ax | grep [n]xhero_test\u001b[1;111HWed Jan  4 17:19:40 2017\u001b[3;1H22111 ?\u001b[3;16HSs     0:00 /bin/bash /home/bzfvierh/bin/nxhero_test 18 Message: foo\r\u001b[4d22114 ?\u001b[4;16HSs     0:00 /bin/bash /home/bzfvierh/bin/nxhero_test 19 Message: foo\r\u001b[5d22117 ?\u001b[5;16HSs     0:00 /bin/bash /home/bzfvierh/bin/nxhero_test 20 Message: foo\r\u001b[6d22120 ?\u001b[6;16HSs     0:00 /bin/bash /home/bzfvierh/bin/nxhero_test 21 Message: foo\r\u001b[7d22123 ?\u001b[7;16HSs     0:00 /bin/bash /home/bzfvierh/bin/nxhero_test 22 Message: foo\r\u001b[8d22126 ?\u001b[8;16HSs     0:00 /bin/bash /home/bzfvierh/bin/nxhero_test 23 Message: foo\r\u001b[9d22129 ?\u001b[9;16HSs     0:00 /bin/bash /home/bzfvierh/bin/nxhero_test 24 Message: foo\r\u001b[10d22132 ?\u001b[10;16HSs     0:00 /bin/bash /home/bzfvierh/bin/nxhero_test 25 Message: foo\r\u001b[11d22141 ?\u001b[11;16HSs     0:00 /bin/bash /home/bzfvierh/bin/nxhero_test 17 Message: bar\r\u001b[12d22144 ?\u001b[12;16HSs     0:00 /bin/bash /home/bzfvierh/bin/nxhero_test 18 Message: bar\r\u001b[13d22147 ?\u001b[13;16HSs     0:00 /bin/bas"
+        ],
+        [
+            0.00002,
+            "h /home/bzfvierh/bin/nxhero_test 19 Message: bar\r\u001b[14d22150 ?\u001b[14;16HSs     0:00 /bin/bash /home/bzfvierh/bin/nxhero_test 20 Message: bar\r\u001b[15d22153 ?\u001b[15;16HSs     0:00 /bin/bash /home/bzfvierh/bin/nxhero_test 21 Message: bar\r\u001b[16d22156 ?\u001b[16;16HSs     0:00 /bin/bash /home/bzfvierh/bin/nxhero_test 22 Message: bar\r\u001b[17d22159 ?\u001b[17;16HSs     0:00 /bin/bash /home/bzfvierh/bin/nxhero_test 23 Message: bar\r\u001b[18d22162 ?\u001b[18;16HSs     0:00 /bin/bash /home/bzfvierh/bin/nxhero_test 24 Message: bar\r\u001b[19d22167 ?\u001b[19;16HSs     0:00 /bin/bash /home/bzfvierh/bin/nxhero_test 25 Message: bar\u001b[25;134H"
+        ],
+        [
+            1.018796,
+            "\u001b[3;10r\u001b[10;1H\n\u001b[1;25r\u001b[10;1H\u001b[2M\u001b[1;129H1\u001b[25;134H"
+        ],
+        [
+            1.02008,
+            "\u001b[3;9r\u001b[9;1H\n\u001b[1;25r\u001b[9;1H\u001b[2M\u001b[1;129H2\u001b[25;134H"
+        ],
+        [
+            1.018897,
+            "\r\u001b[3d\u001b[M\u001b[1;129H3\u001b[25;134H"
+        ],
+        [
+            1.020889,
+            "\u001b[3;7r\u001b[7;1H\n\u001b[1;25r\u001b[7;1H\u001b[2M\u001b[1;129H4\u001b[25;134H"
+        ],
+        [
+            1.010899,
+            "\r\u001b[7d\u001b[M\u001b[1;129H5\u001b[25;134H"
+        ],
+        [
+            1.01867,
+            "\u001b[3;6r\u001b[6;1H\n\u001b[1;25r\u001b[6;1H\u001b[2M\u001b[1;129H6\u001b[25;134H"
+        ],
+        [
+            1.016728,
+            "\r\u001b[5d\u001b[2M\u001b[1;129H7\u001b[3;5H9\u001b[3;70H4\u001b[4;4H32\u001b[4;70H5\u001b[25;134H"
+        ],
+        [
+            1.013976,
+            "\r\u001b[4d\u001b[2M\u001b[1;129H8\u001b[3;4H32\u001b[3;70H5\u001b[25;134H"
+        ],
+        [
+            1.016795,
+            "\r\u001b[2d\u001b[2M\u001b[1;129H9\r\u001b[2d\u001b[K\u001b[25;134H"
+        ],
+        [
+            1.019655,
+            "\r\u001b[3d\u001b[J\u001b[1;128H50\u001b[25;134H"
+        ],
+        [
+            1.020103,
+            "\u001b[1;129H1\u001b[25;134H"
+        ],
+        [
+            0.062452,
+            "demo@rusty:~/runs/nxhero$ "
+        ],
+        [
+            0.318,
+            "#"
+        ],
+        [
+            0.502711,
+            " "
+        ],
+        [
+            0.225947,
+            "D"
+        ],
+        [
+            0.118827,
+            "o"
+        ],
+        [
+            0.093817,
+            "n"
+        ],
+        [
+            0.052648,
+            "e"
+        ],
+        [
+            0.103259,
+            "."
+        ],
+        [
+            0.126754,
+            " "
+        ],
+        [
+            0.137289,
+            "A"
+        ],
+        [
+            0.110892,
+            "n"
+        ],
+        [
+            0.070155,
+            "d"
+        ],
+        [
+            0.072096,
+            " "
+        ],
+        [
+            0.114601,
+            "e"
+        ],
+        [
+            0.158674,
+            "v"
+        ],
+        [
+            0.109175,
+            "e"
+        ],
+        [
+            0.071712,
+            "r"
+        ],
+        [
+            0.189264,
+            "y"
+        ],
+        [
+            0.181579,
+            "t"
+        ],
+        [
+            0.063018,
+            "h"
+        ],
+        [
+            0.039408,
+            "i"
+        ],
+        [
+            0.140742,
+            "n"
+        ],
+        [
+            0.038011,
+            "g"
+        ],
+        [
+            0.127213,
+            " "
+        ],
+        [
+            0.068627,
+            "i"
+        ],
+        [
+            0.091701,
+            "s"
+        ],
+        [
+            0.094487,
+            " "
+        ],
+        [
+            0.110614,
+            "f"
+        ],
+        [
+            0.103188,
+            "i"
+        ],
+        [
+            0.118108,
+            "l"
+        ],
+        [
+            0.045516,
+            "e"
+        ],
+        [
+            0.172964,
+            "d"
+        ],
+        [
+            0.117919,
+            " "
+        ],
+        [
+            0.11704,
+            "a"
+        ],
+        [
+            0.158518,
+            "w"
+        ],
+        [
+            0.189399,
+            "a"
+        ],
+        [
+            0.143848,
+            "y"
+        ],
+        [
+            0.151492,
+            " "
+        ],
+        [
+            0.156003,
+            "n"
+        ],
+        [
+            0.078057,
+            "i"
+        ],
+        [
+            0.053849,
+            "c"
+        ],
+        [
+            0.1016,
+            "e"
+        ],
+        [
+            0.087926,
+            "l"
+        ],
+        [
+            0.125045,
+            "y"
+        ],
+        [
+            0.746408,
+            "!"
+        ],
+        [
+            0.786034,
+            "\r\n"
+        ],
+        [
+            0.028598,
+            "demo@rusty:~/runs/nxhero$ "
+        ]
+    ],
+    "title": "Nxhero Basic Usage Demo",
+    "version": 1,
+    "duration": 130.425105,
+    "height": 20,
+    "width": 100,
+    "env": {
+        "TERM": "xterm",
+        "SHELL": "/bin/bash"
+    }
+}

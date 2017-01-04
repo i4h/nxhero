@@ -74,6 +74,9 @@ The intended workflow looks something like this:
      - Save a record of the job in the database  
 
     
+Click the image to see a demo:     
+[![asciicast](https://asciinema.org/a/98125.png)](https://asciinema.org/a/98125)
+
 ## Structure
  
 ### Binaries
