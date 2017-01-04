@@ -1,0 +1,10 @@
+{
+  "database": {
+    "type": "sqlite3",
+    "file": "nxhero.sqlite"
+  },
+  "runs": {
+    "rootdir": "~/runs/nxhero",
+    "idpadamount" : "3"
+  }
+}

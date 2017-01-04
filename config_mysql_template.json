@@ -1,0 +1,13 @@
+{
+  "database": {
+    "type": "mysql",
+    "host": "hostname",
+    "database": "database",
+    "user": "username",
+    "password": "password"
+  },
+  "runs": {
+    "rootdir": "~/runs/nxhero",
+    "idpadamount" : "3"
+  }
+}
