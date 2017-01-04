@@ -74,29 +74,29 @@ The intended workflow looks something like this:
      - Save a record of the job in the database  
 
     
- ## Structure
+## Structure
  
- ### Binaries
- Different types of binaries are represented by 
- modules in the `nxhero/binaries/` directory.
- These modules are responsible for preflight checks,
- preparation of working directories and setting parameters that
- can not be handled by placeholder replacement in the binaries argument
- list.
- To get started creating your own binary, take a look 
- at the documentation in `binaries/default.js`.
+### Binaries
+Different types of binaries are represented by 
+modules in the `nxhero/binaries/` directory.
+These modules are responsible for preflight checks,
+preparation of working directories and setting parameters that
+can not be handled by placeholder replacement in the binaries argument
+list.
+To get started creating your own binary, take a look 
+at the documentation in `binaries/default.js`.
+
  
- 
- ### Parameters
- Different types of parameters are represented by 
- modules in the `nxhero/parameters/` directory.
- Distinguishing between parameters allows the binary
- to set them accordingly.
+### Parameters
+Different types of parameters are represented by 
+modules in the `nxhero/parameters/` directory.
+Distinguishing between parameters allows the binary
+to set them accordingly.
   
 ### Launchers
-  Different ways to launch jobs are represented by 
- modules in the `nxhero/launchers/` directory.
- Two launchers are currently available:
+Different ways to launch jobs are represented by 
+modules in the `nxhero/launchers/` directory.
+Two launchers are currently available:
  - Local: Simple runs the commands as new processes on the local machine
  - Slurm: Launch the job by submitting it to slurm using `sbatch`.  
    Slurm options can be set in nxheros `config.json`. For example:
