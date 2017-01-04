@@ -65,6 +65,7 @@ module.exports = function() {
                 })
             },
             function (callback) {
+                //@todo: Only get parameters for which the jobgroup has values
                 return BaseParameter.getParametersById(store, {}, function (err, parametersById) {
                     callback(err, parametersById);
                 });
