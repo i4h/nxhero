@@ -125,7 +125,9 @@ var mkdirsStub = function(path, callback) {
          this.timeout(3000);
 
          fs.unlink(__dirname + "/nxhero.test.sqlite", function (err) {
-             if (err !== null)
+
+             /* ENOENT is fine, there may be no database */
+             if (err !== null && err.code !== "ENOENT")
                  throw err;
 
              db.open(
