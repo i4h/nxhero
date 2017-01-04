@@ -1,5 +1,5 @@
 # db
-nxhero.sqlite.json
+nxhero.sqlite
 
 # Config
 config*.json
@@ -15,7 +15,6 @@ scripts_private
 # ---- Ignores below are from https://github.com/gitignore ---- 
 
 # Logs
-logs
 *.log
 npm-debug.log*
 
