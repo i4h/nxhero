@@ -48,6 +48,23 @@ module.exports = function(){
         return vals;
     };
 
+    /** Adds a parameterValue to the correct relation
+     *
+     * Does not save the change to the store
+     *
+     * @param store
+     * @param parameter
+     * @param value
+     */
+    this.addParameterValue = function(store, parameter, value) {
+        var parameterValue = parameter.getNewValueModel(store, {});
+        parameterValue.value = value;
+        parameterValue.parameter_id = parameter.id;
+        parameterValue.parameter = parameter;
+        var relation = parameter.getValueRelation();
+        this[relation].push(parameterValue);
+    }
+
     this.getJobgroup = function(store, callback) {
         var Model = store.Model("Jobgroup");
         Model.find(this.jobgroup_id).exec(function(jobgroup) {
