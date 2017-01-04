@@ -50,15 +50,15 @@ you can start it with the command `nxhero`.
 
 The intended workflow looks something like this:
 
-1) Enter a binary into the database
-2) Enter parameters for the binary
-3) Optional: Enter problems into the database
-4) Create a Jobgroup. A jobgroup contains the following data:  
+1) Enter a binary into the database  
+2) Enter parameters for the binary  
+3) Optional: Enter problems into the database  
+4) Create a Jobgroup. A jobgroup contains the following data:    
    - The binary that should be used
    - The set of values for each parameter that should be used
    - The set of problems that should be used
    - The launcher module that should be used 
-5) Launch the jobgroup. This will
+5) Launch the jobgroup. This will 
    - Perform the preflight checks for the binary.
    - Save jobgroup data in the database (e.g. version numbers/git hashes)
    - Create a working directory for the group (e.g. `group_001`)
