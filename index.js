@@ -21,6 +21,8 @@ var debug       = require('debug')('nxhero');
 var winston = require('winston');
 
 
+process.env.NODE_ENV = 'console';
+
 var ParameterMenus = require('./lib/parameter_menus');
 var ProblemMenus = require('./lib/problem_menus');
 var JobgroupMenus = require('./lib/jobgroup_menus');
@@ -39,10 +41,10 @@ var store;
 var OpenRecord = require('openrecord');
 
 var db = require('./lib/db');
+var log = require("./lib/log");
 
 var parseSequence = require('./lib/parse_sequence');
 
-process.env.NODE_ENV = 'console';
 
 function mainMenu(callback) {
 
@@ -56,8 +58,6 @@ function mainMenu(callback) {
     console.log("");
     console.log("----------- MAIN MENU --------------");
     console.log("");
-
-
 
     var questions = [
         {
