@@ -4,17 +4,23 @@ module.exports = {
     label: "Default Binary",
     takesProblems: false,
 
-    /** Prepare the jobgroup by doing nothing
+    /** Prepare the jobgroup
+     * (e.g. collect version information or run
+     * checks before launching). If an error is returned,
+     * the launch of the jobgropu will be aborted
      *
      * @param jobgroup Jobgroup model
      * @param wd working directory of the jobgroup
-     * @param callback
+     * @param callback(err)
      */
     prepareJobgroup: function (jobgroup, wd, callback) {
         return callback(null);
     },
 
-    /** Prepare the job by doing nothing
+    /** Prepare the jobs working directory
+     *
+     * e.g. create files and directories for the job
+     *
      * @param wd
      * @param callback
      */
@@ -22,7 +28,7 @@ module.exports = {
         return callback(null);
     },
 
-    /** Handle setting params by doing nothing
+    /** Set parameters in the working directory
      * @param wd
      * @param callback
      */
