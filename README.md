@@ -101,23 +101,23 @@ Two launchers are currently available:
  - Slurm: Launch the job by submitting it to slurm using `sbatch`.  
    Slurm options can be set in nxheros `config.json`. For example:
    
-````
-  {
-  "database": { ...  },  "runs": { ...  },  
-  "launchers": {
-      "slurm" : {
-        "batchFileOptions" : {
-            "partition" : "main",
-            "nodes" : 1,
-            "mem" : "4000MB",
-            "exclusive" : null,
-            "nice": 400,
-            "time": "01:00:00"
-        },
-      "submit" : true
-    }
-  }
-````
+   ````
+   {
+   "database": { ...  },  "runs": { ...  },  
+   "launchers": {
+       "slurm" : {
+         "batchFileOptions" : {
+             "partition" : "main",
+             "nodes" : 1,
+             "mem" : "4000MB",
+             "exclusive" : null,
+             "nice": 400,
+             "time": "01:00:00"
+         },
+       "submit" : true
+     }
+   }
+   ````
 If submit is set to `false`, launching the jobgroup will create
 the batch files but not submit them to slurm.
  
