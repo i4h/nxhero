@@ -11,6 +11,7 @@ var Spinner     = CLI.Spinner;
 var Git         = require('./lib/git.js');
 const spawn = require('child_process').spawn;
 const path = require('path');
+var zpad = require('zpad');
 
 var _           = require('lodash');
 var git         = require('simple-git')();
@@ -29,6 +30,7 @@ var ProblemMenus = require('./lib/problem_menus');
 var JobgroupMenus = require('./lib/jobgroup_menus');
 var BinaryMenus = require('./lib/binary_menus');
 var StorageMenus = require('./lib/storage_menus');
+var resolveHome = require('./lib/files').resolveHome;
 
 var files = require('./lib/files');
 var date = require('./lib/date');
@@ -65,15 +67,18 @@ db.open(dbConf, function(err, newStore) {
     /* Transfer old to new */
     var transfer = false;
     /* Clean old */
-    var clean = true;
+    var clean = false;
+
+    /* Set working directory */
+    var setWd = true;
 
     /* Get parameters */
     BaseParameter.getParametersById(store, {}, function(err, params) {
         var Job = store.Model("Job");
         Job.exec(function(jobs) {
             for (var i = 0; i < jobs.length; ++i) {
+                var job = jobs[i];
                 if (transfer) {
-                    var job = jobs[i];
                     var oldvals = JSON.parse(job.parameter_values);
                     for (id in oldvals) {
                         var val = oldvals[id];
@@ -84,6 +89,12 @@ db.open(dbConf, function(err, newStore) {
                 }
                 if (clean) {
                     jobs[i].parameter_values = "";
+                }
+
+                if (setWd) {
+                    zpad.amount(nconf.get('runs').idpadamount);
+                    job.wd = path.resolve(resolveHome(nconf.get('runs').rootdir) + "/group_" + zpad(job.jobgroup_id) + "/job_" + zpad(job.id));
+                    debug(job.wd);
                 }
             }
 
