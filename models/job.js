@@ -22,6 +22,18 @@ module.exports = function(){
 
     this.stampable();
 
+    this.getter("processorData", function() {
+        if (this.processor_data === null)
+            return {};
+        else
+            return(JSON.parse(this.processor_data));
+    });
+
+    this.setter("processorData", function(value) {
+        this.processor_data = JSON.stringify(value);
+    });
+
+
     this.hasMany('parameter_value_int');
     this.hasMany('parameter_value_float');
     this.hasMany('parameter_value_string');
