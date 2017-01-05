@@ -20,6 +20,7 @@ module.exports = {
         else
             return {};
     },
+    terminatedRegex : /srun: error: [\w-\.]*: task \d*: Terminated/,
 
     launch: function(job, callback) {
 
@@ -88,5 +89,14 @@ module.exports = {
                 return callback(null, {});
             }
         });
+    },
+
+    checkStatus: function (job, outString) {
+        /* Check for a terminated message */
+        var matches_array = outString.match(module.exports.terminatedRegex);
+        if (matches_array !== null) {
+            job.status = "terminated_slurm";
+        }
+        return;
     }
 }
