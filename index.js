@@ -26,6 +26,7 @@ process.env.NODE_ENV = 'console';
 var ParameterMenus = require('./lib/parameter_menus');
 var ProblemMenus = require('./lib/problem_menus');
 var JobgroupMenus = require('./lib/jobgroup_menus');
+var JobFilterMenus = require('./lib/jobfilter_menus');
 var BinaryMenus = require('./lib/binary_menus');
 var StorageMenus = require('./lib/storage_menus');
 
@@ -71,6 +72,7 @@ function mainMenu(callback) {
                 {name: 'Parameters', value: ParameterMenus.main},
                 {name: 'Create Jobgroup', value: JobgroupMenus.add},
                 {name: 'Launch Jobgroup', value: JobgroupMenus.launch},
+                {name: 'Filter Jobs', value: JobFilterMenus.filter},
                 {name:  'Switch Storage' , value: 'switchStorage'},
                 {name:  'Empty Storage' , value: StorageMenus.empty},
                 {name:  'Quit' , value: process.exit}
