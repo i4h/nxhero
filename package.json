@@ -40,6 +40,7 @@
     "node.extend": "^1.1.6",
     "openrecord": "^1.10.12",
     "os": "^0.1.1",
+    "pad": "^1.0.2",
     "preferences": "~0.2.1",
     "simple-git": "~1.64.0",
     "sinon": "^1.17.7",
