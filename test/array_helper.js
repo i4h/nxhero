@@ -65,5 +65,23 @@ describe("Array Helper ", function() {
             }
             done();
         }));
+
+        it("from an object with null and bool values", sinon.test(function(done) {
+            objects = [
+                {mixed: true},
+                {mixed: false},
+                {mixed: null},
+            ];
+
+            vals = ArrayHelper.getColumnUnique(objects, "mixed", {});
+            debug(vals);
+            expect(vals).to.be.array();
+            expect(vals).to.be.ofSize(3);
+            for (var i = 0; i< 3; ++i ) {
+                expect(vals[i]).to.be.equal(String(objects[i].mixed));
+            }
+            done();
+        }));
+
     });
 });
