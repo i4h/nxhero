@@ -103,6 +103,7 @@ module.exports = function() {
      * @param callback
      */
     this.createAndLaunchJobs = function (store, problems, parametersById, callback) {
+        var jobgroup = this;
 
         /* Get paramvals: paramVals{id} : value */
         var jobParameters = BaseParameter.getParameterProduct(this.getParameterValues());
@@ -126,7 +127,7 @@ module.exports = function() {
 
             return function (callback) {
                 BaseJob.insertFromModelAndValues(
-                    store, {}, this, problem, parametersById, paramVals, function (err, job) {
+                    store, {}, jobgroup, problem, parametersById, paramVals, function (err, job) {
                         /* Launch the job */
                         job.jobgroup = jobgroup;
                         job.launch(store, {}, function (err) {
@@ -197,31 +198,32 @@ module.exports = function() {
                 log.verbose("Values of " + parametersById[id].name + ": " + (typeof parameterValues[i] !== "string" ? parameterValues[i].join(", ") : parameterValues[i]));
             }
 
-            //inquirer.prompt([{type: 'input',name: 'continue', 'message': "Continue? (y/n)"}]).then(function(answers) {
-            answers = {continue: "y"};
+            inquirer.prompt([{type: 'input',name: 'continue', 'message': "Continue? (y/n)"}]).then(function(answers) {
+                //answers = {continue: "y"};
 
-            if (answers.continue != "y")
-                return callback(null);
+                if (answers.continue != "y")
+                    return callback(null);
 
-            /* Run the binaries pre-flight checks */
-            binaryModel.prepareJobgroup(jobgroup, jobgroup.wd, function (err) {
-                if (err !== null) {
-                    log.info("An error occured in the preflight checks of binary " + binaryModel.label);
-                    log.verbose(err.message);
-                    inquirer.prompt([{
-                        type: 'list',
-                        name: 'continue',
-                        message: "Okay?",
-                        choices: ["Okay!"]
-                    }]).then(function (answers) {
-                        return callback()
-                    });
-                } else {
-                    log.verbose("Preflight checks of " + binaryModel.label + " passed!");
+                /* Run the binaries pre-flight checks */
+                binaryModel.prepareJobgroup(jobgroup, jobgroup.wd, function (err) {
+                    if (err !== null) {
+                        log.info("An error occured in the preflight checks of binary " + binaryModel.label);
+                        log.verbose(err.message);
+                        inquirer.prompt([{
+                            type: 'list',
+                            name: 'continue',
+                            message: "Okay?",
+                            choices: ["Okay!"]
+                        }]).then(function (answers) {
+                            return callback()
+                        });
+                    } else {
+                        log.verbose("Preflight checks of " + binaryModel.label + " passed!");
 
-                    /* Create and launch the jobs */
-                    jobgroup.createAndLaunchJobs(store, problems, parametersById, callback)
-                }
+                        /* Create and launch the jobs */
+                        jobgroup.createAndLaunchJobs(store, problems, parametersById, callback)
+                    }
+                });
             });
 
         });
