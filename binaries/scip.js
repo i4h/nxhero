@@ -29,7 +29,7 @@ function Scip() {
      * can use  ~ and {binary.path} as placeholders
      */
     var cleanRepos = [
-        '{binary.path}/..',
+        '{binary.dir}/..',
     ];
     var setFile = "scip.set";
 
@@ -84,7 +84,7 @@ function Scip() {
 
         /* Prepare calls to get repo status */
         for (var i = 0; i < this.cleanRepos.length; ++i) {
-            var unresolved = this.cleanRepos[i].replace("{binary.path}", jobgroup.binary.path);
+            var unresolved = this.cleanRepos[i].replace("{binary.dir}", path.dirname(jobgroup.binary.path));
             var repoPath = path.resolve(files.resolveHome(unresolved));
             ff = makeCall(repoPath);
             calls.push(ff);
@@ -200,26 +200,26 @@ function Scip() {
      * @param callback
      */
     function setParams(wd, store, parameterValues, callback) {
-        var parameterIds = Object.keys(parameterValues);
-        Model = store.Model("Parameter");
-        Model.where({id: parameterIds}).exec(function(records) {
-            var settings = "";
-            for (i = 0; i < records.length; ++i) {
-                if (record.model === "scip") {
-                    var value = parameterValues[records[i].id];
-                    if (typeof value === "string")
-                        value = value.trim();
+        var settings = "";
+        for (var i = 0; i < parameterValues.length; ++i) {
+            var record = parameterValues[i];
+            if (record.parameter.parameter_model === "scip") {
+                var value = record.value;
+                if (typeof value === "string")
+                    value = value.trim();
 
-                    if (value !== "true" && value !== "false" && isNaN(value))
-                        value = '"' + value + '"';
-                    settings += records[i].name + " = " + value + "\n";
-                }
+                if (value !== "true" && value !== "false" && isNaN(value))
+                    value = '"' + value + '"';
+
+                settings += record.parameter.name + " = " + value + "\n";
             }
-            fs.writeFile(wd + setFile, settings, {flags:" O_WRONLY"} ,(err) => {
-                if (err)
-                    throw err;
-                return callback(null);
-            });
+        }
+
+        var file = wd + "/" + this.setFile;
+        fs.writeFile(file, settings, {flags:" O_WRONLY"} ,(err) => {
+            if (err)
+                throw err;
+            return callback(null);
         });
     };
 
