@@ -9,6 +9,8 @@ var resolveHome = require('../lib/files').resolveHome;
 
 module.exports = function(){
 
+    this.models_name = "Problems";
+
     this.getter("absolutePath", function() {
         return path.resolve(resolveHome(this.path));
     });
@@ -16,4 +18,8 @@ module.exports = function(){
     this.getString = function() {
         return this.name + " ( " + this.path + ")";
     };
+
+
+
+
 }

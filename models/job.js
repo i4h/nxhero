@@ -48,6 +48,7 @@ module.exports = function(){
         this.where({active: true});
     });
 
+    this.models_name = "Jobgroups";
 
     this.getParameterValues = function() {
         vals = [];

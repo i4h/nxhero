@@ -27,6 +27,7 @@ module.exports = function() {
     this.hasMany('job');
     this.belongsTo('binary');
 
+    this.models_name = "Jobgroups";
 
     this.getString = function () {
         return this.name;

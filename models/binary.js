@@ -10,6 +10,8 @@ module.exports = function(){
 
     this.belongsTo("binary");
 
+    this.models_name = "Binaries";
+
     this.getString = function() {
         return this.name + " (" + this.type + ": " + this.path + ")";
     };
