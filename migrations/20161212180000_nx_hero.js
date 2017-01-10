@@ -38,7 +38,7 @@ module.exports = function(){
     this.createTable('parameters', function(){
         this.integer('binary_id');
         this.string('name');
-        this.string('model');
+        this.string('parameter_model');
         this.text('model_data');
         this.string('type');
         this.string('values');
