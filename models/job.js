@@ -28,10 +28,23 @@ module.exports = function(){
         else
             return(JSON.parse(this.processor_data));
     });
-
     this.setter("processorData", function(value) {
         this.processor_data = JSON.stringify(value);
     });
+
+    this.getter("launcherData", function() {
+        if (this.launcher_data === null)
+            return {};
+        else {
+            debug("parsing");
+            debug(this.launcher_data);
+            return (JSON.parse(this.launcher_data));
+        }
+    });
+    this.setter("launcherData", function(value) {
+        this.launcher_data = JSON.stringify(value);
+    });
+
 
 
     this.hasMany('parameter_value_int');
@@ -152,6 +165,18 @@ module.exports = function(){
         });
     };
 
+    this.getOutFile = function() {
+        return this.wd + "/out.log";
+    };
+
+    this.getOutfileContents = function(callback) {
+        debug("getting outfile contents");
+        var outfile = this.getOutFile();
+
+        fs.readFile(this.getOutFile(), (err, data) => {
+            callback(err, data);
+        });
+    };
 
 }
 
