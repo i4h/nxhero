@@ -69,9 +69,6 @@ var mkdirsStub = function(path, callback) {
      var expectTwoOneSuccess = function(err, jobs) {
          expect(err).to.be.equal(null);
 
-         debug(jobs[0]);
-         debug(jobs[1]);
-
          expect(jobs).to.be.array();
          expect(jobs).to.be.ofSize(2);
          expect(jobs[0].problem_id).to.be.equal(1);
