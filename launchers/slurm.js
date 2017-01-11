@@ -70,6 +70,7 @@ module.exports = {
                             throw err;
                         } else {
                             var launcherData = module.exports.parseSbatchResponse(stdout);
+                            launcherData.slurmOptions = conf['batchFileOptions'];
                             job.setSubmitted(JSON.stringify(launcherData), function(err) {
                                 if (err !== null)
                                     throw new Error("Error saving submitted data on job");
