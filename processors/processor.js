@@ -11,7 +11,7 @@ var BaseJob = require('../lib/base_job');
 module.exports = {
     id: "base_processor ",
     label: "BaseProcessor",
-    binaries: [],
+    binaryTypes: [],
 
     /** Default implementation to process the given jobs
      * calls processOne on the processor implementation for every job
@@ -36,7 +36,8 @@ module.exports = {
         for (var i = start; i < end; ++i) {
             var job = jobs[i];
             var binary = job.jobgroup.binary;
-            if (!in_array(binary.type, processor.binaryTypes)) {
+            if (   processor.binaryTypes !== '*'
+                && !in_array(binary.type, processor.binaryTypes)) {
                 callback(new Error("Unable to process job " + job.id + " with binary type " + binary.type))
             }
 
@@ -47,8 +48,8 @@ module.exports = {
             }
             calls.push(processClosure(job, i));
         }
-        debug("got calls");
         async.parallel(calls, function (err, results) {
+
             if (err !== null)
                 throw err;
 
