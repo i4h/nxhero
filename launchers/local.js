@@ -9,6 +9,7 @@ var BaseLauncher = require("../lib/base_launcher");
 
 
 module.exports = {
+    id: "local",
     label: "Local launcher",
 
     launch: function(job, callback) {
