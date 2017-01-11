@@ -20,6 +20,7 @@ function Scip() {
 
     var id  = "scip";
     var label =  "SCIP Binary";
+    var takesProblems = true;
 
     var printPreflightResults = true;
 
@@ -105,8 +106,6 @@ function Scip() {
                 /* Seperate binaryHashes from repo status */
                 binaryHashes = results.slice(-1)[0];
                 results.splice(-1);
-
-
 
                 /* Check States, compare with binaryhashes, build output table */
                 var okay = true;
@@ -226,6 +225,7 @@ function Scip() {
     return {
         id: id,
         label: label,
+        takesProblems: takesProblems,
         getLabel: getLabel,
         cleanRepos: cleanRepos,
         printPreflightResults: printPreflightResults,

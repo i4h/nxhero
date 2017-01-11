@@ -2,18 +2,23 @@
 var scip = require('../binaries/scip');
 var extend = require('node.extend');
 var debug       = require('debug')('nxhero');
+var async = require('async');
+var fs = require('fs-extra');
 
 var sdscip = extend(true, {}, scip);
 
 sdscip.id  ="sdscip";
 sdscip.label =   "SD-SCIP Binary";
+sdscip.takesProblems = true;
+
 sdscip.cleanRepos = [
-    '{binary.path}/..',
-    '{binary.path}/../lib/scip',
-    '{binary.path}/../sdotools/spline',
-    '{binary.path}/../sdotools/libsdo',
-    '{binary.path}/../sdotools/simd',
-    '{binary.path}/../sdotools/cpplsq',
+    '{binary.dir}/..',
+    '{binary.dir}/../lib/scip',
+    '~/repos/sdscip_problems',
+    '~/repos/sdotools/spline',
+    '~/repos/sdotools/libsdo',
+    '~/repos/sdotools/simd',
+    '~/repos/sdotools/cpplsq',
 ];
 
 sdscip.prepareJob = function(wd, callback) {
