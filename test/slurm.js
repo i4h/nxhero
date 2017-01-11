@@ -56,5 +56,30 @@ describe("Test of slurm launcher", function() {
             done();
         }));
     });
+    describe("parseSbatchResonse", function() {
+        it("parse expected response", sinon.test(function(done) {
+            var response = "Submitted batch job 28";
+            expect(slurm.parseSbatchResponse(response)).to.be.deep.equal({
+                job_id: 28
+            });
+            done();
+
+        }));
+        it("catch error from unknown response", sinon.test(function(done) {
+            var response = "Something went wrong";
+            var localErr = null;
+            try {
+                slurm.parseSbatchResponse(response);
+            } catch(err) {
+                localErr = err
+            }
+            expect(localErr).to.be.an('error');
+            expect(localErr.message).to.match(/Unable to parse sbatch output/);
+            expect(localErr.message).to.match(/Something went wrong/);
+            done();
+
+        }));
+    });
+
 });
 
