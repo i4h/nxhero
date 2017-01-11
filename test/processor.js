@@ -9,7 +9,7 @@ var SharedHooks = require('./shared_hooks');
 var processor = require('../processors/processor');
 
 
-describe("Test of base processor", function() {
+describe("Test of processor base module", function() {
 
     var store;
 

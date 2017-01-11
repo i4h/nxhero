@@ -36,7 +36,7 @@ module.exports = {
         for (var i = start; i < end; ++i) {
             var job = jobs[i];
             var binary = job.jobgroup.binary;
-            if (!in_array(binary.type, processor.binaries)) {
+            if (!in_array(binary.type, processor.binaryTypes)) {
                 callback(new Error("Unable to process job " + job.id + " with binary type " + binary.type))
             }
 
@@ -47,6 +47,7 @@ module.exports = {
             }
             calls.push(processClosure(job, i));
         }
+        debug("got calls");
         async.parallel(calls, function (err, results) {
             if (err !== null)
                 throw err;
