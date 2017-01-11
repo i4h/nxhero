@@ -35,11 +35,8 @@ module.exports = function(){
     this.getter("launcherData", function() {
         if (this.launcher_data === null)
             return {};
-        else {
-            debug("parsing");
-            debug(this.launcher_data);
+        else
             return (JSON.parse(this.launcher_data));
-        }
     });
     this.setter("launcherData", function(value) {
         this.launcher_data = JSON.stringify(value);
@@ -170,7 +167,6 @@ module.exports = function(){
     };
 
     this.getOutfileContents = function(callback) {
-        debug("getting outfile contents");
         var outfile = this.getOutFile();
 
         fs.readFile(this.getOutFile(), (err, data) => {

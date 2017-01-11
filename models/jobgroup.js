@@ -2,12 +2,12 @@ var inquirer    = require('inquirer');
 var chalk       = require('chalk');
 var nconf       = require('nconf');
 var async = require('async');
-
+var date = require('../lib/date');
 
 var cartesian = require('cartesian');
 var OpenRecord = require('openrecord');
 var zpad = require('zpad');
-var fs = require('fs-extra')
+var fs = require('fs-extra');
 const path      = require('path');
 var debug       = require('debug')('nxhero');
 
@@ -148,7 +148,13 @@ module.exports = function() {
             if (err)
                 throw err;
             log.info("All jobs submitted");
-            callback(err, results);
+
+            jobgroup.setLaunched(function(err) {
+                if (err)
+                    throw err;
+                callback(err, results);
+            })
+
         });
     };
 
@@ -172,7 +178,6 @@ module.exports = function() {
         this.prepareLaunch(store, {}, function (err, data) {
             var problems = data.problems;
             var parametersById = data.parametersById;
-            debug(parametersById);
 
             /* Summarize the launch and allow the user to abort */
             var parameterValues = jobgroup.getParameterValues();
@@ -193,7 +198,6 @@ module.exports = function() {
             if (problems !== null)
                 log.verbose("Problems: " + problemNames.join(", "));
 
-            debug(parameterValues);
             for (var i  in parameterValues) {
                 id = i.split("_")[1];
                 log.verbose("Values of " + parametersById[id].name + ": " + (typeof parameterValues[i] !== "string" ? parameterValues[i].join(", ") : parameterValues[i]));
@@ -228,5 +232,15 @@ module.exports = function() {
             });
 
         });
+    };
+
+    this.setLaunched = function(callback) {
+        this.launched_date = date.dbDatetime();
+        this.save(function(okay) {
+            if (!okay)
+                    callback(new Error("Error updating this " + this.id));
+            else
+                callback(null);
+            });
     };
 };

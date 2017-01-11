@@ -29,9 +29,7 @@ module.exports = {
 
 
     launch: function(job, callback) {
-        debug("slurm: launching " + job.id);
         var conf = this.getConf();
-        debug(conf);
         zpad.amount(nconf.get('runs').idpadamount);
         var jobName = "job_" + zpad(job.id);
         var batchFile = job.wd + "/" +jobName + ".sh";
@@ -64,14 +62,9 @@ module.exports = {
                 /* Make executable */
                 fs.chmodSync(batchFile, '755');
 
-                debug("made file");
                 if (conf['submit'] === true) {
-                    debug("will submit");
                     const sbatchOut = fs.openSync(job.wd + '/sbatch_out.log', 'w');
                     var sbatchCmd = 'sbatch "' + batchFile + '"';
-                    debug("executing: ");
-                    debug(sbatchCmd);
-
                     child_process.exec(sbatchCmd ,{cwd: job.wd}, function (err, stdout, stderr) {
                         if (err instanceof Error) {
                             throw err;
@@ -119,7 +112,6 @@ module.exports = {
      * @param callback
      */
     updateJobsStatus: function (store, options, callback) {
-        debug("slurm: updateJobSTatus");
         /* Get unfinished jobs */
         BaseLauncher.getUnfinishedJobs(store, module.exports.id, module.exports.unfinishedStatuses, function(jobs) {
             if (jobs.length === 0) {
@@ -159,7 +151,6 @@ module.exports = {
         } else {
             var updated = false;
             var cmd = 'squeue --noheader -o "%T" --jobs='+ data.slurm_job_id;
-            debug(cmd);
             child_process.exec(cmd ,{}, function (err, stdout, stderr) {
                 if (err !== null || stdout === "") {
                     /* squeue fails if the job is not in queue, we assume this means completion */
