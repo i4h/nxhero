@@ -1,18 +1,22 @@
 var debug       = require('debug')('nxhero');
 const fs = require('fs');
-const spawn = require('child_process').spawn;
-var date = require('../lib/date');
+const child_process = require('child_process');
+
 var os = require("os");
 var nconf       = require('nconf');
 var zpad = require('zpad');
+var async = require("async");
 
 
 var BaseLauncher = require("../lib/base_launcher");
 var log = require("../lib/log");
-
+var date = require('../lib/date');
 
 module.exports = {
+    id: "slurm",
     label: "SLURM launcher",
+    unfinishedStatuses : ['submitted', 'slurm_pending', 'slurm_running'],
+
     getConf: function() {
         var launcher = nconf.get('launchers');
         if (typeof launcher !== "undefined")
@@ -21,11 +25,13 @@ module.exports = {
             return {};
     },
     terminatedRegex : /srun: error: [\w-\.]*: task \d*: Terminated/,
+    sbatchRegex : /Submitted batch job (\d*)/,
+
 
     launch: function(job, callback) {
-
+        debug("slurm: launching " + job.id);
         var conf = this.getConf();
-
+        debug(conf);
         zpad.amount(nconf.get('runs').idpadamount);
         var jobName = "job_" + zpad(job.id);
         var batchFile = job.wd + "/" +jobName + ".sh";
@@ -55,40 +61,46 @@ module.exports = {
             if (err)
                 throw err;
             else {
-
                 /* Make executable */
                 fs.chmodSync(batchFile, '755');
 
+                debug("made file");
                 if (conf['submit'] === true) {
-                    process.exit();
-
+                    debug("will submit");
                     const sbatchOut = fs.openSync(job.wd + '/sbatch_out.log', 'w');
-                    var sbatchCmd = 'sbatch';
-                    var sbtachArgs = [batchFile];
+                    var sbatchCmd = 'sbatch "' + batchFile + '"';
+                    debug("executing: ");
+                    debug(sbatchCmd);
 
-                    try {
-
-                        child = spawn(sbatchCmd, sbatchArgs, {
-                            cwd: job.wd,
-                            detached: true,
-                            stdio: ['ignore', sbatchOut, sbatchOut]
-                        });
-                    } catch (err) {
-                        throw err;
-                    }
-
-                    job.setSubmitted("", function(err) {
-                        if (err !== null)
-                            throw new Error("Error saving submitted data on job");
+                    child_process.exec(sbatchCmd ,{cwd: job.wd}, function (err, stdout, stderr) {
+                        if (err instanceof Error) {
+                            throw err;
+                        } else {
+                            var launcherData = module.exports.parseSbatchResponse(stdout);
+                            job.setSubmitted(JSON.stringify(launcherData), function(err) {
+                                if (err !== null)
+                                    throw new Error("Error saving submitted data on job");
+                                log.verbose("Job " + job.id + " submitted");
+                                return callback(null, stdout);
+                            });
+                        }
                     });
-                    child.on('error', BaseLauncher.errClosure(job));
-                    child.unref();
                 } else {
-                    console.log("Created batch file. Not submitting according to launcher configuration.");
+                    log.verbose("Created batch file. Not submitting according to launcher configuration.");
+                    return callback(null, {});
                 }
-                return callback(null, {});
             }
         });
+    },
+
+    parseSbatchResponse : function(stdout) {
+        var matches_array = stdout.match(module.exports.sbatchRegex);
+        if (matches_array === null) {
+            throw new Error("Unable to parse sbatch output:\n" + stdout);
+        }
+        var result = {slurm_job_id: parseInt(matches_array[1])}
+        return result;
+
     },
 
     checkStatus: function (job, outString) {
@@ -98,5 +110,79 @@ module.exports = {
             job.status = "terminated_slurm";
         }
         return;
+    },
+
+    /** Update status of all jobs launcher is responsible for
+     *
+     * @param store
+     * @param options
+     * @param callback
+     */
+    updateJobsStatus: function (store, options, callback) {
+        debug("slurm: updateJobSTatus");
+        /* Get unfinished jobs */
+        BaseLauncher.getUnfinishedJobs(store, module.exports.id, module.exports.unfinishedStatuses, function(jobs) {
+            if (jobs.length === 0) {
+                log.verbose("No unfinished jobs for " + module.exports.label)
+                return callback(null);
+            }
+
+            var calls = [];
+            var updateJobClosure = function(job) {
+                return function(callback) {
+                    return module.exports.updateJobStatus(store, job, {}, callback);
+                }
+            };
+            for (var i = 0; i< jobs.length; ++i) {
+                calls.push(updateJobClosure(jobs[i]));
+            }
+            async.parallel(calls, function(err, results) {
+                if (err)
+                    throw err;
+                callback(null);
+            })
+        });
+    },
+    /** Update status for single job
+     *
+     * @param store
+     * @param job
+     * @param options
+     * @param callback
+     */
+    updateJobStatus: function(store, job, options, callback) {
+
+        var data = job.launcherData;
+        if (typeof data.slurm_job_id === "undefined") {
+            log.verbose("Job " + job.id + ": No slurm job id saved. Unable to query status.");
+            callback(null);
+        } else {
+            var updated = false;
+            var cmd = 'squeue --noheader -o "%T" --jobs='+ data.slurm_job_id;
+            debug(cmd);
+            child_process.exec(cmd ,{}, function (err, stdout, stderr) {
+                if (err !== null || stdout === "") {
+                    /* squeue fails if the job is not in queue, we assume this means completion */
+                    job.finished = date.dbDatetime();
+                    job.execution_status = 'finished';
+                    updated = true;
+                } else {
+                    /* Parse squeue response for status */
+                    var status = stdout.replace(/\n$/, '').toLowerCase();
+                    job.execution_status = "slurm_" + status;
+                    updated = true;
+                }
+
+                if (updated === true) {
+                    job.save(function(okay) {
+                        if (!okay)
+                            throw new Error("error updating job " + job.id);
+                        return callback(null);
+                    })
+                } else {
+                    return callback(null);
+                }
+            });
+        }
     }
 }
