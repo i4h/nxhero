@@ -16,6 +16,29 @@ var ArrayHelper = require('../lib/array_helper');
 
 
 describe("Array Helper ", function() {
+    describe("containsAll", function() {
+        it("one needle in haystack ", sinon.test(function(done) {
+            expect(ArrayHelper.containsAll([1], [1])).to.equal(true);
+            expect(ArrayHelper.containsAll([1], [1,2,3])).to.equal(true);
+            expect(ArrayHelper.containsAll([1], [5,1,2,3])).to.equal(true);
+            expect(ArrayHelper.containsAll([1], [])).to.equal(false);
+            expect(ArrayHelper.containsAll([1], [2,3,4])).to.equal(false);
+            expect(ArrayHelper.containsAll(['alpha'], ['omega'])).to.equal(false);
+            expect(ArrayHelper.containsAll(['peter'], ['paul','and','mary'])).to.equal(false);
+            expect(ArrayHelper.containsAll(['peter'], ['peter', 'paul','and','mary'])).to.equal(true);
+
+            done();
+        }));
+        it("two needles in haystack ", sinon.test(function(done) {
+            expect(ArrayHelper.containsAll([1,2], [1,2,3,4,5])).to.equal(true);
+            expect(ArrayHelper.containsAll([2,1], [1,2,3,4,5])).to.equal(true);
+            expect(ArrayHelper.containsAll([2,1], [10,11,1,2,3,4,5])).to.equal(true);
+            expect(ArrayHelper.containsAll([2,1], [])).to.equal(false);
+            expect(ArrayHelper.containsAll([2,1], ['alpha'])).to.equal(false);
+            done();
+        }));
+
+    });
     describe("gets unique column ids", function() {
         it("from jobs from different jobgroups", sinon.test(function(done) {
             jobs = [
