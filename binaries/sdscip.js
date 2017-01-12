@@ -21,6 +21,8 @@ sdscip.cleanRepos = [
     '~/repos/sdotools/cpplsq',
 ];
 
+sdscip.setFile = "sdscip.set";
+
 sdscip.prepareJob = function(wd, callback) {
     async.parallel([
         function(callback) {

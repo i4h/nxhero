@@ -213,7 +213,6 @@ function Scip() {
                 settings += record.parameter.name + " = " + value + "\n";
             }
         }
-
         var file = wd + "/" + this.setFile;
         fs.writeFile(file, settings, {flags:" O_WRONLY"} ,(err) => {
             if (err)
@@ -228,6 +227,7 @@ function Scip() {
         takesProblems: takesProblems,
         getLabel: getLabel,
         cleanRepos: cleanRepos,
+        setFile: setFile,
         printPreflightResults: printPreflightResults,
         getBinaryHashes: getBinaryHashes,
         prepareJobgroup: prepareJobgroup,
