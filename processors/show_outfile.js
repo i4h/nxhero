@@ -37,7 +37,7 @@ var showOutfileProcessor = {
         });
     },
 
-    afterProcessing: function(jobs, results, callback) {
+    afterProcessing: function(store, jobs, results, callback) {
         log.info("Showing outfiles for " + jobs.length + "jobs:");
         log.verbose(results.join(""));
         log.info(this.label + " finished");

@@ -54,7 +54,7 @@ module.exports = {
                 throw err;
 
             if (typeof processor.afterProcessing === "function") {
-                return processor.afterProcessing(jobs, results, callback);
+                return processor.afterProcessing(store, jobs, results, callback);
             } else {
                 console.info("Finished");
                 return callback(null);

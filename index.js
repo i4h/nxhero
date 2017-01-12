@@ -19,7 +19,7 @@ var fs          = require('fs');
 var nconf       = require('nconf');
 var debug       = require('debug')('nxhero');
 var winston = require('winston');
-
+var in_array = require('in_array');
 
 process.env.NODE_ENV = 'console';
 
@@ -27,6 +27,7 @@ var ParameterMenus = require('./lib/parameter_menus');
 var ProblemMenus = require('./lib/problem_menus');
 var JobgroupMenus = require('./lib/jobgroup_menus');
 var JobFilterMenus = require('./lib/jobfilter_menus');
+var JobFilter = require('./lib/job_filter');
 var BinaryMenus = require('./lib/binary_menus');
 var StorageMenus = require('./lib/storage_menus');
 
@@ -35,6 +36,7 @@ var date = require('./lib/date');
 
 var BaseParameter = require('./lib/base_parameter');
 var BaseLauncher = require('./lib/base_launcher');
+var BaseProcessor = require('./lib/base_processor');
 
 var dbConnected = false;
 var store;
@@ -99,6 +101,29 @@ function mainMenu(callback) {
     });
 }
 
+var handleCommands = function() {
+    if (typeof process.argv[2] !== "undefined") {
+        switch( process.argv[2]) {
+            case "process":
+                /* Get processor */
+                processorId = nconf.get("processor");
+                if (typeof processorId === "undefined")
+                    throw new Error("--processor= flag required");
+                var processor = BaseProcessor.registry[processorId];
+                if (typeof processor === "undefined")
+                    throw new Error("Processor " + processorId + "not found.");
+
+                JobFilter.getJobsFromCmdLineArgs(store, {joinValues: true, join: {jobgroup: "binary", problem: true}}, function(err, jobs) {
+                    processor.process(store, jobs, {}, function() {
+                        log.info("Finished Processing");
+                        process.exit();
+                    });
+                });
+                break;
+        }
+    }
+}
+
 // Load configuration
 nconf.argv()
     .env()
@@ -110,8 +135,13 @@ console.log("Startup: Opening db at " + (dbConf.type === "sqlite3" ? dbConf.file
 db.open(dbConf, function(err, newStore) {
     store  = newStore;
     debug("db ready");
+
+    handleCommands();
 });
 
-
-mainMenu();
+/* Show mainMenu if no command was given */
+var commands = ['process'];
+if (typeof process.argv[2] === "undefined" || !in_array(process.argv[2], commands)) {
+    mainMenu();
+}
 
