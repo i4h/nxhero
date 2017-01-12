@@ -28,7 +28,7 @@ module.exports = {
     sbatchRegex : /Submitted batch job (\d*)/,
 
 
-    launch: function(job, callback) {
+    launch: function(store, job, callback) {
         var conf = this.getConf();
         zpad.amount(nconf.get('runs').idpadamount);
         var jobName = "job_" + zpad(job.id);
@@ -85,6 +85,42 @@ module.exports = {
                 }
             }
         });
+    },
+
+    cancel: function(store, job, options, callback) {
+        var data = job.launcherData;
+        if (typeof data.slurm_job_id === "undefined")
+            throw new Error("Can not cancel job " + job.id + " because no slurm_id was saved");
+
+        var scancelCmd = 'scancel ' + data.slurm_job_id;
+        debug(scancelCmd);
+        var simulate = false;
+        if (simulate !== true) {
+        child_process.exec(scancelCmd ,{}, function (err, stdout, stderr) {
+            if (err instanceof Error) {
+                throw err;
+            } else {
+                job.execution_status = "canceled_obra_stall";
+                job.finished = date.dbDatetime();
+                job.success = false;
+                job.save(function(okay) {
+                    if (!okay)
+                        throw new Error("Error setting job to finished");
+
+                    log.info("Canceled job " + job.id);
+                    debug(stdout);
+                    return callback(null);
+                });
+            }
+        });
+        } else {
+            job.execution_status = "canceled_obra_stall";
+            job.finished = date.dbDatetime();
+            job.success = false;
+            debug("would save job");
+            debug(job);
+            return callback(null);
+        }
     },
 
     parseSbatchResponse : function(stdout) {

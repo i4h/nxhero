@@ -12,7 +12,7 @@ module.exports = {
     id: "local",
     label: "Local launcher",
 
-    launch: function(job, callback) {
+    launch: function(store, job, callback) {
         const out = fs.openSync(job.wd + '/out.log', 'w');
         const err = fs.openSync(job.wd + '/error.log', 'w');
 

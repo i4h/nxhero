@@ -148,6 +148,15 @@ module.exports = function(){
         });
     };
 
+    this.cancel = function(store, options, callback) {
+        var launcher = BaseJob.getLauncher(this.jobgroup.launcher);
+        if (typeof launcher.cancel !== "function") {
+            throw new Error("cancel not implemented for launcher " + launcher.label);
+        } else {
+            return launcher.cancel(store, this, {}, callback);
+        }
+    }
+
     this.setSubmitted = function(launcherData, callback) {
         this.launcher_data = launcherData;
         this.submitted = date.dbDatetime();
