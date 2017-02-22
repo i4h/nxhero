@@ -136,7 +136,7 @@ module.exports = function(){
                 job.args = binary.getArgs(job, params);
 
                 var launcher = BaseJob.getLauncher(job.jobgroup.launcher);
-                launcher.launch(job, function (err, processInfo) {
+                launcher.launch(store, job, function (err, processInfo) {
                     if (err !== null) {
                         log.verbose("Error launching job " + job.id);
                     }
