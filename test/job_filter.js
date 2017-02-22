@@ -74,41 +74,42 @@ describe("job_filter module", function() {
 
     describe("handle parameter filter Update", function() {
         it("adds a single parameter filter", sinon.test(function (done) {
-            var userInput = [ 'p', { paramId: 1, values: [ '0', '1', '3' ] } ];
-            var userInputSaved = userInput.slice();
+            var userInput = [ 'p', 's', { paramId: 1, values: [ '0', '1', '3' ] } ];
+            var userInputSaved = userInput.slice(-1)[0]
             var filters = {};
 
             JobFilter.updateFilters(filters, userInput, data);
             debug(filters);
 
             expect(filters.parameters).to.be.an.object;
-            expect(filters.parameters["1"]).to.be.an.object;
-            expect(filters.parameters["1"].name).to.be.equal("param1");
-            expect(filters.parameters["1"].values).to.deep.equal(userInputSaved[1].values);
+            expect(filters.parameters[1]).to.be.an.object;
+            expect(filters.parameters[1].name).to.be.equal("param1");
+            expect(filters.parameters[1].values).to.deep.equal(userInputSaved.values);
             done();
 
         }));
 
         it("overwrites a parameter filter", sinon.test(function (done) {
             /* Create filter */
-            var userInput = [ 'p', { paramId: 1, values: [ '0', '1', '3' ] } ];
-            var userInputSaved = userInput.slice();
+            var userInput = [ 'p', 's', { paramId: 1, values: [ '0', '1', '3' ] } ];
+            var userInputSaved = userInput.slice(-1)[0]
+
             var filters = {};
             JobFilter.updateFilters(filters, userInput, data);
             expect(filters.parameters).to.be.an.object;
             expect(filters.parameters["1"]).to.be.an.object;
             expect(filters.parameters["1"].name).to.be.equal("param1");
-            expect(filters.parameters["1"].values).to.deep.equal(userInputSaved[1].values);
+            expect(filters.parameters["1"].values).to.deep.equal(userInputSaved.values);
 
             /* Overwrite filter */
-            var userInput = [ 'p', { paramId: 1, values: [ 'alpha', 'beta', 'gamma'] } ];
-            var userInputSaved = userInput.slice();
+            var userInput = [ 'p', 's', { paramId: 1, values: [ 'alpha', 'beta', 'gamma'] } ];
+            var userInputSaved = userInput.slice(-1)[0];
             var filters = {};
             JobFilter.updateFilters(filters, userInput, data);
             expect(filters.parameters).to.be.an.object;
             expect(filters.parameters["1"]).to.be.an.object;
             expect(filters.parameters["1"].name).to.be.equal("param1");
-            expect(filters.parameters["1"].values).to.deep.equal(userInputSaved[1].values);
+            expect(filters.parameters["1"].values).to.deep.equal(userInputSaved.values);
             done();
         }));
 
@@ -116,21 +117,21 @@ describe("job_filter module", function() {
             var filters = {};
             var userInputSaved = [];
 
-            var userInput = [ 'p', { paramId: 1, values: [ '0', '1', '3' ] } ];
-            userInputSaved.push(userInput.slice());
+            var userInput = [ 'p', 's', { paramId: 1, values: [ '0', '1', '3' ] } ];
+            userInputSaved.push(userInput.slice(-1)[0]);
             JobFilter.updateFilters(filters, userInput, data);
 
-            userInput = [ 'p', { paramId: 2, values: [ 'a','b' ] } ];
-            userInputSaved.push(userInput.slice());
+            userInput = [ 'p', 's', { paramId: 2, values: [ 'a','b' ] } ];
+            userInputSaved.push(userInput.slice(-1)[0]);
             JobFilter.updateFilters(filters, userInput, data);
 
             for (var i = 0; i < 2; ++i) {
                 debug(i);
                 expect(filters.parameters).to.be.an.object;
                 expect(filters.parameters[i+1]).to.be.an.object;
-                expect(i+1).to.be.equal(userInputSaved[i][1].paramId);
-                expect(filters.parameters[i+1].name).to.be.equal(data.parameters.parametersById[userInputSaved[i][1].paramId].name );
-                expect(filters.parameters[i+1].values).to.deep.equal(userInputSaved[i][1].values);
+                expect(i+1).to.be.equal(userInputSaved[i].paramId);
+                expect(filters.parameters[i+1].name).to.be.equal(data.parameters.parametersById[userInputSaved[i].paramId].name );
+                expect(filters.parameters[i+1].values).to.deep.equal(userInputSaved[i].values);
             }
 
             done();
