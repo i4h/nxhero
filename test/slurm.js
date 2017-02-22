@@ -60,7 +60,7 @@ describe("Test of slurm launcher", function() {
         it("parse expected response", sinon.test(function(done) {
             var response = "Submitted batch job 28";
             expect(slurm.parseSbatchResponse(response)).to.be.deep.equal({
-                job_id: 28
+                slurm_job_id: 28
             });
             done();
 
