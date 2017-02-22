@@ -3,7 +3,6 @@ var in_array = require('in_array');
 const child_process = require('child_process');
 var async = require('async');
 
-var slurm = require('../launchers/slurm');
 var log = require("../lib/log");
 var BaseJob = require('../lib/base_job');
 
