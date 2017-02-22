@@ -41,22 +41,12 @@ describe("SCIP binary module features", function() {
     var greetingPath = path.resolve('./test/scip_greeting.txt')
     /* Mock resolveHome */
     var resolveHomeMock = function(path) {
-        if (path === "~/unresolved/path/to/binary")
-            return("/home/user/resolved/path/to/binary");
-        else if (path === "~/unresolved/path/to/binary/..")
-            return("/home/user/resolved/path/to");
-        else
-            throw Error("resolveHome mock got unexpected input path: " + path);
+        return(path.replace("~", '/home/user'));
     };
 
     /* Mock path.resolve */
     var resolveMock = function(path) {
-        if (path === "/home/user/resolved/path/to/binary")
-            return("/home/user/resolved/path/to/binary");
-        else if (path === "/home/user/resolved/path/to")
-            return("/home/user/resolved/path/to");
-        else
-            throw Error("resolve mock got unexpected input path: " + path);
+        return path.replace("unresolved","resolved").replace("/binary/..","");
     };
 
     /* Mock child_process.exec */
@@ -96,7 +86,7 @@ describe("SCIP binary module features", function() {
                 return callback(null, ["THEhash00"]);
             });
             this.stub(Git, 'hashState', function(repoPath, callback) {
-                if (repoPath === "/home/user/resolved/path/to")
+                if (repoPath === "/home/user/resolved/path/to/..")
                     callback(null, {state: "clean", hash: 'THEhash00'});
                 else
                     throw Error("git hashstate mock got unexpected input path: " + repoPath);
@@ -111,7 +101,7 @@ describe("SCIP binary module features", function() {
             jobgroup.save = function(callback) {
                 expect(this.id).to.equal(1);
                 expect(this.wd).to.equal('/mock/group/wd');
-                expect(this.binary_data).to.equal('{"{binary.path}/..":{"state":"clean","hash":"THEhash00"}}');
+                expect(this.binary_data).to.equal('{"{binary.dir}/..":{"state":"clean","hash":"THEhash00"}}');
                 callback(true);
             }
             scip.prepareJobgroup(jobgroup, jobgroup.wd, function(err, result) {
@@ -128,7 +118,7 @@ describe("SCIP binary module features", function() {
                 return callback(null, ["THEhash11"]);
             });
             this.stub(Git, 'hashState', function(repoPath, callback) {
-                if (repoPath === "/home/user/resolved/path/to")
+                if (repoPath === "/home/user/resolved/path/to/..")
                     callback(null, {state: "clean", hash: 'THEhash00'});
                 else
                     throw Error("git hashstate mock got unexpected input path: " + repoPath);
