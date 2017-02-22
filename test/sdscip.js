@@ -65,9 +65,9 @@ describe("SD-SCIP binary module features", function() {
     };
 
     var hashStateMock = function(repoPath, callback) {
-        if (repoPath === "/home/user/resolved/path/to")
+        if (repoPath === "/home/user/resolved/path/to/..")
             callback(null, {state: "clean", hash: 'THEhash00'});
-        else if (repoPath === "/home/user/resolved/path/to/lib/scip")
+        else if (repoPath === "/home/user/resolved/path/to/../lib/scip")
             callback(null, {state: "clean", hash: 'THEhash11'});
         else {
             var pathParts = repoPath.split("/");
@@ -111,7 +111,7 @@ describe("SD-SCIP binary module features", function() {
                 expect(this.id).to.equal(1);
                 expect(this.wd).to.equal('/mock/group/wd');
                 var bd = JSON.parse(this.binary_data);
-                var expectedHashes = ['THEhash00', 'THEhash11', 'a0spline', 'a0libsdo', 'a0simd', 'a0cpplsq'];
+                var expectedHashes = ['THEhash00', 'THEhash11', 'a0sdscip_problems','a0spline', 'a0libsdo', 'a0simd', 'a0cpplsq'];
                 var counter = 0;
                 for (var i in bd ) {
                     expect(bd[i].state).to.equal('clean');
