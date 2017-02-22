@@ -18,7 +18,7 @@ describe("Test of static processor methods", function() {
 
     describe("getApplicableProcessors", function() {
         BaseProcessor.registry = {
-            p1: {processor: {label: "Binary 1"}, binaryTypes: ['binary1']}
+            p1: {label: "Binary 1", binaryTypes: ['binary1']}
         };
         it("one of one applicable", sinon.test(function(done) {
             expect(BaseProcessor.getApplicableProcessorLabels(['binary1'])).to.be.deep.equal({p1: "Binary 1"});
