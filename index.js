@@ -87,7 +87,7 @@ function mainMenu(callback) {
         .then(function(answers) {
 
 
-        if (typeof(answers.action) == 'function') {
+        if (typeof answers.action === 'function') {
             answers.action(store, {}, mainMenu);
         } else {
             switch(answers.action) {
@@ -142,6 +142,6 @@ db.open(dbConf, function(err, newStore) {
 /* Show mainMenu if no command was given */
 var commands = ['process'];
 if (typeof process.argv[2] === "undefined" || !in_array(process.argv[2], commands)) {
-    mainMenu();
+    mainMenu(process.exit);
 }
 
