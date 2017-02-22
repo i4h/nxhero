@@ -59,7 +59,7 @@ describe("Job", function() {
 
     after(function() {
         delete store;
-    })
+    });
 
 
     describe("launch job with local launcher", function() {
