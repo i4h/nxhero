@@ -59,6 +59,7 @@ describe("Job", function() {
 
     after(function() {
         delete store;
+        delete job;
     });
 
 
