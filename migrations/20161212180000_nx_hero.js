@@ -13,6 +13,7 @@ module.exports = function(){
         this.string('name');
         this.text('binary_data');
         this.string('launcher');
+        this.text('parameter_values');
         this.text('description');
         this.datetime('created_at');
         this.datetime('updated_at');
