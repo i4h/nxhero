@@ -65,7 +65,7 @@ function Scip() {
      * @param wd working directory of the jobgroup
      * @param callback
      */
-    function prepareJobgroup(jobgroup, wd, callback) {
+    function runPreflightChecks(jobgroup, wd, callback) {
         var scip = this;
         var cleanRepos = this.cleanRepos;
         var printPreflightResults = this.printPreflightResults;
@@ -162,7 +162,7 @@ function Scip() {
                 /* Everything okay, save hashes in binary_data of jobgroup */
                 if (jobgroup.binary_data !== null ) {
                     oldBinData = JSON.parse(jobgroup.binary_data);
-                    binaryData = extend(oldBinData,{prepareJobgroup: binaryData});
+                    binaryData = extend(oldBinData,{runPreflightChecks: binaryData});
                 }
 
                 jobgroup.binary_data = JSON.stringify(binaryData);
@@ -230,7 +230,7 @@ function Scip() {
         setFile: setFile,
         printPreflightResults: printPreflightResults,
         getBinaryHashes: getBinaryHashes,
-        prepareJobgroup: prepareJobgroup,
+        runPreflightChecks: runPreflightChecks,
         prepareJob: prepareJob,
         setParams: setParams
     };

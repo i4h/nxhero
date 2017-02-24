@@ -13,7 +13,7 @@ module.exports = {
      * @param wd working directory of the jobgroup
      * @param callback(err)
      */
-    prepareJobgroup: function (jobgroup, wd, callback) {
+    runPreflightChecks: function (jobgroup, wd, callback) {
         return callback(null);
     },
 

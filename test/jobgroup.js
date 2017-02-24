@@ -151,6 +151,7 @@ var mkdirsStub = function(path, callback) {
                                      }),
                                      name: 'demo',
                                      launcher: "local",
+                                     wd: '/path/to/rootdir/group_001'
                                  },
                                  callback
                              );

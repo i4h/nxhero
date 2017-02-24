@@ -121,7 +121,7 @@ describe("SD-SCIP binary module features", function() {
                 callback(true);
             }
 
-            sdscip.prepareJobgroup(jobgroup, jobgroup.wd, function(err, result) {
+            sdscip.runPreflightChecks(jobgroup, jobgroup.wd, function(err, result) {
                 expect(err).to.equal(null);
                 done();
             });
@@ -139,7 +139,7 @@ describe("SD-SCIP binary module features", function() {
             /* Run test */
             var jobgroup = mockScipJobgroup();
 
-            sdscip.prepareJobgroup(jobgroup, jobgroup.wd, function(err, result) {
+            sdscip.runPreflightChecks(jobgroup, jobgroup.wd, function(err, result) {
                 expect(err).to.be.an('error');
                 expect(err.message).to.match(/SD-SCIP Binary Preflight: Repository check was not successful/);
                 done();

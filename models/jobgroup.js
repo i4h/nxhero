@@ -160,7 +160,7 @@ module.exports = function() {
     /** Launch the job by
      * - Getting the launch data
      * - Summarize the launch and have the user confirm
-     * - Run prepareJobgroup on the binary model for preflight
+     * - Run runPreflightChecks on the binary model for preflight
      * - Creating and saving the jobs
      * - Letting the selected launcher launch the jobs
      *
@@ -209,7 +209,7 @@ module.exports = function() {
                     return callback(null);
 
                 /* Run the binaries pre-flight checks */
-                binaryModel.prepareJobgroup(jobgroup, jobgroup.wd, function (err) {
+                binaryModel.runPreflightChecks(jobgroup, jobgroup.wd, function (err) {
                     if (err !== null) {
                         log.info("An error occured in the preflight checks of binary " + binaryModel.label);
                         log.verbose(err.message);

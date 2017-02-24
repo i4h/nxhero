@@ -104,7 +104,7 @@ describe("SCIP binary module features", function() {
                 expect(this.binary_data).to.equal('{"{binary.dir}/..":{"state":"clean","hash":"THEhash00"}}');
                 callback(true);
             }
-            scip.prepareJobgroup(jobgroup, jobgroup.wd, function(err, result) {
+            scip.runPreflightChecks(jobgroup, jobgroup.wd, function(err, result) {
                 expect(err).to.equal(null);
                 done();
             });
@@ -127,7 +127,7 @@ describe("SCIP binary module features", function() {
             /* Run test */
             var jobgroup = mockScipJobgroup();
 
-            scip.prepareJobgroup(jobgroup, jobgroup.wd, function(err, result) {
+            scip.runPreflightChecks(jobgroup, jobgroup.wd, function(err, result) {
                 expect(err).to.be.an('error');
                 expect(err.message).to.match(/SCIP Binary Preflight: Repository check was not successful/);
                 done();
