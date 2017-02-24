@@ -31,7 +31,7 @@ module.exports = {
     launch: function(store, job, callback) {
         var conf = this.getConf();
         zpad.amount(nconf.get('runs').idpadamount);
-        var jobName = "job_" + zpad(job.id);
+        var jobName = "j" + zpad(job.id);
         var batchFile = job.wd + "/" +jobName + ".sh";
 
         /* Create string for sbatch file */
