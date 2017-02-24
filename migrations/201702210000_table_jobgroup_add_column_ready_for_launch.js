@@ -1,5 +1,5 @@
 module.exports = function() {
     this.addColumn('jobgroups', function () {
-        this.string('wd');
+        this.boolean('ready_for_launch');
     });
 };
