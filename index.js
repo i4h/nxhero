@@ -73,15 +73,18 @@ function mainMenu(callback) {
                 {name: 'Binaries', value: BinaryMenus.main},
                 {name: 'Problems', value: ProblemMenus.main},
                 {name: 'Testsets', value: TestsetMenus.main},
+
                 {name: 'Parameters', value: ParameterMenus.main},
-                {name: 'Create Jobgroup', value: JobgroupMenus.add},
+                {name: 'Jobgroups', value: JobgroupMenus.main},
                 {name: 'Launch Jobgroup', value: JobgroupMenus.launch},
                 {name: 'Filter Jobs', value: JobFilterMenus.filter},
                 {name:  'Switch Storage' , value: 'switchStorage'},
                 {name:  'Empty Storage' , value: StorageMenus.empty},
                 {name:  'Quit' , value: process.exit}
             ],
-            default: 0
+            default: 0,
+            pageSize: 9,
+
         }
     ];
 
