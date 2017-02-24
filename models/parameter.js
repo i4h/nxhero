@@ -23,7 +23,7 @@ module.exports = function(){
         switch (Number(this.type)) {
             case BaseParameter.typeString:
                 question['type']  = 'checkbox';
-                question['choices'] = this.values.split(", ");
+                question['choices'] = this.values.split(",");
                 break;
             case BaseParameter.typeInteger:
             case BaseParameter.typeFloat:
