@@ -86,7 +86,6 @@ module.exports = function() {
     /** Create the working directory for this job */
     this.makeWd = function (callback) {
         zpad.amount(nconf.get('runs').idpadamount);
-        this.wd = path.resolve(resolveHome(nconf.get('runs').rootdir) + "/group_" + zpad(this.id));
         fs.mkdirs(this.wd, function (err) {
             callback(err);
         });
