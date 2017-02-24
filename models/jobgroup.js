@@ -243,4 +243,75 @@ module.exports = function() {
                 callback(null);
             });
     };
-};
+
+    this.deleteDeep = function(store, options, callback) {
+        var jobgroup = this;
+/*        inquirer.prompt({
+                type: "confirm",
+                name: "confirm",
+                message: "Really delete jobgroup " + this.name + "with jobs and trash directory?",
+            }
+        ).then(function (answers) {
+            if (answers.confirm === true)
+            */
+            {
+                var calls = [];
+
+                /* Add call to move gropus wd if it exists */
+                /* Check if wd exists before thinking about deleting it */
+                try {
+                    debug("trashing directory");
+                    fs.statSync(directory);
+                    calls.push(function(callback) {
+                        /* Create runs/.trash if needed*/
+                        var trashdir = path.resolve(resolveHome(nconf.get('runs').rootdir) + "/.trash");
+
+                        fs.mkdirs(trashdir, function (err) {
+                            if (err)
+                                throw err;
+
+                            debug("made " + trashdir);
+                            /* Move jobgroup dir to trash */
+                            log.verbose("Moving directory" + jobgroup.wd + "to " + trashdir + "\n");
+                            var target = trashdir + "/" + path.basename(jobgroup.wd);
+                            debug(target);
+                            process.exit();
+                            fs.rename(jobgroup.wd, trashdir, function(err) {
+                                if (err)
+                                    throw err;
+                                return callback(null);
+                            });
+                        });
+                    });
+                } catch(e) {
+                    debug("Groups working directory " + jobgroup.wd + " does not exist.");
+                    log.verbose("Groups working directory " + jobgroup.wd + " does not exist.");
+                }
+
+                /* Delete jobs */
+                calls.push(function(callback) {
+                    debug("deleting jobs");
+                    var Job = store.Model("Job");
+                    Job.where({jobgroup_id: jobgroup.id}).deleteAll(function(okay) {
+                        if (!okay)
+                            throw new Error("Error deleting jobs of jobgroup");
+                        callback(null);
+                    });
+                });
+
+                async.parallel(calls, function(err, results) {
+                    debug("done moving wd and deleting jobs, deleting jobgroup to finish");
+                    /* Finally delete the jobgroup */
+                    jobgroup.delete(function(okay) {
+                        if (!okay)
+                            throw new Error("Error deleting jobgroup");
+                        return callback(null);
+                    });
+                });
+
+            } /*
+        else
+                return callback(null);
+        }); */
+    }
+}
