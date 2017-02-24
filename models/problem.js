@@ -11,6 +11,8 @@ module.exports = function(){
 
     this.models_name = "Problems";
 
+    this.hasMany('testsets_problems');
+
     this.getter("absolutePath", function() {
         return path.resolve(resolveHome(this.path));
     });

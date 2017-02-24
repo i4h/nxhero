@@ -25,6 +25,7 @@ process.env.NODE_ENV = 'console';
 
 var ParameterMenus = require('./lib/parameter_menus');
 var ProblemMenus = require('./lib/problem_menus');
+var TestsetMenus = require('./lib/testset_menus');
 var JobgroupMenus = require('./lib/jobgroup_menus');
 var JobFilterMenus = require('./lib/jobfilter_menus');
 var JobFilter = require('./lib/job_filter');
@@ -71,6 +72,7 @@ function mainMenu(callback) {
                 //Signature of mainMenu callbacks: function(store, options, callback)
                 {name: 'Binaries', value: BinaryMenus.main},
                 {name: 'Problems', value: ProblemMenus.main},
+                {name: 'Testsets', value: TestsetMenus.main},
                 {name: 'Parameters', value: ParameterMenus.main},
                 {name: 'Create Jobgroup', value: JobgroupMenus.add},
                 {name: 'Launch Jobgroup', value: JobgroupMenus.launch},

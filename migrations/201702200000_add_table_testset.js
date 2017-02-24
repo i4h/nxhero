@@ -1,5 +1,14 @@
 module.exports = function() {
-    this.addColumn('jobgroups', function () {
-        this.datetime('launched_date');
+
+    this.createTable('testsets', function(){
+        this.string('name');
     });
+
+    this.createTable('testsets_problems', function(){
+        this.integer("problem_id");
+        this.integer('testset_id');
+    });
+
 };
+
+
