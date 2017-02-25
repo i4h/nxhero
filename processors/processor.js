@@ -48,9 +48,10 @@ module.exports = {
 
         async.waterfall(calls, function(err, results) {
             if (err)
-                throw err;
+                console.error("Error processing: " + err.message);
+            else
+                log.info("Finished");
 
-            log.info("Finished");
             callback(null);
         });
     },
