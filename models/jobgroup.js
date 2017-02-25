@@ -157,6 +157,27 @@ module.exports = function() {
         });
     };
 
+    this.launch = function (store, options, callback) {
+
+        if (this.ready_to_launch === true) {
+            return this.preflightAndLaunch(store, options, callback);
+        } else {
+            return this.prepareAndLaunch(store, options, callback);
+        }
+    };
+
+    /**
+     * If the jobgroup was ready to launch, we dont need to create jobs
+     * or working dirs (this must already be done). Just run binaries preflight and go
+     * @param store
+     * @param options
+     * @param callback
+     * @returns {Error}
+     */
+    this.preflightAndLaunch = function(store, options, callback) {
+        return new Error("not implemented");
+    }
+
     /** Launch the job by
      * - Getting the launch data
      * - Summarize the launch and have the user confirm
@@ -169,8 +190,7 @@ module.exports = function() {
      * @param options
      * @param callback(error, jobs)
      */
-    this.launch = function (store, options, callback) {
-
+    this.prepareAndLaunch = function(store, options, callback) {
         var jobgroup = this;
         var binaryModel = this.binary.getBinaryModel();
 
@@ -211,16 +231,7 @@ module.exports = function() {
                 /* Run the binaries pre-flight checks */
                 binaryModel.runPreflightChecks(jobgroup, jobgroup.wd, function (err) {
                     if (err !== null) {
-                        log.info("An error occured in the preflight checks of binary " + binaryModel.label);
-                        log.verbose(err.message);
-                        inquirer.prompt([{
-                            type: 'list',
-                            name: 'continue',
-                            message: "Okay?",
-                            choices: ["Okay!"]
-                        }]).then(function (answers) {
-                            return callback()
-                        });
+                        return jobgroup.handlePreflightError(binaryModel, err, callback);
                     } else {
                         log.verbose("Preflight checks of " + binaryModel.label + " passed!");
 
@@ -230,6 +241,19 @@ module.exports = function() {
                 });
             });
 
+        });
+    }
+
+    this.handlePreflightError = function(binaryModel, err, callback) {
+        log.info("An error occured in the preflight checks of binary " + binaryModel.label);
+        log.verbose(err.message);
+        inquirer.prompt([{
+            type: 'list',
+            name: 'continue',
+            message: "Okay?",
+            choices: ["Okay!"]
+        }]).then(function (answers) {
+            return callback()
         });
     };
 
