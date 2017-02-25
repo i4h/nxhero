@@ -28,6 +28,46 @@ module.exports = {
         var processor = this;
         log.info("Processing " + jobs.length + " with " + this.label);
 
+        /* Prepare beforeProcessing, processEach and afterProcess as waterfall */
+        var calls = [];
+        /* */
+        if (typeof processor.beforeProcessing === "function") {
+            calls.push(function(callback) {
+                return processor.beforeProcessing(store, jobs, {}, callback);
+            });
+        }
+        calls.push(function(callback) {
+            return processor.processEach(store, jobs, {}, callback);
+        });
+
+        if (typeof processor.afterProcessing === "function") {
+            calls.push(function(results, callback) {
+                return processor.afterProcessing(store, jobs, {}, results, callback);
+            });
+        }
+
+        async.waterfall(calls, function(err, results) {
+            if (err)
+                throw err;
+
+            log.info("Finished");
+            callback(null);
+        });
+    },
+
+    /**
+     * Calls processOne on each job in parallel
+     *
+     * callback MUST get two arguments ( i.e. callback(null, [])  )
+     * for waterfall in process() to work
+     *
+     * @param store
+     * @param jobs
+     * @param options
+     * @param callback
+     */
+    processEach: function(store, jobs, options, callback) {
+        var processor = this;
         /* Call processOne of processor on every job */
         calls = [];
         var start = 0;
@@ -51,13 +91,7 @@ module.exports = {
 
             if (err !== null)
                 throw err;
-
-            if (typeof processor.afterProcessing === "function") {
-                return processor.afterProcessing(store, jobs, results, callback);
-            } else {
-                console.info("Finished");
-                return callback(null);
-            }
+            callback(null, results);
         });
     },
 
@@ -70,6 +104,4 @@ module.exports = {
     getData : function(job) {
         return job.processorData[this.id];
     },
-
-
 }
