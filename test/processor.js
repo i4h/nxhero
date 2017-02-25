@@ -21,7 +21,7 @@ describe("Test of processor base module", function() {
         });
     });
 
-    describe("set and get data", function() {
+    describe("set and get job data", function() {
         it("set data as first processor", sinon.test(function(done) {
             var content = "mydata";
             var Job = store.Model("Job");
