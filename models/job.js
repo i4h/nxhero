@@ -23,11 +23,13 @@ module.exports = function(){
     this.stampable();
 
     this.getter("processorData", function() {
-        if (this.processor_data === null)
+        if (this.processor_data === null || this.processor_data === "") {
             return {};
-        else
-            return(JSON.parse(this.processor_data));
+        } else {
+            return (JSON.parse(this.processor_data));
+        }
     });
+
     this.setter("processorData", function(value) {
         this.processor_data = JSON.stringify(value);
     });
@@ -41,8 +43,6 @@ module.exports = function(){
     this.setter("launcherData", function(value) {
         this.launcher_data = JSON.stringify(value);
     });
-
-
 
     this.hasMany('parameter_value_int');
     this.hasMany('parameter_value_float');
