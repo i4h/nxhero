@@ -103,6 +103,9 @@ module.exports = {
     },
 
     getData : function(job) {
-        return job.processorData[this.id];
+        if (typeof job.processorData[this.id] === "undefined")
+            return {};
+        else
+            return job.processorData[this.id];
     },
 }
