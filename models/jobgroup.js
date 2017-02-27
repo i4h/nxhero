@@ -33,6 +33,18 @@ module.exports = function() {
         return this.name;
     };
 
+    this.setWd = function(store, options, callback) {
+        zpad.amount(nconf.get('runs').idpadamount);
+        this.wd = path.resolve(resolveHome(nconf.get('runs').rootdir) + "/group_" + zpad(this.id));
+        this.save(function (okay) {
+            if (!okay) {
+                return callback(new Error("Unable to set wd on jobgroup"));
+            } else {
+                return callback(null);
+            }
+        });
+    };
+
     this.getProblems = function (store, options, callback) {
         var Model = store.Model("Problem");
         if (this.problem_ids === null)
