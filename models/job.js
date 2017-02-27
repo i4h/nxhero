@@ -71,6 +71,18 @@ module.exports = function(){
         return vals;
     };
 
+    /** Get parameter values of this job by id*/
+    this.getParameterValuesById = function() {
+        vals = {};
+        for (i in BaseParameter.valueRelations) {
+            var relation = BaseParameter.valueRelations[i];
+            for (var j = 0; j < this[relation].length; ++j) {
+                vals[this[relation][j].parameter_id] = this[relation][j].value;
+            }
+        }
+        return vals;
+    };
+
     /** Adds a parameterValue to the correct relation
      *
      * Does not save the change to the store
