@@ -194,8 +194,8 @@ module.exports = function() {
      * - Getting the launch data
      * - Summarize the launch and have the user confirm
      * - Run runPreflightChecks on the binary model for preflight
-     * - Creating and saving the jobs
-     * - Letting the selected launcher launch the jobs
+     * - Create and saving the jobs
+     * - Let the selected launcher launch the jobs
      *
      *  Callback receives an error and the array jobs
      * @param store
