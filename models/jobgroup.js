@@ -228,7 +228,7 @@ module.exports = function() {
                         job.launch(store, {}, callback);
                     }
                 };
-                for (var i = 1; i < jobgroup.job.length; ++i) { //@NOCOMMIT
+                for (var i = 0; i < jobgroup.job.length; ++i) {
                     calls.push(launchCallback(jobgroup.job[i]));
                 }
                 async.parallel(calls, function(err, results) {
