@@ -19,6 +19,7 @@ var BaseProblem = require('../lib/base_problem');
 var BaseJob = require('../lib/base_job');
 var resolveHome = require('../lib/files').resolveHome;
 var log = require("../lib/log");
+var db = require("../lib/db");
 
 module.exports = function() {
 
@@ -33,7 +34,7 @@ module.exports = function() {
         return this.name;
     };
 
-    this.setWd = function(store, options, callback) {
+    this.setWd = function (store, options, callback) {
         zpad.amount(nconf.get('runs').idpadamount);
         this.wd = path.resolve(resolveHome(nconf.get('runs').rootdir) + "/group_" + zpad(this.id));
         this.save(function (okay) {
@@ -160,7 +161,7 @@ module.exports = function() {
                 throw err;
             log.info("All jobs submitted");
 
-            jobgroup.setLaunched(function(err) {
+            jobgroup.setLaunched(function (err) {
                 if (err)
                     throw err;
                 callback(err, results);
@@ -170,8 +171,8 @@ module.exports = function() {
     };
 
     this.launch = function (store, options, callback) {
-
-        if (this.ready_to_launch === true) {
+        log.info("Launching jobgroup " + this.name);
+        if (this.ready_for_launch === true) {
             return this.preflightAndLaunch(store, options, callback);
         } else {
             return this.prepareAndLaunch(store, options, callback);
@@ -180,14 +181,62 @@ module.exports = function() {
 
     /**
      * If the jobgroup was ready to launch, we dont need to create jobs
-     * or working dirs (this must already be done). Just run binaries preflight and go
+     * (this must already be done). So we need to
+     * - Create wd if needed
+     * - Run preflight checks on binary
+     * - launch
      * @param store
      * @param options
      * @param callback
      * @returns {Error}
      */
-    this.preflightAndLaunch = function(store, options, callback) {
-        return new Error("not implemented");
+    this.preflightAndLaunch = function (store, options, callback) {
+
+        var jobgroup = this;
+        var binaryModel = this.binary.getBinaryModel();
+
+        /* Create wd */
+        async.series([
+            function (callback) {
+                return fs.mkdirs(jobgroup.wd, callback);
+            },
+            function (callback) {
+                return binaryModel.runPreflightChecks(jobgroup, jobgroup.wd, callback);
+            },
+            function (callback) {
+            /* Get jobgroup without job relation to avoid circular dependencies when attaching to job */
+                return db.findByPk(store, "Jobgroup", jobgroup.id, {join: "binary"}, callback);
+            }
+            //@todo: sumarize and confirm
+        ], function (err, results) {
+            if (err) {
+                log.error("Error preparing launch: " + err.message, function(err) {
+                    if (err)
+                        throw err;
+                    return callback(null);
+                });
+            } else {
+                var minJobgroup = results[2];
+
+                /* All good, launch */
+                calls = [];
+                var launchCallback = function(job) {
+                    job.jobgroup = minJobgroup;
+
+                    return function(callback) {
+                        console.info("Launching job " + job.id);
+                        job.launch(store, {}, callback);
+                    }
+                };
+                for (var i = 1; i < jobgroup.job.length; ++i) { //@NOCOMMIT
+                    calls.push(launchCallback(jobgroup.job[i]));
+                }
+                async.parallel(calls, function(err, results) {
+                    return callback(err);
+                });
+            }
+        });
+
     }
 
     /** Launch the job by
@@ -202,7 +251,7 @@ module.exports = function() {
      * @param options
      * @param callback(error, jobs)
      */
-    this.prepareAndLaunch = function(store, options, callback) {
+    this.prepareAndLaunch = function (store, options, callback) {
         var jobgroup = this;
         var binaryModel = this.binary.getBinaryModel();
 
@@ -234,7 +283,7 @@ module.exports = function() {
                 log.verbose("Values of " + parametersById[id].name + ": " + (typeof parameterValues[i] !== "string" ? parameterValues[i].join(", ") : parameterValues[i]));
             }
 
-            inquirer.prompt([{type: 'input',name: 'continue', 'message': "Continue? (y/n)"}]).then(function(answers) {
+            inquirer.prompt([{type: 'input', name: 'continue', 'message': "Continue? (y/n)"}]).then(function (answers) {
                 //answers = {continue: "y"};
 
                 if (answers.continue != "y")
@@ -256,7 +305,7 @@ module.exports = function() {
         });
     }
 
-    this.handlePreflightError = function(binaryModel, err, callback) {
+    this.handlePreflightError = function (binaryModel, err, callback) {
         log.info("An error occured in the preflight checks of binary " + binaryModel.label);
         log.verbose(err.message);
         inquirer.prompt([{
@@ -269,84 +318,78 @@ module.exports = function() {
         });
     };
 
-    this.setLaunched = function(callback) {
+    this.setLaunched = function (callback) {
         this.launched_date = date.dbDatetime();
-        this.save(function(okay) {
+        this.save(function (okay) {
             if (!okay)
-                    callback(new Error("Error updating this " + this.id));
+                callback(new Error("Error updating this " + this.id));
             else
                 callback(null);
-            });
+        });
     };
 
-    this.deleteDeep = function(store, options, callback) {
+    this.deleteDeep = function (store, options, callback) {
         var jobgroup = this;
-/*        inquirer.prompt({
-                type: "confirm",
-                name: "confirm",
-                message: "Really delete jobgroup " + this.name + "with jobs and trash directory?",
-            }
-        ).then(function (answers) {
-            if (answers.confirm === true)
-            */
-            {
-                var calls = [];
+        /*        inquirer.prompt({
+         type: "confirm",
+         name: "confirm",
+         message: "Really delete jobgroup " + this.name + "with jobs and trash directory?",
+         }
+         ).then(function (answers) {
+         if (answers.confirm === true)
+         */
+        {
+            var calls = [];
 
-                /* Add call to move gropus wd if it exists */
-                /* Check if wd exists before thinking about deleting it */
-                try {
-                    debug("trashing directory");
-                    fs.statSync(directory);
-                    calls.push(function(callback) {
-                        /* Create runs/.trash if needed*/
-                        var trashdir = path.resolve(resolveHome(nconf.get('runs').rootdir) + "/.trash");
+            /* Add call to move gropus wd if it exists */
+            /* Check if wd exists before thinking about deleting it */
+            try {
+                fs.statSync(directory);
+                calls.push(function (callback) {
+                    /* Create runs/.trash if needed*/
+                    var trashdir = path.resolve(resolveHome(nconf.get('runs').rootdir) + "/.trash");
 
-                        fs.mkdirs(trashdir, function (err) {
+                    fs.mkdirs(trashdir, function (err) {
+                        if (err)
+                            throw err;
+
+                        /* Move jobgroup dir to trash */
+                        log.verbose("Moving directory" + jobgroup.wd + "to " + trashdir + "\n");
+                        var target = trashdir + "/" + path.basename(jobgroup.wd);
+                        fs.rename(jobgroup.wd, trashdir, function (err) {
                             if (err)
                                 throw err;
-
-                            debug("made " + trashdir);
-                            /* Move jobgroup dir to trash */
-                            log.verbose("Moving directory" + jobgroup.wd + "to " + trashdir + "\n");
-                            var target = trashdir + "/" + path.basename(jobgroup.wd);
-                            debug(target);
-                            process.exit();
-                            fs.rename(jobgroup.wd, trashdir, function(err) {
-                                if (err)
-                                    throw err;
-                                return callback(null);
-                            });
+                            return callback(null);
                         });
                     });
-                } catch(e) {
-                    debug("Groups working directory " + jobgroup.wd + " does not exist.");
-                    log.verbose("Groups working directory " + jobgroup.wd + " does not exist.");
-                }
-
-                /* Delete jobs */
-                calls.push(function(callback) {
-                    debug("deleting jobs");
-                    var Job = store.Model("Job");
-                    Job.where({jobgroup_id: jobgroup.id}).deleteAll(function(okay) {
-                        if (!okay)
-                            throw new Error("Error deleting jobs of jobgroup");
-                        callback(null);
-                    });
                 });
+            } catch (e) {
+                log.verbose("Groups working directory " + jobgroup.wd + " does not exist.");
+            }
 
-                async.parallel(calls, function(err, results) {
-                    debug("done moving wd and deleting jobs, deleting jobgroup to finish");
-                    /* Finally delete the jobgroup */
-                    jobgroup.delete(function(okay) {
-                        if (!okay)
-                            throw new Error("Error deleting jobgroup");
-                        return callback(null);
-                    });
+            /* Delete jobs */
+            calls.push(function (callback) {
+                var Job = store.Model("Job");
+                Job.where({jobgroup_id: jobgroup.id}).deleteAll(function (okay) {
+                    if (!okay)
+                        throw new Error("Error deleting jobs of jobgroup");
+                    callback(null);
                 });
+            });
 
-            } /*
-        else
-                return callback(null);
-        }); */
+            async.parallel(calls, function (err, results) {
+                /* Finally delete the jobgroup */
+                jobgroup.delete(function (okay) {
+                    if (!okay)
+                        throw new Error("Error deleting jobgroup");
+                    return callback(null);
+                });
+            });
+
+        }
+        /*
+         else
+         return callback(null);
+         }); */
     }
 }
