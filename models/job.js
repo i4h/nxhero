@@ -6,6 +6,7 @@ var fs = require('fs-extra')
 var debug       = require('debug')('nxhero');
 var date = require('../lib/date');
 var os = require("os");
+var in_array = require('in_array');
 
 
 var resolveHome = require('../lib/files').resolveHome;
@@ -62,10 +63,15 @@ module.exports = function(){
 
     this.getParameterValues = function() {
         vals = [];
+        paramIds = [];
         for (i in BaseParameter.valueRelations) {
             var relation = BaseParameter.valueRelations[i];
             for (var j = 0; j < this[relation].length; ++j) {
-                vals.push(this[relation][j]);
+                var val = this[relation][j];
+                /* Looks like openrecord adds some linker models and duplicates we should ignore */
+                if (val.id !== null && !in_array(val.parameter_id, paramIds)) {
+                    paramIds.push(val.parameter_id);
+                }
             }
         }
         return vals;
