@@ -13,6 +13,8 @@ var files = require('../lib/files');
 var Git = require('../lib/git');
 var log = require("../lib/log");
 
+var gh = require('../lib/general_helpers.js');
+
 
 
 
@@ -202,7 +204,8 @@ function Scip() {
         var settings = "";
         for (var i = 0; i < parameterValues.length; ++i) {
             var record = parameterValues[i];
-            if (record.parameter.parameter_model === "scip") {
+            /* Write scip parameters to settings file */
+            if (gh.compareSafe(record.parameter.parameter_model,"scip")) {
                 var value = record.value;
                 if (typeof value === "string")
                     value = value.trim();
