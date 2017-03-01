@@ -26,8 +26,6 @@ module.exports = function(){
     };
 
     this.getProblemIds = function() {
-        debug("getting problem ids");
-        debug(this.getProblems());
         return ArrayHelper.getColumn(this.getProblems(), 'id', {});
     };
 
