@@ -71,6 +71,7 @@ module.exports = function(){
                 /* Looks like openrecord adds some linker models and duplicates we should ignore */
                 if (val.id !== null && !in_array(val.parameter_id, paramIds)) {
                     paramIds.push(val.parameter_id);
+                    vals.push(val);
                 }
             }
         }
