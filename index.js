@@ -50,15 +50,17 @@ var log = require("./lib/log");
 var parseSequence = require('./lib/parse_sequence');
 
 
-function mainMenu(callback) {
+function mainMenu(options, callback) {
 
-    console.log(
-        chalk.yellow(
-            figlet.textSync('N X HERO', { horizontalLayout: 'full' })
-        )
-    );
+    if (typeof options.splash === "undefined" || options.splash === true) {
+        console.log(
+            chalk.yellow(
+                figlet.textSync('N X HERO', { horizontalLayout: 'full' })
+            )
+        );
+        console.log("====================================");
 
-    console.log("====================================");
+    }
     console.log("");
     console.log("----------- MAIN MENU --------------");
     console.log("");
@@ -91,9 +93,13 @@ function mainMenu(callback) {
     inquirer.prompt(questions)
         .then(function(answers) {
 
-
         if (typeof answers.action === 'function') {
-            answers.action(store, {}, mainMenu);
+            answers.action(store, {}, function(err) {
+                if (err)
+                    log.error("Error: " + err.message);
+
+                mainMenu({splash: false}, callback);
+            });
         } else {
             switch(answers.action) {
                 default:
