@@ -38,6 +38,7 @@ var date = require('./lib/date');
 var BaseParameter = require('./lib/base_parameter');
 var BaseLauncher = require('./lib/base_launcher');
 var BaseProcessor = require('./lib/base_processor');
+var BaseJobgroup = require('./lib/base_jobgroup');
 
 var dbConnected = false;
 var store;
@@ -131,6 +132,31 @@ var handleCommands = function() {
                     });
                 });
                 break;
+
+            case "launch":
+                /* Get processor */
+                jobgroupId = process.argv[3];
+                launcherId = nconf.get("launcher");
+                if (typeof launcherId === "undefined") {
+                    launcherId = "local";
+                    console.info("using " + launcherId + " by default.")
+                }
+
+                db.findByPk(store, "Jobgroup", jobgroupId, {join: BaseJobgroup.getLaunchJoin()}, function(err, jobgroup) {
+                    /* Save launcher in jobgroup */
+                    db.setAttributes(jobgroup, {launcher: launcherId}, {}, true, function(err) {
+                        if (err)
+                            throw err;
+
+                        jobgroup.launch(store, {}, function(err) {
+                            if (err)
+                                throw err;
+                            log.info("Launch successful");
+                            process.exit();
+                        });
+                    });
+                });
+                break;
         }
     }
 }
@@ -151,8 +177,8 @@ db.open(dbConf, function(err, newStore) {
 });
 
 /* Show mainMenu if no command was given */
-var commands = ['process'];
+var commands = ['process', 'launch'];
 if (typeof process.argv[2] === "undefined" || !in_array(process.argv[2], commands)) {
-    mainMenu(process.exit);
+    mainMenu({}, process.exit);
 }
 
