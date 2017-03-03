@@ -7,12 +7,14 @@ var debug       = require('debug')('nxhero');
 var date = require('../lib/date');
 var os = require("os");
 var in_array = require('in_array');
-
+var extend = require('node.extend');
 
 var resolveHome = require('../lib/files').resolveHome;
 var BaseJob     = require("../lib/base_job");
 var BaseParameter     = require("../lib/base_parameter");
 var log = require("../lib/log");
+var db = require("../lib/db");
+var model_insert = require("../lib/model_insert");
 
 
 //@todo: Set launched flag on launch
@@ -77,6 +79,28 @@ module.exports = function(){
         }
         return vals;
     };
+
+    this.copy = function(store, options, callback) {
+        var job = this;
+        if (typeof options.except === "undefined")
+            options.except = ["id"];
+        else
+            options.except.push(id);
+
+        var jobAttributes = extend({}, BaseJob.defaultAttributes);
+        jobAttributes = extend(jobAttributes, db.copyAttributes(this, options));
+
+        model_insert(store, "Job", jobAttributes, function(err, newJob) {
+            if (err)
+                return callback(err);
+
+            log.verbose("Created job " + newJob.id);
+
+            BaseParameter.copyParameterValues(store, job.id, newJob.id, {}, function(err, results) {
+                callback(err, {job: newJob, values: results});
+            });
+        });
+    },
 
     /** Get parameter values of this job by id*/
     this.getParameterValuesById = function() {
