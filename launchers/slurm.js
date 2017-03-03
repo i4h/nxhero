@@ -93,7 +93,6 @@ module.exports = {
             throw new Error("Can not cancel job " + job.id + " because no slurm_id was saved");
 
         var scancelCmd = 'scancel ' + data.slurm_job_id;
-        debug(scancelCmd);
         var simulate = false;
         if (simulate !== true) {
         child_process.exec(scancelCmd ,{}, function (err, stdout, stderr) {
@@ -108,7 +107,6 @@ module.exports = {
                         throw new Error("Error setting job to finished");
 
                     log.info("Canceled job " + job.id);
-                    debug(stdout);
                     return callback(null);
                 });
             }
