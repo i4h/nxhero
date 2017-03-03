@@ -115,9 +115,12 @@ module.exports = {
             job.execution_status = "canceled_obra_stall";
             job.finished = date.dbDatetime();
             job.success = false;
-            debug("would save job");
-            debug(job);
-            return callback(null);
+            job.save(function(okay) {
+                if (!okay)
+                    return callback(new Error("Error updateing canceled job"));
+                else
+                    return callback(null);
+            });
         }
     },
 
