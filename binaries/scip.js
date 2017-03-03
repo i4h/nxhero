@@ -169,6 +169,7 @@ function Scip() {
 
                 jobgroup.binary_data = JSON.stringify(binaryData);
                 jobgroup.save(function(okay) {
+                    log.info(scip.label + " preflight checks passed");
                     return callback(null);
                 });
             });
