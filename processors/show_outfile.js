@@ -38,7 +38,7 @@ var showOutfileProcessor = {
     },
 
     afterProcessing: function(store, jobs, options, results, callback) {
-        log.info("Showing outfiles for " + jobs.length + "jobs:");
+        log.info("Showing outfiles for " + jobs.length + " jobs:");
         log.verbose(results.join(""));
         log.info(this.label + " finished");
         callback(null);
