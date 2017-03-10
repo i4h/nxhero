@@ -226,5 +226,16 @@ module.exports = function(){
         });
     };
 
+    this.getParameterValueFromJoin = function(name, type) {
+        var relation = "parameter_value_" + type;
+        var job = this;
+
+        for (var i = 0; i < job[relation].length; ++i) {
+            if (job[relation][i].parameter.name === name)
+                return job[relation][i].value;
+        }
+        return null;
+    };
+
 }
 
