@@ -51,6 +51,8 @@ module.exports = function(){
     this.hasMany('parameter_value_float');
     this.hasMany('parameter_value_string');
 
+    this.hasMany('tag');
+
     this.belongsTo('jobgroup');
     this.belongsTo('problem');
 
@@ -224,6 +226,17 @@ module.exports = function(){
         fs.readFile(this.getOutFile(), (err, data) => {
             callback(err, data);
         });
+    };
+
+    this.saveWithTags = function(tags, callback) {
+
+
+    };
+
+    this.addTags = function(taggs, callback) {
+        for (var i = 0; i < tags.length; ++i) {
+
+        }
     };
 
     this.getParameterValueFromJoin = function(name, type) {
