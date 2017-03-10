@@ -55,6 +55,11 @@ var log = require("./lib/log");
 
 var parseSequence = require('./lib/parse_sequence');
 
+process.on('unhandledRejection', function(reason, p){
+    console.log("Possibly Unhandled Rejection at: Promise ", p, " reason: ", reason);
+    // application specific logging here
+});
+
 
 function mainMenu(options, callback) {
 
