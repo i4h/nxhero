@@ -23,22 +23,27 @@ var in_array = require('in_array');
 
 process.env.NODE_ENV = 'console';
 
+var BaseJob = require('./lib/base_job');
+var BaseParameter = require('./lib/base_parameter');
+var BaseLauncher = require('./lib/base_launcher');
+var BaseProcessor = require('./lib/base_processor');
+var BaseJobgroup = require('./lib/base_jobgroup');
+
+var JobFilter = require('./lib/job_filter');
+
 var ParameterMenus = require('./lib/parameter_menus');
 var ProblemMenus = require('./lib/problem_menus');
 var TestsetMenus = require('./lib/testset_menus');
 var JobgroupMenus = require('./lib/jobgroup_menus');
 var JobFilterMenus = require('./lib/jobfilter_menus');
-var JobFilter = require('./lib/job_filter');
 var BinaryMenus = require('./lib/binary_menus');
 var StorageMenus = require('./lib/storage_menus');
 
 var files = require('./lib/files');
 var date = require('./lib/date');
 
-var BaseParameter = require('./lib/base_parameter');
-var BaseLauncher = require('./lib/base_launcher');
-var BaseProcessor = require('./lib/base_processor');
-var BaseJobgroup = require('./lib/base_jobgroup');
+
+
 
 var dbConnected = false;
 var store;
