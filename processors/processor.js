@@ -49,9 +49,6 @@ module.exports = {
         async.waterfall(calls, function(err, results) {
             if (err)
                 log.error("Error running " + processor.label + ": " + err.message);
-            else
-                log.info("Finished");
-
             callback(null);
         });
     },
