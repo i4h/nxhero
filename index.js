@@ -166,6 +166,16 @@ var handleCommands = function() {
                         });
                     });
                 });
+
+            case "import-testset":
+                fileName = process.argv[3];
+
+                TestsetMenus.importFile(store, {}, fileName, function(err) {
+                    if (err)
+                        throw err;
+                    log.info("Import successful");
+                    process.exit();
+                });
                 break;
         }
     }
@@ -187,7 +197,7 @@ db.open(dbConf, function(err, newStore) {
 });
 
 /* Show mainMenu if no command was given */
-var commands = ['process', 'launch'];
+var commands = ['process', 'launch', 'import-testset'];
 if (typeof process.argv[2] === "undefined" || !in_array(process.argv[2], commands)) {
     mainMenu({}, process.exit);
 }
