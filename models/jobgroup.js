@@ -12,6 +12,8 @@ const path      = require('path');
 var debug       = require('debug')('nxhero');
 
 
+var MenuHelpers = require('../lib/menu_helpers');
+
 var BaseParameter = require('../lib/base_parameter');
 var BaseJobgroup = require('../lib/base_jobgroup');
 var BaseBinary = require('../lib/base_binary');
@@ -34,6 +36,10 @@ module.exports = function() {
         return this.name;
     };
 
+    this.confirmLaunch = true;
+    this.confirmPreflightErrors = true;
+
+
     this.setWd = function (store, options, callback) {
         zpad.amount(nconf.get('runs').idpadamount);
         this.wd = path.resolve(resolveHome(nconf.get('runs').rootdir) + "/group_" + zpad(this.id));
@@ -48,6 +54,7 @@ module.exports = function() {
 
     this.getProblemsFromTestset = function(store, options, callback) {
         debug("from testset");
+        var jobgroup = this;
         var Testset = store.Model("Testset");
         Testset.join({testsets_problems: "problem"}).where({id: this.testset_id}).exec(function(records){
             var testset = records[0];
@@ -306,11 +313,10 @@ module.exports = function() {
                 id = i.split("_")[1];
                 log.verbose("Values of " + parametersById[id].name + ": " + (typeof parameterValues[i] !== "string" ? parameterValues[i].join(", ") : parameterValues[i]));
             }
+            MenuHelpers.confirmIfTrue(jobgroup.confirmLaunch, null, function(err, confirmed) {
+            //inquirer.prompt([{type: 'input', name: 'continue', 'message': "Continue? (y/n)"}]).then(function (answers) {
 
-            inquirer.prompt([{type: 'input', name: 'continue', 'message': "Continue? (y/n)"}]).then(function (answers) {
-                //answers = {continue: "y"};
-
-                if (answers.continue != "y")
+                if (!confirmed)
                     return callback(null);
 
                 /* Run the binaries pre-flight checks */
@@ -330,15 +336,10 @@ module.exports = function() {
     }
 
     this.handlePreflightError = function (binaryModel, err, callback) {
-        log.info("An error occured in the preflight checks of binary " + binaryModel.label);
+        log.error("An error occured in the preflight checks of binary " + binaryModel.label);
         log.verbose(err.message);
-        inquirer.prompt([{
-            type: 'list',
-            name: 'continue',
-            message: "Okay?",
-            choices: ["Okay!"]
-        }]).then(function (answers) {
-            return callback()
+        MenuHelpers.confirmIfTrue(this.confirmPreflightErrors, "Okay?",function (confirmed) {
+            return callback(new Error("Preflight checks failed"));
         });
     };
 
