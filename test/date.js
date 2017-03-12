@@ -23,6 +23,21 @@ describe("Test of date module", function() {
             done();
         }));
     });
+
+    describe("method secondsToDurationString", function() {
+
+        it("get seconds tring", sinon.test(function(done) {
+            expect(date.secondsToDurationString(1)).to.be.equal("1s");
+            expect(date.secondsToDurationString(2)).to.be.equal("2s");
+            expect(date.secondsToDurationString(61)).to.be.equal("1m 1s");
+            expect(date.secondsToDurationString(3600)).to.be.equal("1h");
+            expect(date.secondsToDurationString(3601)).to.be.equal("1h 1s");
+            expect(date.secondsToDurationString(3661)).to.be.equal("1h 1m 1s");
+            expect(date.secondsToDurationString(3661.5)).to.be.equal("1h 1m 1.5s");
+            done();
+        }));
+    });
+
     describe("method parseDurationString", function() {
 
         it("one-element input without unit", sinon.test(function(done) {
