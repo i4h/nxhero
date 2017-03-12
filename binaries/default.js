@@ -32,7 +32,7 @@ module.exports = {
      * @param wd
      * @param callback
      */
-    setParams: function(wd, store, parameterValues, callback) {
+    setParams: function(store, job, parameterValues, callback) {
         return callback(null);
     }
 

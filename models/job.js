@@ -173,7 +173,7 @@ module.exports = function(){
             },
             function (callback) {
                 /* Let binaryModel set the jobs parameters */
-                binary.setParams(wd, store, params, callback)
+                binary.setParams(store, job, params, callback)
             },
             function (callback) {
                 /* Get the command and the launcher, launch */

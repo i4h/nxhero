@@ -49,8 +49,9 @@ module.exports = function(){
         this.getBinaryModel().runPreflightChecks(wd, callback);
     };
 
-    this.setParams = function(wd, store, parameterValues, callback) {
-            this.getBinaryModel().setParams(wd, store, parameterValues, callback);
+    this.setParams = function(store, job, parameterValues, callback) {
+        var wd = job.wd;
+        this.getBinaryModel().setParams(store, job, parameterValues, callback);
     };
 
     this.getCommand = function(job) {

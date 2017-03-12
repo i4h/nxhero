@@ -196,12 +196,13 @@ function Scip() {
 
     /** Set paramaeters for the job
      * if the parameter is a scip parameter, save it to the settings file
-     * @param wd
      * @param store
+     * @param wd
      * @param parameterValues
      * @param callback
      */
-    function setParams(wd, store, parameterValues, callback) {
+    function setParams(store, job, parameterValues, callback) {
+        var wd = job.wd;
         var settings = "";
         for (var i = 0; i < parameterValues.length; ++i) {
             var record = parameterValues[i];
