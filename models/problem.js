@@ -21,7 +21,5 @@ module.exports = function(){
         return this.name + " ( " + this.path + ")";
     };
 
-
-
-
+    this.attribute('timeLimitFactor');
 }

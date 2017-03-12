@@ -46,15 +46,39 @@ module.exports = function() {
         });
     };
 
-    this.getProblems = function (store, options, callback) {
-        var Model = store.Model("Problem");
-        if (this.problem_ids === null)
-            return callback(null, null);
-
-        Model.where({id: this.problem_ids.split(",")}).exec(function (records) {
-            callback(null, records);
+    this.getProblemsFromTestset = function(store, options, callback) {
+        debug("from testset");
+        var Testset = store.Model("Testset");
+        Testset.join({testsets_problems: "problem"}).where({id: this.testset_id}).exec(function(records){
+            var testset = records[0];
+            var problems = [];
+            for (var i  = 0; i < testset.testsets_problems.length; ++i) {
+                var problem = testset.testsets_problems[i].problem;
+                problem.timeLimitFactor = testset.testsets_problems[i].timelimit_factor;
+                problems.push(problem);
+            }
+            return callback(null, problems);
         });
+    },
 
+    this.getProblems = function (store, options, callback) {
+        debug("get problems");
+        if (this.testset_id !== null) {
+            debug("not null");
+            return this.getProblemsFromTestset(store, options, callback);
+        } else {
+            var Model = store.Model("Problem");
+            if (this.problem_ids === null)
+                return callback(null, null);
+
+            Model.where({id: this.problem_ids.split(",")}).exec(function (records) {
+                /* No testset: set all timelimitFactors to 1 */
+                for (var i = 0; i < records.length; i++)
+                    records[i].timeLimitFactor = 1.0;
+
+                callback(null, records);
+            });
+        }
     };
 
     this.getParameterValues = function () {
