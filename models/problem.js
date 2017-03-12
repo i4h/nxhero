@@ -22,4 +22,6 @@ module.exports = function(){
     };
 
     this.attribute('timeLimitFactor');
+    this.attribute('timeLimit');
+
 }

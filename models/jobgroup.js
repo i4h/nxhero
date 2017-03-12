@@ -62,6 +62,7 @@ module.exports = function() {
             for (var i  = 0; i < testset.testsets_problems.length; ++i) {
                 var problem = testset.testsets_problems[i].problem;
                 problem.timeLimitFactor = testset.testsets_problems[i].timelimit_factor;
+                problem.timeLimit = jobgroup.timelimit * problem.timeLimitFactor;
                 problems.push(problem);
             }
             return callback(null, problems);
@@ -80,8 +81,10 @@ module.exports = function() {
 
             Model.where({id: this.problem_ids.split(",")}).exec(function (records) {
                 /* No testset: set all timelimitFactors to 1 */
-                for (var i = 0; i < records.length; i++)
+                for (var i = 0; i < records.length; i++) {
                     records[i].timeLimitFactor = 1.0;
+                    records[i].timeLimit = jobgroup.timelimit;
+                }
 
                 callback(null, records);
             });
