@@ -299,7 +299,7 @@ module.exports = function() {
                 var nJobs = problems.length;
                 var problemNames = [];
                 for (var i = 0; i < problems.length; ++i) {
-                    problemNames.push(problems[i].name);
+                    problemNames.push(problems[i].name + "(" + date.secondsToDurationString(problems[i].timeLimit)+ ")");
                 }
             } else
                 nJobs = 1;
@@ -310,7 +310,7 @@ module.exports = function() {
 
             log.info("I will submit " + nJobs + " Jobs:");
             if (problems !== null)
-                log.verbose("Problems: " + problemNames.join(", "));
+                log.verbose("Problems (Timelimits): " + problemNames.join(", "));
 
             for (var i  in parameterValues) {
                 id = i.split("_")[1];

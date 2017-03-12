@@ -69,6 +69,10 @@ module.exports = function(){
             if (typeof job.problem !== "undefined") {
                 args[i] = args[i].replace("{problem.path}", job.problem.absolutePath);
             }
+
+            if (job.timelimit !== null)
+                args[i] = args[i].replace("{timelimit}", job.timelimit);
+
             for (var j = 0; j < parameterValues.length; ++j ) {
                 var name = parameterValues[j].parameter.name;
                 var value = parameterValues[j].value;

@@ -26,6 +26,8 @@ function Scip() {
 
     var printPreflightResults = true;
 
+    var setTimelimit = true;
+
     /** Array of paths to repositories that should be clean
      * for pre-flight checks to pass
      * hashes  for each repo will be saved in jobgropus binary_data
@@ -217,6 +219,9 @@ function Scip() {
 
                 settings += record.parameter.name + " = " + value + "\n";
             }
+
+            if (this.setTimeLimit && job.timelimit !== null)
+                settings += "limits/time = " + job.timelimit;
         }
         var file = wd + "/" + this.setFile;
         fs.writeFile(file, settings, {flags:" O_WRONLY"} ,(err) => {
