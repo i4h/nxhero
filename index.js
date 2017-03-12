@@ -155,14 +155,17 @@ var handleCommands = function() {
 
                 db.findByPk(store, "Jobgroup", jobgroupId, {join: BaseJobgroup.getLaunchJoin()}, function(err, jobgroup) {
                     /* Save launcher in jobgroup */
+                    jobgroup.confirmLaunch = false;
+                    jobgroup.confirmPreflightErrors = false;
                     db.setAttributes(jobgroup, {launcher: launcherId}, {}, true, function(err) {
                         if (err)
                             throw err;
 
                         jobgroup.launch(store, {}, function(err) {
                             if (err)
-                                throw err;
-                            log.info("Launch successful");
+                                log.error("Error executing launch command: " + err.message);
+                            else
+                                log.info("Launch successful");
                             process.exit();
                         });
                     });
