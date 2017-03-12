@@ -167,6 +167,7 @@ var handleCommands = function() {
                         });
                     });
                 });
+                break;
 
             case "import-testset":
                 fileName = process.argv[3];
