@@ -30,6 +30,7 @@ module.exports = {
 
     launch: function(store, job, callback) {
         var conf = this.getConf();
+        var graceFactor = typeof conf.graceFactor === "undefined" ? 1 : conf.graceFactor;
         zpad.amount(nconf.get('runs').idpadamount);
         var jobName = "j" + zpad(job.id);
         var batchFile = job.wd + "/" +jobName + ".sh";
@@ -47,6 +48,8 @@ module.exports = {
         f = f + "#SBATCH --output=" +  BaseLauncher.outFileName + "\n";
         f = f + "#SBATCH --error=" +  BaseLauncher.errorFileName + "\n";
         f = f + "#SBATCH --job-name=" +  jobName + "\n";
+
+        f = f + "#SBATCH --time=" + date.secondsToHMS(job.timelimit * graceFactor) + "\n";
 
         f = f + "\n";
 
