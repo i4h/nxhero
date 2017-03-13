@@ -38,6 +38,20 @@ describe("Test of date module", function() {
         }));
     });
 
+    describe("method secondsToHMS", function() {
+
+        it("get seconds tring", sinon.test(function(done) {
+            expect(date.secondsToHMS(1)).to.be.equal("00:00:01");
+            expect(date.secondsToHMS(2)).to.be.equal("00:00:02");
+            expect(date.secondsToHMS(61)).to.be.equal("00:01:01");
+            expect(date.secondsToHMS(3600)).to.be.equal("01:00:00");
+            expect(date.secondsToHMS(3601)).to.be.equal("01:00:01");
+            expect(date.secondsToHMS(3661)).to.be.equal("01:01:01");
+            expect(date.secondsToHMS(3661.5)).to.be.equal("01:01:02");
+            done();
+        }));
+    });
+
     describe("method parseDurationString", function() {
 
         it("one-element input without unit", sinon.test(function(done) {
