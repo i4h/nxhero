@@ -328,8 +328,10 @@ module.exports = function() {
             MenuHelpers.confirmIfTrue(jobgroup.confirmLaunch, null, function(err, confirmed) {
             //inquirer.prompt([{type: 'input', name: 'continue', 'message': "Continue? (y/n)"}]).then(function (answers) {
 
-                if (!confirmed)
+                if (!confirmed) {
+                    log.info("Canceled");
                     return callback(null);
+                }
 
                 /* Run the binaries pre-flight checks */
                 binaryModel.runPreflightChecks(jobgroup, jobgroup.wd, function (err) {
