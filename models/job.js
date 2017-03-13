@@ -12,6 +12,7 @@ var extend = require('node.extend');
 var resolveHome = require('../lib/files').resolveHome;
 var BaseJob     = require("../lib/base_job");
 var BaseParameter     = require("../lib/base_parameter");
+var BaseTag = require("../lib/base_tag");
 var log = require("../lib/log");
 var db = require("../lib/db");
 var model_insert = require("../lib/model_insert");
@@ -228,9 +229,17 @@ module.exports = function(){
         });
     };
 
-    this.saveWithTags = function(tags, callback) {
-
-
+    this.saveWithTags = function(store, tags, options, callback) {
+        var job = this;
+        job.save(function(okay) {
+            if (!okay)
+                return callback(new Error("Unable to save job"));
+            BaseTag.performTagTasks( store, {add: tags}, [job.id], options, function(err, tags) {
+                if (err === null)
+                    job.tag = tags;
+                return callback(err);
+            });
+        });
     };
 
     this.addTags = function(taggs, callback) {
