@@ -205,10 +205,20 @@ module.exports = function() {
 
     this.launch = function (store, options, callback) {
         log.info("Launching jobgroup " + this.name);
+        var jobgroup = this;
+
+        var inform = function(err) {
+            if (err)
+                log.error("Error launching jobgroup: " + err.message);
+            else
+                log.info("Successfully launched jobgroup in " + jobgroup.wd);
+            return callback(null);
+        };
+
         if (this.ready_for_launch === true) {
-            return this.preflightAndLaunch(store, options, callback);
+            return this.preflightAndLaunch(store, options, inform);
         } else {
-            return this.prepareAndLaunch(store, options, callback);
+            return this.prepareAndLaunch(store, options, inform);
         }
     };
 
