@@ -53,7 +53,6 @@ module.exports = function() {
     };
 
     this.getProblemsFromTestset = function(store, options, callback) {
-        debug("from testset");
         var jobgroup = this;
         var Testset = store.Model("Testset");
         Testset.join({testsets_problems: "problem"}).where({id: this.testset_id}).exec(function(records){
