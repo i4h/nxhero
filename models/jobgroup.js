@@ -280,7 +280,7 @@ module.exports = function() {
             }
         });
 
-    }
+    };
 
     /** Launch the job by
      * - Getting the launch data
