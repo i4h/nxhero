@@ -61,7 +61,7 @@ module.exports = function() {
             var problems = [];
             for (var i  = 0; i < testset.testsets_problems.length; ++i) {
                 var problem = testset.testsets_problems[i].problem;
-                problem.timeLimitFactor = testset.testsets_problems[i].timelimit_factor;
+                problem.timeLimitFactor = testset.testsets_problems[i].timelimit_factor === null ? 1 : testset.testsets_problems[i].timelimit_factor;
                 problem.timeLimit = jobgroup.timelimit * problem.timeLimitFactor;
                 problems.push(problem);
             }
