@@ -16,6 +16,52 @@ var ArrayHelper = require('../lib/array_helper');
 
 
 describe("Array Helper ", function() {
+
+    describe("treeify", function() {
+        var objs = [];
+        objs.push({
+            id: 1,
+            prop1: "a",
+            prop2: "x",
+            prop3: "alpha",
+        });
+        objs.push({
+            id: 2,
+            prop1: "b",
+            prop2: "y",
+            prop3: "alpha",
+        });
+        objs.push({
+            id: 3,
+            prop1: "b",
+            prop2: "y",
+            prop3: "alpha"
+        });
+        it("one-level tree", sinon.test(function(done) {
+            var result = ArrayHelper.treeify(objs, ['prop1']);
+            expect(result.a[0]).to.be.deep.equal(objs[0]);
+            expect(result.b[0]).to.be.deep.equal(objs[1]);
+            expect(result.b[1]).to.be.deep.equal(objs[2]);
+            done();
+        }));
+
+        it("another one-level tree", sinon.test(function(done) {
+            var result = ArrayHelper.treeify(objs, ['prop3']);
+            expect(result.alpha[0]).to.be.deep.equal(objs[0]);
+            expect(result.alpha[1]).to.be.deep.equal(objs[1]);
+            expect(result.alpha[2]).to.be.deep.equal(objs[2]);
+            done();
+        }));
+
+        it("two-level tree", sinon.test(function(done) {
+            var result = ArrayHelper.treeify(objs, ['prop1', 'prop2']);
+            expect(result.a.x[0]).to.be.deep.equal(objs[0]);
+            expect(result.b.y[0]).to.be.deep.equal(objs[1]);
+            expect(result.b.y[1]).to.be.deep.equal(objs[2]);
+            done();
+        }));
+    });
+
     describe("containsAll", function() {
         it("one needle in haystack ", sinon.test(function(done) {
             expect(ArrayHelper.containsAll([1], [1])).to.equal(true);
