@@ -143,7 +143,6 @@ describe("Array Helper ", function() {
             ];
 
             vals = ArrayHelper.getColumnUnique(objects, "mixed", {});
-            debug(vals);
             expect(vals).to.be.array();
             expect(vals).to.be.ofSize(3);
             for (var i = 0; i< 3; ++i ) {
