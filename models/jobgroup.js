@@ -70,6 +70,7 @@ module.exports = function() {
 
     this.getProblems = function (store, options, callback) {
         debug("get problems");
+        var jobgroup = this;
         if (this.testset_id !== null) {
             debug("not null");
             return this.getProblemsFromTestset(store, options, callback);
@@ -369,66 +370,73 @@ module.exports = function() {
 
     this.deleteDeep = function (store, options, callback) {
         var jobgroup = this;
-        /*        inquirer.prompt({
-         type: "confirm",
-         name: "confirm",
-         message: "Really delete jobgroup " + this.name + "with jobs and trash directory?",
-         }
-         ).then(function (answers) {
-         if (answers.confirm === true)
-         */
-        {
-            var calls = [];
+        inquirer.prompt({
+                type: "confirm",
+                name: "confirm",
+                message: "Really delete jobgroup " + this.name + "with jobs and trash directory?",
+            }
+        ).then(function (answers) {
+            if (answers.confirm === true)
+            {
+                var calls = [];
 
-            /* Add call to move gropus wd if it exists */
-            /* Check if wd exists before thinking about deleting it */
-            try {
-                fs.statSync(directory);
-                calls.push(function (callback) {
-                    /* Create runs/.trash if needed*/
+
+                /* Check if wd exists before adding the call */
+                var wdExists = true;
+                try {
+                    fs.statSync(jobgroup.wd);
+                } catch (e) {
+                    wdExists = false;
+                    debug(e);
+                    log.verbose("Groups working directory " + jobgroup.wd + " does not exist.");
+                }
+
+                if (wdExists) {
+                    /* Add call to move groups wd if it exists */
                     var trashdir = path.resolve(resolveHome(nconf.get('runs').rootdir) + "/.trash");
+                    var target = trashdir + "/" + path.basename(jobgroup.wd);
+                    console.info("Moving " + jobgroup.wd + " to " + target);
+                    calls.push(function (callback) {
+                        /* Create runs/.trash if needed*/
 
-                    fs.mkdirs(trashdir, function (err) {
-                        if (err)
-                            throw err;
-
-                        /* Move jobgroup dir to trash */
-                        log.verbose("Moving directory" + jobgroup.wd + "to " + trashdir + "\n");
-                        var target = trashdir + "/" + path.basename(jobgroup.wd);
-                        fs.rename(jobgroup.wd, trashdir, function (err) {
+                        fs.mkdirs(trashdir, function (err) {
                             if (err)
-                                throw err;
-                            return callback(null);
+                                return callback(err);
+
+                            /* Move jobgroup dir to trash */
+                            fs.move(jobgroup.wd, target, function (err) {
+                                return callback(err);
+                            });
                         });
                     });
+                }
+
+                /* Delete jobs */
+                calls.push(function (callback) {
+                    var Job = store.Model("Job");
+                    Job.where({jobgroup_id: jobgroup.id}).deleteAll(function (okay) {
+                        if (!okay)
+                            throw new Error("Error deleting jobs of jobgroup");
+                        console.info("Deleted jobs of the jobgroup");
+                        callback(null);
+
+                    });
                 });
-            } catch (e) {
-                log.verbose("Groups working directory " + jobgroup.wd + " does not exist.");
+
+                async.parallel(calls, function (err, results) {
+                    /* Finally delete the jobgroup */
+                    jobgroup.delete(function (okay) {
+                        if (!okay)
+                            throw new Error("Error deleting jobgroup");
+
+                        log.info("Deleted jobgroup");
+                        return callback(null);
+                    });
+                });
+
             }
-
-            /* Delete jobs */
-            calls.push(function (callback) {
-                var Job = store.Model("Job");
-                Job.where({jobgroup_id: jobgroup.id}).deleteAll(function (okay) {
-                    if (!okay)
-                        throw new Error("Error deleting jobs of jobgroup");
-                    callback(null);
-                });
-            });
-
-            async.parallel(calls, function (err, results) {
-                /* Finally delete the jobgroup */
-                jobgroup.delete(function (okay) {
-                    if (!okay)
-                        throw new Error("Error deleting jobgroup");
-                    return callback(null);
-                });
-            });
-
-        }
-        /*
-         else
-         return callback(null);
-         }); */
+            else
+                return callback(null);
+        });
     }
 }
