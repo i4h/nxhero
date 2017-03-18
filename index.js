@@ -136,8 +136,8 @@ var handleCommands = function() {
                 if (typeof processor === "undefined")
                     throw new Error("Processor " + processorId + "not found.");
 
-                JobFilter.getJobsFromCmdLineArgs(store, {joinValues: true, join: {jobgroup: "binary", problem: true}}, function(err, jobs) {
-                    processor.process(store, jobs, {}, function() {
+                JobFilter.getDataFromCmdLineArgs(store, {joinValues: true, join: {jobgroup: "binary", problem: true, tag: true}}, function(err, data) {
+                    processor.process(store, data, {}, function() {
                         log.info("Finished Processing");
                         process.exit();
                     });
