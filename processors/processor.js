@@ -2,15 +2,18 @@ var debug       = require('debug')('nxhero');
 var in_array = require('in_array');
 const child_process = require('child_process');
 var async = require('async');
+var os = require("os");
 
 var log = require("../lib/log");
 var BaseJob = require('../lib/base_job');
+var BaseReport = require('../lib/base_report');
 
 
 module.exports = {
     id: "base_processor ",
     label: "BaseProcessor",
     binaryTypes: [],
+    generatesResults: false,
 
     /** Default implementation to process the given jobs
      * calls processOne on the processor implementation for every job
@@ -24,19 +27,39 @@ module.exports = {
      * @param callback
      * @returns {*}
      */
-    process: function (store, jobs, options, callback) {
+    process: function (store, data, options, callback) {
+        var jobs = data.jobs;
         var processor = this;
         log.info("Processing " + jobs.length + " with " + this.label);
 
         /* Prepare beforeProcessing, processEach and afterProcess as waterfall */
         var calls = [];
         /* */
+        if ( processor.generatesReports === true) {
+            calls.push(function(callback) {
+                return BaseReport.create(store, {
+                    processor_id: processor.id,
+                    hostname: os.hostname(),
+                    filters: JSON.stringify(data.filters),
+                    job: data.jobs,
+                }, {}, function(err, report) {
+                    if (err)
+                        return callback(err);
+                    processor.report = report;
+                    log.info("Reports will be saved to " + report.wd);
+                    return callback(null);
+                });
+            });
+        }
         if (typeof processor.beforeProcessing === "function") {
             calls.push(function(callback) {
                 return processor.beforeProcessing(store, jobs, {}, callback);
             });
         }
+
         calls.push(function(callback) {
+            debug("pushing processEAch");
+            debug(callback);
             return processor.processEach(store, jobs, {}, callback);
         });
 
@@ -85,11 +108,13 @@ module.exports = {
             }
             calls.push(processClosure(job, i));
         }
+        debug("calls : " + calls.length);
         async.parallel(calls, function (err, results) {
-
+            debug("end of prallel");
             if (err !== null)
                 throw err;
-            callback(null, results);
+            debug("returning");
+            return callback(null, results);
         });
     },
 
