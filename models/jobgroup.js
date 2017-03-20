@@ -71,7 +71,6 @@ module.exports = function() {
     this.getProblems = function (store, options, callback) {
         var jobgroup = this;
         if (this.testset_id !== null) {
-            debug("not null");
             return this.getProblemsFromTestset(store, options, callback);
         } else {
             var Model = store.Model("Problem");
@@ -196,9 +195,8 @@ module.exports = function() {
             jobgroup.setLaunched(function (err) {
                 if (err)
                     throw err;
-                callback(err, results);
+                return callback(err, results);
             })
-
         });
     };
 
@@ -206,12 +204,12 @@ module.exports = function() {
         log.info("Launching jobgroup " + this.name);
         var jobgroup = this;
 
-        var inform = function(err) {
+        var inform = function(err, results) {
             if (err)
                 log.error("Error launching jobgroup: " + err.message);
             else
                 log.info("Successfully launched jobgroup in " + jobgroup.wd);
-            return callback(null);
+            return callback(null, results);
         };
 
         if (this.ready_for_launch === true) {
