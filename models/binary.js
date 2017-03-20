@@ -81,4 +81,14 @@ module.exports = function(){
         }
         return(args);
     };
+
+    this.getParametersFromJoin = function() {
+        var parameters = [];
+        for (var i = 0; i < this.binaries_parameters.length; i++) {
+            if (typeof this.binaries_parameters[i].parameter !== "undefined")
+                parameters.push(this.binaries_parameters[i].parameter);
+        }
+        return parameters;
+    };
+
 }
