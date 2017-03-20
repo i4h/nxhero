@@ -333,8 +333,7 @@ module.exports = function() {
             //inquirer.prompt([{type: 'input', name: 'continue', 'message': "Continue? (y/n)"}]).then(function (answers) {
 
                 if (!confirmed) {
-                    log.info("Canceled");
-                    return callback(null);
+                    return callback(new Error("Canceled by User."));
                 }
 
                 /* Run the binaries pre-flight checks */
