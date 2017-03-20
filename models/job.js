@@ -159,7 +159,7 @@ module.exports = function(){
         var job = this;
         binary.job = job;
 
-        this.wd = path.resolve(resolveHome(nconf.get('runs').rootdir) + "/group_" + zpad(this.jobgroup.id) + "/job_" + zpad(this.id));
+        this.wd = this.jobgroup.wd + "/job_" + zpad(this.id);
         var wd = this.wd;
         var params = this.getParameterValues();
 
