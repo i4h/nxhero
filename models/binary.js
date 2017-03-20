@@ -7,8 +7,8 @@ module.exports = function(){
     this.validatesPresenceOf('name');
 
     this.hasMany("jobgroup");
-
-    this.belongsTo("binary");
+    this.hasMany("binaries_parameters");
+    this.hasMany('parameter', {through: "binaries_parameters"});
 
     this.models_name = "Binaries";
 

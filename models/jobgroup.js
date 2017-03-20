@@ -387,7 +387,6 @@ module.exports = function() {
                     fs.statSync(jobgroup.wd);
                 } catch (e) {
                     wdExists = false;
-                    debug(e);
                     log.verbose("Groups working directory " + jobgroup.wd + " does not exist.");
                 }
 

@@ -1,16 +1,28 @@
 var BaseParameter = require('../lib/base_parameter');
 var debug       = require('debug')('nxhero');
 
-
+var ArrayHelper = require('../lib/array_helper');
 
 module.exports = function(){
+
+    this.hasMany("binaries_parameters");
+    this.hasMany('binary', {through: "binaries_parameters"});
+
     this.validatesPresenceOf('name');
     this.getString = function() {
-        if (this.type === BaseParameter.typeString)
-            return this.name + " ("+this.getTypeString()+": " + this.value
-        else
-            return this.name + " (" + this.getTypeString() + ")";
+        /* Indicate attached binaries */
+        var binaryString = "";
+        if (this.binaries_parameters) {
+            var binaries = this.getBinariesFromJoin();
+            var list = ArrayHelper.getColumnList(binaries, "name", {sort: true, limit: 3});
+            if (typeof list === "number")
+                binaryString = "\t(" + list + "Binaries)";
+            else
+                binaryString = "\t(" + list + ")";
+        }
+        return this.name + " \t(" + this.getTypeString() + ")" + binaryString;
     };
+
     this.getTypeString = function() {
         return BaseParameter.types[this.type];
     };
@@ -40,6 +52,15 @@ module.exports = function(){
         var ValueModel = store.Model(BaseParameter.valueModels[this.type]);
         return new ValueModel();
     };
+    
+    this.getBinariesFromJoin = function() {
+        var binaries = [];
+        for (var i = 0; i < this.binaries_parameters.length; i++) {
+            if (typeof this.binaries_parameters[i].binary !== "undefined")
+                binaries.push(this.binaries_parameters[i].binary);
+        }
+        return binaries;
+    },
 
     this.getValueRelation =  function(store, options) {
         return BaseParameter.valueRelations[this.type]
