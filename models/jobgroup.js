@@ -69,7 +69,6 @@ module.exports = function() {
     },
 
     this.getProblems = function (store, options, callback) {
-        debug("get problems");
         var jobgroup = this;
         if (this.testset_id !== null) {
             debug("not null");
