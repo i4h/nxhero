@@ -298,6 +298,8 @@ module.exports = function() {
         var binaryModel = this.binary.getBinaryModel();
 
         this.prepareLaunch(store, {}, function (err, data) {
+            if (err)
+                return callback(err);
             var problems = data.problems;
             var parametersById = data.parametersById;
 
