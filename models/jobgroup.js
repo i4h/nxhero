@@ -131,7 +131,6 @@ module.exports = function() {
 
     /** Create the working directory for this job */
     this.makeWd = function (callback) {
-        zpad.amount(nconf.get('runs').idpadamount);
         fs.mkdirs(this.wd, function (err) {
             callback(err);
         });
