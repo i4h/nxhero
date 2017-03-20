@@ -17,9 +17,11 @@ module.exports = {
             /* Add attributes that would come from db structure via migrations */
             store.definitions.jobgroup.attribute('launcher');
             store.definitions.job.attribute('parameter_values');
+            store.definitions.job.attribute('id');
             store.definitions.binary.attribute('type');
             store.definitions.binary.attribute('args_string');
             store.definitions.binary.attribute('path');
+            store.definitions.jobgroup.attribute('wd');
 
 
             callback(store);

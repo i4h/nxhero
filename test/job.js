@@ -31,21 +31,20 @@ describe("Job", function() {
 
 
     before(function(done) {
+        this.timeout(5000);
         setSubmitted = function(data, callback) {
             return callback(null);
         };
 
-
         SharedHooks.createFakeStore(function(newStore) {
             store = newStore;
-
             /* Create a fake job */
             var Job = store.Model("Job");
-            Job.definition.attribute('parameter_values');
             var Jobgroup = store.Model("Jobgroup");
             var Binary = store.Model("Binary");
 
             job = new Job({
+                id: 1,
                 jobgroup: new Jobgroup({
                     binary: new Binary(
                         {
@@ -85,7 +84,7 @@ describe("Job", function() {
                     '/path/to/binary',
                     ['test'],
                     {
-                        cwd: '/path/to/rootdir/group_undefined/job_undefined',
+                        cwd: '/path/to/rootdir/group_001/job_001',
                         detached: true,
                         stdio: [ 'ignore', null, null ]
                     })).to.be.equal(true);
