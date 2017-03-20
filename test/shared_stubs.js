@@ -7,6 +7,10 @@ module.exports = {
                 idpadamount: 3,
                 rootdir: '/path/to/rootdir',
             };
+        else if (field === "jobgroups")
+            return {
+                askForDescription: false,
+            }
     },
 
     resolve : function(path) {
