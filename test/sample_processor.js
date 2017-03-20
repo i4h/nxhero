@@ -45,7 +45,7 @@ describe("Test of sample processor", function() {
                 }
             ];
 
-            sampleProcessor.process(store, jobs, options, function(err, results) {
+            sampleProcessor.process(store, {jobs: jobs}, options, function(err, results) {
                 expectedEachResult = [1,2];
 
                 expect(err).to.be.equal(null);
