@@ -152,4 +152,36 @@ describe("Array Helper ", function() {
         }));
 
     });
+
+    describe("getColumnList", function() {
+        objects = [
+            { val: "e" },
+            { val: "a" },
+            { val: "b" },
+            { val: "c" },
+            { val: "d" },
+        ];
+        var expectNoLimit = "e, a, b, c, d";
+        var expectSorted = "a, b, c, d, e";
+        it("no options ", sinon.test(function(done) {
+            expect(ArrayHelper.getColumnList(objects, "val")).to.equal(expectNoLimit);
+            done();
+        }));
+        it("sort ", sinon.test(function(done) {
+            expect(ArrayHelper.getColumnList(objects, "val", {sort: true})).to.equal(expectSorted);
+            done();
+        }));
+
+        it("limit that is not hit", sinon.test(function(done) {
+            expect(ArrayHelper.getColumnList(objects, "val", {limit: 10})).to.equal(expectNoLimit);
+            done();
+        }));
+        it("limit that is hit", sinon.test(function(done) {
+            expect(ArrayHelper.getColumnList(objects, "val", {limit: 2})).to.equal(5);
+            expect(typeof ArrayHelper.getColumnList(objects, "val", {limit: 2})).to.equal("number");
+            done();
+        }));
+
+
+    });
 });
