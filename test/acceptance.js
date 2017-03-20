@@ -304,8 +304,8 @@ describe("Acceptance test", function() {
             this.timeout(10000);
             var spawnStub = this.stub(child_process, 'spawn').callsFake( SharedStubs.spawn);
             this.stub(nconf, 'get').callsFake(SharedStubs.nconfGet);
-            var mkdirsStub = this.stub(fs, 'mkdirs', SharedStubs.mkdirs);
-            var openSyncStub = this.stub(fs, 'openSync', SharedStubs.openSync);
+            var mkdirsStub = this.stub(fs, 'mkdirs').callsFake(SharedStubs.mkdirs);
+            var openSyncStub = this.stub(fs, 'openSync').callsFake(SharedStubs.openSync);
             this.stub(inquirer, 'prompt').callsFake( function(questions) {
                 promptCount++;
                 var answers = {};

@@ -78,9 +78,9 @@ describe("SD-SCIP binary module features", function() {
 
     describe("Parse git hash from sdscip output using a ~ path", function() {
         it("Gets a the hash of a sdscip binary", sinon.test(function(done) {
-            this.stub(path, 'resolve', resolveMock);
-            this.stub(files, 'resolveHome', resolveHomeMock);
-            this.stub(child_process, 'exec',execMock);
+            this.stub(path, 'resolve').callsFake(resolveMock);
+            this.stub(files, 'resolveHome').callsFake(resolveHomeMock);
+            this.stub(child_process, 'exec').callsFake(execMock);
 
             /* Run test */
             var jobgroup = mockScipJobgroup();
@@ -97,11 +97,11 @@ describe("SD-SCIP binary module features", function() {
 
     describe("Test preflight checks of jobgroup", function() {
         it("Run successful preflight for sdscip binary", sinon.test(function(done) {
-            this.stub(path, 'resolve', resolveMock);
-            this.stub(files, 'resolveHome', resolveHomeMock);
-            this.stub(child_process, 'exec',execMock);
-            this.stub(sdscip, 'getBinaryHashes', getBinaryHashesMock);
-            this.stub(Git, 'hashState', hashStateMock);
+            this.stub(path, 'resolve').callsFake(resolveMock);
+            this.stub(files, 'resolveHome').callsFake(resolveHomeMock);
+            this.stub(child_process, 'exec').callsFake(execMock);
+            this.stub(sdscip, 'getBinaryHashes').callsFake(getBinaryHashesMock);
+            this.stub(Git, 'hashState').callsFake(hashStateMock);
 
 
             /* Run test */
@@ -128,13 +128,13 @@ describe("SD-SCIP binary module features", function() {
         }));
 
         it("Run failing preflight for sdscip binary", sinon.test(function(done) {
-            this.stub(path, 'resolve', resolveMock);
-            this.stub(files, 'resolveHome', resolveHomeMock);
-            this.stub(child_process, 'exec',execMock);
+            this.stub(path, 'resolve').callsFake(resolveMock);
+            this.stub(files, 'resolveHome').callsFake(resolveHomeMock);
+            this.stub(child_process, 'exec').callsFake(execMock);
             this.stub(sdscip, 'getBinaryHashes', function(jobgroup, callback) {
                 return callback(null, ["THEhash00", "THEhashXX"]);
             });
-            this.stub(Git, 'hashState', hashStateMock);
+            this.stub(Git, 'hashState').callsFake(hashStateMock);
 
             /* Run test */
             var jobgroup = mockScipJobgroup();

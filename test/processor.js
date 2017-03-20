@@ -3,6 +3,10 @@ var Store = require('openrecord/lib/store');
 var store = new Store();
 var debug       = require('debug')('nxhero');
 var sinon = require('sinon');
+var sinonTest = require('sinon-test');
+sinon.test = sinonTest.configureTest(sinon);
+sinon.testCase = sinonTest.configureTestCase(sinon);
+
 
 require("./__shared");
 var SharedHooks = require('./shared_hooks');

@@ -13,6 +13,10 @@ require("./__shared");
 var store = new Store();
 var debug       = require('debug')('nxhero');
 var sinon = require('sinon');
+var sinonTest = require('sinon-test');
+sinon.test = sinonTest.configureTest(sinon);
+sinon.testCase = sinonTest.configureTestCase(sinon);
+
 var path = require('path');
 var child_process = require('child_process');
 var fs = require('fs');
@@ -61,9 +65,9 @@ describe("SCIP binary module features", function() {
 
     describe("Parse git hash from scip output using a ~ path", function() {
         it("Gets a the hash of a scip binary", sinon.test(function(done) {
-            this.stub(path, 'resolve', resolveMock);
-            this.stub(files, 'resolveHome', resolveHomeMock);
-            this.stub(child_process, 'exec',execMock);
+            this.stub(path, 'resolve').callsFake(resolveMock);
+            this.stub(files, 'resolveHome').callsFake(resolveHomeMock);
+            this.stub(child_process, 'exec').callsFake(execMock);
 
             /* Run test */
             var jobgroup = mockScipJobgroup();
@@ -79,10 +83,10 @@ describe("SCIP binary module features", function() {
 
     describe("Test preflight checks of jobgroup", function() {
         it("Run successful preflight for scip binary", sinon.test(function(done) {
-            this.stub(path, 'resolve', resolveMock);
-            this.stub(files, 'resolveHome', resolveHomeMock);
-            this.stub(child_process, 'exec',execMock);
-            this.stub(scip, 'getBinaryHashes', function(jobgroup, callback) {
+            this.stub(path, 'resolve').callsFake(resolveMock);
+            this.stub(files, 'resolveHome').callsFake(resolveHomeMock);
+            this.stub(child_process, 'exec').callsFake(execMock);
+            this.stub(scip, 'getBinaryHashes').callsFake(function(jobgroup, callback) {
                 return callback(null, ["THEhash00"]);
             });
             this.stub(Git, 'hashState', function(repoPath, callback) {
@@ -111,13 +115,13 @@ describe("SCIP binary module features", function() {
         }));
 
         it("Run failing preflight for scip binary", sinon.test(function(done) {
-            this.stub(path, 'resolve', resolveMock);
-            this.stub(files, 'resolveHome', resolveHomeMock);
-            this.stub(child_process, 'exec',execMock);
-            this.stub(scip, 'getBinaryHashes', function(jobgroup, callback) {
+            this.stub(path, 'resolve').callsFake(resolveMock);
+            this.stub(files, 'resolveHome').callsFake(resolveHomeMock);
+            this.stub(child_process, 'exec').callsFake(execMock);
+            this.stub(scip, 'getBinaryHashes').callsFake(function(jobgroup, callback) {
                 return callback(null, ["THEhash11"]);
             });
-            this.stub(Git, 'hashState', function(repoPath, callback) {
+            this.stub(Git, 'hashState').callsFake(function(repoPath, callback) {
                 if (repoPath === "/home/user/resolved/path/to/..")
                     callback(null, {state: "clean", hash: 'THEhash00'});
                 else

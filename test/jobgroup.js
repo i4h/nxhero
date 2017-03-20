@@ -10,6 +10,10 @@ var Store = require('openrecord/lib/store');
 var store = new Store();
 var debug       = require('debug')('nxhero');
 var sinon = require('sinon');
+var sinonTest = require('sinon-test');
+sinon.test = sinonTest.configureTest(sinon);
+sinon.testCase = sinonTest.configureTestCase(sinon);
+
 var async = require('async');
 var fs = require('fs-extra')
 var nconf       = require('nconf');
@@ -239,9 +243,9 @@ var mkdirsStub = function(path, callback) {
 
      describe("test prepareLaunch", function() {
          it("get launch data with 1 problem, 1 parameter", sinon.test(function(done) {
-             this.stub(nconf, 'get', SharedStubs.nconfGet);
-             this.stub(path, 'resolve', SharedStubs.resolve);
-             this.stub(fs, 'mkdirs', mkdirsStub);
+             this.stub(nconf, 'get').callsFake(SharedStubs.nconfGet);
+             this.stub(path, 'resolve').callsFake(SharedStubs.resolve);
+             this.stub(fs, 'mkdirs').callsFake(mkdirsStub);
 
              jobgroup.prepareLaunch(store, {}, function(err, data) {
                  expect(data.problems).to.be.array();
@@ -256,9 +260,9 @@ var mkdirsStub = function(path, callback) {
          }));
 
          it("get launch data with 2 problems, 1 parameter", sinon.test(function(done) {
-             this.stub(nconf, 'get', SharedStubs.nconfGet);
-             this.stub(path, 'resolve', SharedStubs.resolve);
-             this.stub(fs, 'mkdirs', mkdirsStub);
+             this.stub(nconf, 'get').callsFake(SharedStubs.nconfGet);
+             this.stub(path, 'resolve').callsFake(SharedStubs.resolve);
+             this.stub(fs, 'mkdirs').callsFake(mkdirsStub);
 
              jobgroup.problem_ids = '1,2';
              jobgroup.prepareLaunch(store, {}, function(err, data) {
@@ -276,9 +280,9 @@ var mkdirsStub = function(path, callback) {
          }));
 
          it("get launch data with 1 problem, 2 parameters", sinon.test(function(done) {
-             this.stub(nconf, 'get', SharedStubs.nconfGet);
-             this.stub(path, 'resolve', SharedStubs.resolve);
-             this.stub(fs, 'mkdirs', mkdirsStub);
+             this.stub(nconf, 'get').callsFake(SharedStubs.nconfGet);
+             this.stub(path, 'resolve').callsFake(SharedStubs.resolve);
+             this.stub(fs, 'mkdirs').callsFake(mkdirsStub);
 
              jobgroup.parameter_values = JSON.stringify({
                  paramvals_1: [1],
@@ -304,11 +308,11 @@ var mkdirsStub = function(path, callback) {
 
      describe("createAndLaunchJobs", function() {
          it("with 1 problem, 1 parameter", sinon.test(function(done) {
-             this.stub(nconf, 'get', SharedStubs.nconfGet);
-             var resolveStub  = this.stub(path, 'resolve', SharedStubs.resolve);
-             var mkdirsStub = this.stub(fs, 'mkdirs', SharedStubs.mkdirs);
-             var openSyncStub = this.stub(fs, 'openSync', SharedStubs.openSync);
-             var spawnStub = this.stub(child_process, 'spawn', SharedStubs.spawn);
+             this.stub(nconf, 'get').callsFake(SharedStubs.nconfGet);
+             var resolveStub  = this.stub(path, 'resolve').callsFake(SharedStubs.resolve);
+             var mkdirsStub = this.stub(fs, 'mkdirs').callsFake(SharedStubs.mkdirs);
+             var openSyncStub = this.stub(fs, 'openSync').callsFake(SharedStubs.openSync);
+             var spawnStub = this.stub(child_process, 'spawn').callsFake(SharedStubs.spawn);
 
              jobgroup.createAndLaunchJobs(store, [problems[0]], {1: parameters[0]}, function(err, jobs) {
                  expectOneOneSuccess(err, jobs);
@@ -321,11 +325,11 @@ var mkdirsStub = function(path, callback) {
 
          it("with 2 problems, 1 parameter", sinon.test(function(done) {
              this.timeout(3000);
-             this.stub(nconf, 'get', SharedStubs.nconfGet);
-             var resolveStub  = this.stub(path, 'resolve', SharedStubs.resolve);
-             var mkdirsStub = this.stub(fs, 'mkdirs', SharedStubs.mkdirs);
-             var openSyncStub = this.stub(fs, 'openSync', SharedStubs.openSync);
-             var spawnStub = this.stub(child_process, 'spawn', SharedStubs.spawn);
+             this.stub(nconf, 'get').callsFake(SharedStubs.nconfGet);
+             var resolveStub  = this.stub(path, 'resolve').callsFake(SharedStubs.resolve);
+             var mkdirsStub = this.stub(fs, 'mkdirs').callsFake(SharedStubs.mkdirs);
+             var openSyncStub = this.stub(fs, 'openSync').callsFake(SharedStubs.openSync);
+             var spawnStub = this.stub(child_process, 'spawn').callsFake(SharedStubs.spawn);
 
              jobgroup.createAndLaunchJobs(store, problems, {1: parameters[0]}, function(err, jobs) {
                  expectTwoOneSuccess(err, jobs);
@@ -337,11 +341,11 @@ var mkdirsStub = function(path, callback) {
          }));
 
          it("with 1 problem, 2 parameters", sinon.test(function(done) {
-             this.stub(nconf, 'get', SharedStubs.nconfGet);
-             var resolveStub  = this.stub(path, 'resolve', SharedStubs.resolve);
-             var mkdirsStub = this.stub(fs, 'mkdirs', SharedStubs.mkdirs);
-             var openSyncStub = this.stub(fs, 'openSync', SharedStubs.openSync);
-             var spawnStub = this.stub(child_process, 'spawn', SharedStubs.spawn);
+             this.stub(nconf, 'get').callsFake(SharedStubs.nconfGet);
+             var resolveStub  = this.stub(path, 'resolve').callsFake(SharedStubs.resolve);
+             var mkdirsStub = this.stub(fs, 'mkdirs').callsFake(SharedStubs.mkdirs);
+             var openSyncStub = this.stub(fs, 'openSync').callsFake(SharedStubs.openSync);
+             var spawnStub = this.stub(child_process, 'spawn').callsFake(SharedStubs.spawn);
 
              jobgroup.parameter_values = JSON.stringify({
                  paramvals_1: [1],
@@ -368,30 +372,34 @@ var mkdirsStub = function(path, callback) {
      describe("launch", function() {
          it("with 2 problems, 1 parameter", sinon.test(function(done) {
              this.timeout(3000);
-             this.stub(nconf, 'get', SharedStubs.nconfGet);
-             var resolveStub  = this.stub(path, 'resolve', SharedStubs.resolve);
-             var mkdirsStub = this.stub(fs, 'mkdirs', SharedStubs.mkdirs);
-             var openSyncStub = this.stub(fs, 'openSync', SharedStubs.openSync);
-             var spawnStub = this.stub(child_process, 'spawn', SharedStubs.spawn);
+             this.stub(nconf, 'get').callsFake(SharedStubs.nconfGet);
+             var resolveStub  = this.stub(path, 'resolve').callsFake(SharedStubs.resolve);
+             var mkdirsStub = this.stub(fs, 'mkdirs').callsFake(SharedStubs.mkdirs);
+             var openSyncStub = this.stub(fs, 'openSync').callsFake(SharedStubs.openSync);
+             var spawnStub = this.stub(child_process, 'spawn').callsFake(SharedStubs.spawn);
              jobgroup.problem_ids = [1,2];
+             jobgroup.confirmLaunch = false;
              jobgroup.launch(store, {}, function(err, jobs) {
-                 expectTwoOneSuccess(err, jobs);
+                 try{
+                     expectTwoOneSuccess(err, jobs);
+                     expect(spawnStub.calledTwice).to.be.equal(true);
+                     expect(openSyncStub.callCount).to.be.equal(4);
+                     expect(mkdirsStub.callCount).to.be.equal(3);
+                     /* Reset */
+                     jobgroup.problem_ids = [1];
+                     done();
 
-                 expect(spawnStub.calledTwice).to.be.equal(true);
-                 expect(openSyncStub.callCount).to.be.equal(4);
-                 expect(mkdirsStub.callCount).to.be.equal(3);
-
-                 /* Reset */
-                 jobgroup.problem_ids = [1];
-                 done();
+                 } catch(e) {
+                     done(e);
+                 }
              });
          }));
          it("with 1 problem, 2 parameters", sinon.test(function(done) {
-             this.stub(nconf, 'get', SharedStubs.nconfGet);
-             var resolveStub  = this.stub(path, 'resolve', SharedStubs.resolve);
-             var mkdirsStub = this.stub(fs, 'mkdirs', SharedStubs.mkdirs);
-             var openSyncStub = this.stub(fs, 'openSync', SharedStubs.openSync);
-             var spawnStub = this.stub(child_process, 'spawn', SharedStubs.spawn);
+             this.stub(nconf, 'get').callsFake(SharedStubs.nconfGet);
+             var resolveStub  = this.stub(path, 'resolve').callsFake(SharedStubs.resolve);
+             var mkdirsStub = this.stub(fs, 'mkdirs').callsFake(SharedStubs.mkdirs);
+             var openSyncStub = this.stub(fs, 'openSync').callsFake(SharedStubs.openSync);
+             var spawnStub = this.stub(child_process, 'spawn').callsFake(SharedStubs.spawn);
 
              jobgroup.parameter_values = JSON.stringify({
                  paramvals_1: [1],
