@@ -16,7 +16,7 @@ module.exports = function(){
             var binaries = this.getBinariesFromJoin();
             var list = ArrayHelper.getColumnList(binaries, "name", {sort: true, limit: 3});
             if (typeof list === "number")
-                binaryString = "\t(" + list + "Binaries)";
+                binaryString = "\t(" + list + " Binaries)";
             else
                 binaryString = "\t(" + list + ")";
         }
