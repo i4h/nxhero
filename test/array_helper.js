@@ -136,7 +136,7 @@ describe("Array Helper ", function() {
         }));
 
         it("from an object with null and bool values", sinon.test(function(done) {
-            objects = [
+            var objects = [
                 {mixed: true},
                 {mixed: false},
                 {mixed: null},
@@ -154,7 +154,7 @@ describe("Array Helper ", function() {
     });
 
     describe("getColumnList", function() {
-        objects = [
+        var objects = [
             { val: "e" },
             { val: "a" },
             { val: "b" },
