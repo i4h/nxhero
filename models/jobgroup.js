@@ -324,7 +324,10 @@ module.exports = function() {
 
             for (var i  in parameterValues) {
                 id = i.split("_")[1];
-                log.verbose("Values of " + parametersById[id].name + ": " + (typeof parameterValues[i] !== "string" ? parameterValues[i].join(", ") : parameterValues[i]));
+                log.verbose(
+                    "Values of " + parametersById[id].name + ": " +
+                    (typeof parameterValues[i] !== "string" ? parameterValues[i].join(", ") : parameterValues[i])
+                );
             }
             MenuHelpers.confirmIfTrue(jobgroup.confirmLaunch, null, function(err, confirmed) {
             //inquirer.prompt([{type: 'input', name: 'continue', 'message': "Continue? (y/n)"}]).then(function (answers) {
