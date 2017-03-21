@@ -23,6 +23,19 @@ module.exports = function(){
         return this.name + " \t(" + this.getTypeString() + ")" + binaryString;
     };
 
+
+    this.getListRow= function() {
+        /* Indicate attached binaries */
+        var binaryList = "";
+        if (this.binaries_parameters) {
+            var binaries = this.getBinariesFromJoin();
+            binaryList = ArrayHelper.getColumnList(binaries, "name", {sort: true});
+        }
+        var type = this.getTypeString();
+
+        return [this.name, type, binaryList];
+    };
+
     this.getTypeString = function() {
         return BaseParameter.types[this.type];
     };
