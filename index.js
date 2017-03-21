@@ -23,6 +23,7 @@ var in_array = require('in_array');
 
 process.env.NODE_ENV = 'console';
 
+var db = require('./lib/db');
 var BaseJobgroup = require('./lib/base_jobgroup');
 var BaseJob = require('./lib/base_job');
 var BaseParameter = require('./lib/base_parameter');
@@ -51,7 +52,7 @@ var store;
 
 var OpenRecord = require('openrecord');
 
-var db = require('./lib/db');
+
 var log = require("./lib/log");
 
 var parseSequence = require('./lib/parse_sequence');
