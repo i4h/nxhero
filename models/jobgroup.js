@@ -13,6 +13,7 @@ var debug       = require('debug')('nxhero');
 
 
 var MenuHelpers = require('../lib/menu_helpers');
+var ArrayHelper = require("../lib/array_helper");
 
 var BaseParameter = require('../lib/base_parameter');
 var BaseJobgroup = require('../lib/base_jobgroup');
@@ -380,62 +381,79 @@ module.exports = function() {
             {
                 var calls = [];
 
+                /* Get job ids so we can delete tags */
+                var Job = store.Model("Job");
+                Job.where({jobgroup_id: jobgroup.id}).exec(function(jobs) {
+                    var jobIds = ArrayHelper.getColumn(jobs, "id");
 
-                /* Check if wd exists before adding the call */
-                var wdExists = true;
-                try {
-                    fs.statSync(jobgroup.wd);
-                } catch (e) {
-                    wdExists = false;
-                    log.verbose("Groups working directory " + jobgroup.wd + " does not exist.");
-                }
+                    /* Check if wd exists before adding the call */
+                    var wdExists = true;
+                    try {
+                        fs.statSync(jobgroup.wd);
+                    } catch (e) {
+                        wdExists = false;
+                        log.verbose("Groups working directory " + jobgroup.wd + " does not exist.");
+                    }
 
-                if (wdExists) {
-                    /* Add call to move groups wd if it exists */
-                    var trashdir = path.resolve(resolveHome(nconf.get('runs').rootdir) + "/.trash");
-                    var target = trashdir + "/" + path.basename(jobgroup.wd);
-                    console.info("Moving " + jobgroup.wd + " to " + target);
-                    calls.push(function (callback) {
-                        /* Create runs/.trash if needed*/
+                    if (wdExists) {
+                        /* Add call to move groups wd if it exists */
+                        var trashdir = path.resolve(resolveHome(nconf.get('runs').rootdir) + "/.trash");
+                        var target = trashdir + "/" + path.basename(jobgroup.wd);
+                        console.info("Moving " + jobgroup.wd + " to " + target);
+                        calls.push(function (callback) {
+                            /* Create runs/.trash if needed*/
 
-                        fs.mkdirs(trashdir, function (err) {
-                            if (err)
-                                return callback(err);
+                            fs.mkdirs(trashdir, function (err) {
+                                if (err)
+                                    return callback(err);
 
-                            /* Move jobgroup dir to trash */
-                            fs.move(jobgroup.wd, target, function (err) {
-                                return callback(err);
+                                /* Move jobgroup dir to trash */
+                                fs.move(jobgroup.wd, target, function (err) {
+                                    return callback(err);
+                                });
                             });
                         });
+                    }
+
+                    /* Delete jobs */
+                    calls.push(function (callback) {
+                        var Job = store.Model("Job");
+                        Job.where({jobgroup_id: jobgroup.id}).deleteAll(function (okay) {
+                            if (!okay)
+                                throw new Error("Error deleting jobs of jobgroup");
+                            console.info("Deleted jobs of the jobgroup");
+                            callback(null);
+
+                        });
                     });
-                }
 
-                /* Delete jobs */
-                calls.push(function (callback) {
-                    var Job = store.Model("Job");
-                    Job.where({jobgroup_id: jobgroup.id}).deleteAll(function (okay) {
-                        if (!okay)
-                            throw new Error("Error deleting jobs of jobgroup");
-                        console.info("Deleted jobs of the jobgroup");
-                        callback(null);
+                    /* Delete tags */
+                    calls.push(function (callback) {
+                        var Tag = store.Model("Tag");
+                        Tag.where({job_id: jobIds}).deleteAll(function (okay) {
+                            if (!okay)
+                                throw new Error("Error deleting tags of jobs of jobgroup");
+                            console.info("Deleted tags on jobs of the jobgroup");
+                            callback(null);
+                        });
+                    });
 
+                    async.parallel(calls, function (err, results) {
+                        /* Finally delete the jobgroup */
+                        jobgroup.delete(function (okay) {
+                            if (!okay)
+                                throw new Error("Error deleting jobgroup");
+
+                            log.info("Deleted jobgroup");
+                            return callback(null);
+                        });
                     });
                 });
-
-                async.parallel(calls, function (err, results) {
-                    /* Finally delete the jobgroup */
-                    jobgroup.delete(function (okay) {
-                        if (!okay)
-                            throw new Error("Error deleting jobgroup");
-
-                        log.info("Deleted jobgroup");
-                        return callback(null);
-                    });
-                });
-
-            }
-            else
+            } else
                 return callback(null);
-        });
+
+
+
+    });
     }
 }
