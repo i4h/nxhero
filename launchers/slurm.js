@@ -24,7 +24,7 @@ module.exports = {
         else
             return {};
     },
-    terminatedRegex : /srun: error: [\w-\.]*: task \d*: Terminated/,
+    terminatedRegex : /srun: error: [\w-\.]*: task \d*: ((\bTerminated\b)|(\bKilled\b))/,
     sbatchRegex : /Submitted batch job (\d*)/,
 
 
