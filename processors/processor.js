@@ -58,8 +58,6 @@ module.exports = {
         }
 
         calls.push(function(callback) {
-            debug("pushing processEAch");
-            debug(callback);
             return processor.processEach(store, jobs, {}, callback);
         });
 
@@ -108,12 +106,9 @@ module.exports = {
             }
             calls.push(processClosure(job, i));
         }
-        debug("calls : " + calls.length);
         async.parallel(calls, function (err, results) {
-            debug("end of prallel");
             if (err !== null)
                 throw err;
-            debug("returning");
             return callback(null, results);
         });
     },
