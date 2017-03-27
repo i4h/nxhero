@@ -132,7 +132,7 @@ module.exports = function(){
         parameterValue.parameter = parameter;
         var relation = parameter.getValueRelation();
         this[relation].push(parameterValue);
-    }
+    };
 
     this.getJobgroup = function(store, callback) {
         var Model = store.Model("Jobgroup");
@@ -249,14 +249,28 @@ module.exports = function(){
     };
 
     this.getParameterValueFromJoin = function(name, type) {
-        var relation = "parameter_value_" + type;
-        var job = this;
+        var relations = ["parameter_value_" + type];
+        if (!type)
+            relations = BaseParameter.valueRelations;
 
-        for (var i = 0; i < job[relation].length; ++i) {
-            if (job[relation][i].parameter.name === name)
-                return job[relation][i].value;
+        var job = this;
+        for (var r in relations) {
+            var relation = relations[r];
+            for (var i = 0; i < job[relation].length; ++i) {
+                if (job[relation][i].parameter.name === name)
+                    return job[relation][i].value;
+            }
         }
         return null;
+    };
+
+    this.hasTagFromJoin = function(tagName) {
+        for (var i = 0; i < this.tag.length; i++) {
+            var tag = this.tag[i];
+            if (tag.name === tagName)
+                return true;
+        }
+        return false;
     };
 
 }
