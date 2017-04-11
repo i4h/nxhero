@@ -188,4 +188,38 @@ describe("Array Helper ", function() {
 
 
     });
+
+    describe("findByComparison", function() {
+        var objects = {
+            key0: 1.5,
+            key1: 1,
+            key2: 2,
+            key3: 3,
+            key4: 2.5,
+        };
+        it("find max element ", sinon.test(function(done) {
+            var func = function(a,b) {
+                return a > b
+            };
+            expect(ArrayHelper.findByComparison(objects, func)).to.equal("key3");
+            done();
+        }));
+        it("find min element ", sinon.test(function(done) {
+            var func = function(a,b) {
+                return a < b
+            };
+            expect(ArrayHelper.findByComparison(objects, func)).to.equal("key1");
+            done();
+        }));
+        it("use min string as comparator ", sinon.test(function(done) {
+            expect(ArrayHelper.findByComparison(objects, "min")).to.equal("key1");
+            done();
+        }));
+        it("use max string as comparator ", sinon.test(function(done) {
+            expect(ArrayHelper.findByComparison(objects, "max")).to.equal("key3");
+            done();
+        }));
+
+
+    });
 });
