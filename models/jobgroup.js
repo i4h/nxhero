@@ -16,9 +16,6 @@ var MenuHelpers = require('../lib/menu_helpers');
 var ArrayHelper = require("../lib/array_helper");
 
 var BaseParameter = require('../lib/base_parameter');
-var BaseJobgroup = require('../lib/base_jobgroup');
-var BaseBinary = require('../lib/base_binary');
-var BaseProblem = require('../lib/base_problem');
 var BaseJob = require('../lib/base_job');
 var resolveHome = require('../lib/files').resolveHome;
 var log = require("../lib/log");
