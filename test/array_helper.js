@@ -66,6 +66,166 @@ describe("Array Helper ", function() {
         }));
     });
 
+    describe("flattenTree", function() {
+        it("shallow", sinon.test(function (done) {
+            var shallowProperties = ['propA'];
+
+            var shallowTree = {
+                propValA1: "leaf1",
+                propValA2: "leaf2",
+            };
+
+            var expected = [
+                {
+                    keysObj: {propA: 'propValA1'},
+                    keys: ['propValA1'],
+                    leaf: 'leaf1'
+                },
+                {
+                    keysObj: {propA: 'propValA2'},
+                    keys: ['propValA2'],
+                    leaf: 'leaf2'
+                }
+            ];
+
+            var flatWithProps = ArrayHelper.flattenTree(shallowTree, shallowProperties);
+            expect(flatWithProps).to.be.deep.equal(expected);
+            done();
+        }));
+
+        it("two-level tree", sinon.test(function (done) {
+
+            var properties = ['propA', 'propB'];
+
+            var tree = {
+                propValA1: {
+                    propValB1: "leaf1",
+                    propValB2: "leaf2",
+                },
+/*                propValA2: {
+                    propValB3: {name: "leaf3"}
+                }, */
+            };
+
+            var expectedWithProps = [
+                {
+                    "keysObj":{"propB":"propValB1","propA":"propValA1"},
+                    "keys":["propValA1","propValB1"],
+                    "leaf":"leaf1"
+                },
+                {
+                    "keysObj":{"propB":"propValB2","propA":"propValA1"},
+                    "keys":["propValA1","propValB2"],
+                    "leaf":"leaf2"
+                }
+            ];
+
+
+            var expected = [
+                {
+                    "keys":["propValA1","propValB1"],
+                    "leaf":"leaf1"
+                },
+                {
+                    "keys":["propValA1","propValB2"],
+                    "leaf":"leaf2"
+                }
+            ];
+
+            var flatWithProps = ArrayHelper.flattenTree(tree, properties);
+            var flat = ArrayHelper.flattenTree(tree, 2);
+
+            expect(flatWithProps).to.be.deep.equal(expectedWithProps);
+            expect(flat).to.be.deep.equal(expected);
+
+            done();
+            //var flatWithProps = ArrayHelper.flattenTree(tree, properties);
+        }));
+
+        it("deep tree", sinon.test(function (done) {
+            var properties = ['propA', 'propB', 'propC', 'propD'];
+
+            var tree = {
+                propValA1: {
+                    propValB1: {
+                        propValC1: {
+                            propValD1: "leaf1",
+                            propValD2: "leaf2",
+                        },
+                        propValC2: {propValD3: "leaf3"}
+                    },
+                },
+                propValA2: {
+                    propValB2: {
+                        propValC3: {
+                            propValD4: {name: "leaf4"},
+                            propValD5: "leaf5",
+                        },
+                    },
+                }
+            };
+
+            var expectedWithProps =[
+                    {
+                        "keys":["propValA1","propValB1","propValC1","propValD1"],
+                        "leaf":"leaf1",
+                        "keysObj":{"propD":"propValD1","propC":"propValC1","propB":"propValB1","propA":"propValA1"}
+                    },
+                    {
+                        "keys":["propValA1","propValB1","propValC1","propValD2"],
+                        "leaf":"leaf2",
+                        "keysObj":{"propD":"propValD2","propC":"propValC1","propB":"propValB1","propA":"propValA1"}
+                    },
+                    {
+                        "keys":["propValA1","propValB1","propValC2","propValD3"],
+                        "leaf":"leaf3",
+                        "keysObj":{"propD":"propValD3","propC":"propValC2","propB":"propValB1","propA":"propValA1"}
+                    },
+                    {
+                        "keys":["propValA2","propValB2","propValC3","propValD4"],
+                        "leaf":{"name":"leaf4"},
+                        "keysObj":{"propD":"propValD4","propC":"propValC3","propB":"propValB2","propA":"propValA2"}
+                    },
+                    {
+                        "keys":["propValA2","propValB2","propValC3","propValD5"],
+                        "leaf":"leaf5",
+                        "keysObj":{"propD":"propValD5","propC":"propValC3","propB":"propValB2","propA":"propValA2"}
+                    }
+                    ];
+
+            var expected = [
+                {
+                    "keys":["propValA1","propValB1","propValC1","propValD1"],
+                    "leaf":"leaf1",
+                },
+                {
+                    "keys":["propValA1","propValB1","propValC1","propValD2"],
+                    "leaf":"leaf2",
+                },
+                {
+                    "keys":["propValA1","propValB1","propValC2","propValD3"],
+                    "leaf":"leaf3",
+                },
+                {
+                    "keys":["propValA2","propValB2","propValC3","propValD4"],
+                    "leaf":{"name":"leaf4"},
+                },
+                {
+                    "keys":["propValA2","propValB2","propValC3","propValD5"],
+                    "leaf":"leaf5",
+                }
+            ];
+
+            var flatWithProps = ArrayHelper.flattenTree(tree, properties);
+            var flat = ArrayHelper.flattenTree(tree, 4);
+
+            expect(flatWithProps).to.be.deep.equal(expectedWithProps);
+            expect(flat).to.be.deep.equal(expected);
+
+            done();
+        }));
+    });
+
     describe("containsAll", function() {
         it("one needle in haystack ", sinon.test(function(done) {
             expect(ArrayHelper.containsAll([1], [1])).to.equal(true);
