@@ -106,11 +106,7 @@ module.exports = {
             }
             calls.push(processClosure(job, i));
         }
-        async.parallel(calls, function (err, results) {
-            if (err !== null)
-                throw err;
-            return callback(null, results);
-        });
+        async.parallel(calls, callback);
     },
 
     setData : function(job, data) {
