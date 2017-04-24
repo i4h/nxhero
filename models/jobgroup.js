@@ -13,7 +13,7 @@ var debug       = require('debug')('nxhero');
 
 
 var MenuHelpers = require('../lib/menu_helpers');
-var ArrayHelper = require("../lib/array_helper");
+var ArrayHelper = require("arrayhelper-yii2-style");
 
 var BaseParameter = require('../lib/base_parameter');
 var BaseJob = require('../lib/base_job');

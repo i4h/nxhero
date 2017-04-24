@@ -15,6 +15,7 @@
   "author": "Ingmar Vierhaus",
   "license": "BSD-2-Clause",
   "dependencies": {
+    "arrayhelper-yii2-style": "github:i4h/arrayhelper-yii2-style",
     "async": "^2.1.4",
     "cartesian": "^1.0.0",
     "chai": "^3.5.0",

@@ -1,5 +1,5 @@
 var debug       = require('debug')('nxhero');
-var ArrayHelper = require('../lib/array_helper');
+var ArrayHelper = require('arrayhelper-yii2-style');
 
 module.exports = function(){
 
