@@ -91,4 +91,12 @@ module.exports = function(){
         return parameters;
     };
 
+    this.getListRow= function() {
+        var argsString = this.args.map(function(arg){
+            return "\"" + arg + "\"";
+        })
+        /* Indicate attached binaries */
+        return [this.name, this.path, argsString.join(" ")];
+    };
+
 }
