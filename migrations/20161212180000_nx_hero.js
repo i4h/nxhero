@@ -55,7 +55,7 @@ module.exports = function(){
     this.createTable('parameter_value_floats', function(){
         this.integer('job_id');
         this.integer('parameter_id');
-        this.float('value');
+        this.string('value');
 
 
     });
