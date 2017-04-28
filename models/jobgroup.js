@@ -435,6 +435,18 @@ module.exports = function() {
                         });
                     });
 
+                    /* Delete report pivots */
+                    calls.push(function (callback) {
+                        var ReportsJob = store.Model("ReportsJob");
+                        ReportsJob.where({job_id: jobIds}).deleteAll(function (okay) {
+                            if (!okay)
+                                throw new Error("Error deleting report privots of jobs of jobgroup");
+                            console.info("Deleted report pivots of jobs of the jobgroup");
+                            callback(null);
+                        });
+                    });
+
+
                     async.parallel(calls, function (err, results) {
                         /* Finally delete the jobgroup */
                         jobgroup.delete(function (okay) {
