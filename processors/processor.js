@@ -70,6 +70,11 @@ module.exports = {
         async.waterfall(calls, function(err, results) {
             if (err)
                 log.error("Error running " + processor.label + ": " + err.message);
+
+            log.info(processor.label + " finished");
+            if (processor.generatesReports)
+                log.info("Report in " + processor.report.wd);
+
             callback(null);
         });
     },
