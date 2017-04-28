@@ -139,7 +139,6 @@ var handleCommands = function() {
 
                 JobFilter.getDataFromCmdLineArgs(store, {joinValues: true, join: {jobgroup: "binary", problem: true, tag: true}}, function(err, data) {
                     processor.process(store, data, {}, function() {
-                        log.info("Finished Processing");
                         process.exit();
                     });
                 });
