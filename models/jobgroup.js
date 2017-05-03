@@ -366,12 +366,16 @@ module.exports = function() {
         });
     };
 
+    this.getListRow= function() {
+        return [this.name];
+    };
+
     this.deleteDeep = function (store, options, callback) {
         var jobgroup = this;
         inquirer.prompt({
                 type: "confirm",
                 name: "confirm",
-                message: "Really delete jobgroup " + this.name + "with jobs and trash directory?",
+                message: "Really delete jobgroup " + this.name + " with jobs and trash directory?",
             }
         ).then(function (answers) {
             if (answers.confirm === true)
@@ -396,7 +400,7 @@ module.exports = function() {
                         /* Add call to move groups wd if it exists */
                         var trashdir = path.resolve(resolveHome(nconf.get('runs').rootdir) + "/.trash");
                         var target = trashdir + "/" + path.basename(jobgroup.wd);
-                        console.info("Moving " + jobgroup.wd + " to " + target);
+                        log.verbose("Moving " + jobgroup.wd + " to " + target);
                         calls.push(function (callback) {
                             /* Create runs/.trash if needed*/
 
@@ -446,9 +450,10 @@ module.exports = function() {
                         });
                     });
 
-
                     async.parallel(calls, function (err, results) {
                         /* Finally delete the jobgroup */
+                        if (err)
+                            return callback(err);
                         jobgroup.delete(function (okay) {
                             if (!okay)
                                 throw new Error("Error deleting jobgroup");
