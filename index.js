@@ -33,6 +33,7 @@ var BaseProcessor = require('./lib/base_processor');
 
 var JobFilter = require('./lib/job_filter');
 
+var ReportMenus = require('./lib/report_menus');
 var ParameterMenus = require('./lib/parameter_menus');
 var ProblemMenus = require('./lib/problem_menus');
 var TestsetMenus = require('./lib/testset_menus');
@@ -88,10 +89,9 @@ function mainMenu(options, callback) {
                 {name: 'Binaries', value: BinaryMenus.main},
                 {name: 'Problems', value: ProblemMenus.main},
                 {name: 'Testsets', value: TestsetMenus.main},
-
                 {name: 'Parameters', value: ParameterMenus.main},
                 {name: 'Jobgroups', value: JobgroupMenus.main},
-                {name: 'Launch Jobgroup', value: JobgroupMenus.launch},
+                {name: 'Reports', value: ReportMenus.main},
                 {name: 'Filter Jobs', value: JobFilterMenus.filter},
                 {name:  'Switch Storage' , value: 'switchStorage'},
                 {name:  'Empty Storage' , value: StorageMenus.empty},
