@@ -40,7 +40,7 @@ module.exports = {
                 return BaseReport.create(store, {
                     processor_id: processor.id,
                     hostname: os.hostname(),
-                    filters: JSON.stringify(data.filters),
+                    filters: JSON.stringify(data.filters,'','\t'),
                     job: data.jobs,
                 }, {}, function(err, report) {
                     if (err)
