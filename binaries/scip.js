@@ -28,6 +28,8 @@ function Scip() {
 
     var setTimelimit = true;
 
+    var noTimeLimitVal = "1e20";
+
     /** Array of paths to repositories that should be clean
      * for pre-flight checks to pass
      * hashes  for each repo will be saved in jobgropus binary_data
@@ -53,7 +55,7 @@ function Scip() {
         binaryPath = path.resolve(files.resolveHome(jobgroup.binary.path));
         var cmd = binaryPath + ' -c "quit" '+"| grep -E -o '\\[GitHash: [[:alnum:]\-]*\\]'  | sed 's/\\[GitHash: //' | sed 's/\\]//'";
         child_process.exec(cmd ,{}, function (err, stdout, stderr) {
-            result = stdout.split('\n');
+            let result = stdout.split('\n');
             // Remove last element if empty
             if  (result.slice(-1)[0] == "")
                 result.splice(-1);
@@ -235,6 +237,7 @@ function Scip() {
         id: id,
         label: label,
         takesProblems: takesProblems,
+        noTimeLimitVal: noTimeLimitVal,
         getLabel: getLabel,
         cleanRepos: cleanRepos,
         setFile: setFile,

@@ -72,6 +72,10 @@ module.exports = function(){
 
             if (job.timelimit !== null)
                 args[i] = args[i].replace("{timelimit}", job.timelimit);
+            else if (this.getBinaryModel().noTimeLimitVal)
+                args[i] = args[i].replace("{timelimit}", this.getBinaryModel().noTimeLimitVal);
+
+
 
             for (var j = 0; j < parameterValues.length; ++j ) {
                 var name = parameterValues[j].parameter.name;
