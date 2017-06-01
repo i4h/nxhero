@@ -49,7 +49,8 @@ module.exports = {
         f = f + "#SBATCH --error=" +  BaseLauncher.errorFileName + "\n";
         f = f + "#SBATCH --job-name=" +  jobName + "\n";
 
-        f = f + "#SBATCH --time=" + date.secondsToHMS(job.timelimit * graceFactor) + "\n";
+        if (job.timelimit !== null)
+            f = f + "#SBATCH --time=" + date.secondsToHMS(job.timelimit * graceFactor) + "\n";
 
         f = f + "\n";
 
