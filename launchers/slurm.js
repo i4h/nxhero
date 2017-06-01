@@ -1,5 +1,5 @@
 var debug       = require('debug')('nxhero');
-const fs = require('fs');
+const fs = require('fs-extra');
 const child_process = require('child_process');
 
 var os = require("os");
