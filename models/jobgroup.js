@@ -270,7 +270,11 @@ module.exports = function() {
                     calls.push(launchCallback(jobgroup.job[i]));
                 }
                 async.parallel(calls, function(err, results) {
-                    return callback(err);
+                    jobgroup.setLaunched(function (err) {
+                        if (err)
+                            throw err;
+                        return callback(err, results);
+                    });
                 });
             }
         });
@@ -367,7 +371,7 @@ module.exports = function() {
     };
 
     this.getListRow= function() {
-        return [this.name];
+        return [this.name, path.basename(this.wd)];
     };
 
     this.deleteDeep = function (store, options, callback) {
