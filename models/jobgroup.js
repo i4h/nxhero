@@ -194,7 +194,7 @@ module.exports = function() {
                 if (err)
                     throw err;
                 return callback(err, results);
-            })
+            });
         });
     };
 
