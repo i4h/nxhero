@@ -180,8 +180,12 @@ module.exports = function() {
         }
 
         for (var i = 0; i < problems.length; ++i) {
-            for (var j = 0; j < jobParameters.length; ++j)
-                calls.push(callClosure(problems[i], jobParameters[j]));
+            if (jobParameters.length === 0) {
+                calls.push(callClosure(problems[i], []));
+            } else {
+                for (var j = 0; j < jobParameters.length; ++j)
+                    calls.push(callClosure(problems[i], jobParameters[j]));
+            }
         }
 
         /* - Execute */
