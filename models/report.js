@@ -62,7 +62,7 @@ module.exports = function(){
             ReportsJob.where({report_id: report.id}).deleteAll(function (okay) {
                 if (!okay)
                     return reject("Error deleting report privots of report");
-                console.info("Deleted report pivots of report");
+                console.info("Deleted report pivots of report " + report.id);
                 return resolve();
             });
         }));
