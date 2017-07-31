@@ -8,6 +8,7 @@ var date = require('../lib/date');
 var os = require("os");
 var in_array = require('in_array');
 var extend = require('node.extend');
+const child_process = require('child_process');
 
 var resolveHome = require('../lib/files').resolveHome;
 var BaseJob     = require("../lib/base_job");
@@ -226,6 +227,15 @@ module.exports = function(){
 
         fs.readFile(this.getOutFile(), (err, data) => {
             callback(err, data);
+        });
+    };
+
+    this.getOutfileTail = function(callback) {
+        var outfile = this.getOutFile();
+        let n = 8;
+        cmd = "tail -n " + n + " " + outfile;
+        child_process.exec(cmd, null, function (err, stdout, stderr) {
+            return callback(err, stdout);
         });
     };
 
